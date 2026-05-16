@@ -4,6 +4,7 @@
 
 html {
   scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
 }
 
 body {
@@ -11,11 +12,13 @@ body {
   font-family: Arial, Helvetica, sans-serif;
   background: #0a0a0a;
   color: white;
+  overflow-x: hidden;
 }
 
 main {
   min-height: 100vh;
   background: #0a0a0a;
+  overflow-x: hidden;
 }
 
 .navbar {
@@ -25,18 +28,22 @@ main {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 18px;
   padding: 18px 6%;
   background: rgba(10, 10, 10, 0.95);
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(14px);
 }
 
 .brand {
   display: flex;
   align-items: center;
+  flex-shrink: 0;
 }
 
 .siteLogo {
   width: 260px;
+  max-width: 100%;
   height: auto;
   display: block;
 }
@@ -44,12 +51,14 @@ main {
 nav {
   display: flex;
   gap: 28px;
+  align-items: center;
 }
 
 nav a {
   color: rgba(255, 255, 255, 0.7);
   text-decoration: none;
   font-size: 14px;
+  white-space: nowrap;
 }
 
 nav a:hover {
@@ -64,6 +73,11 @@ nav a:hover {
   border-radius: 999px;
   font-weight: bold;
   font-size: 14px;
+  white-space: nowrap;
+  min-height: 42px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .hero {
@@ -88,7 +102,7 @@ nav a:hover {
 }
 
 .hero h1 {
-  font-size: 62px;
+  font-size: clamp(40px, 6vw, 72px);
   line-height: 1.05;
   margin: 0;
   max-width: 900px;
@@ -107,15 +121,20 @@ nav a:hover {
   display: flex;
   gap: 16px;
   margin-top: 34px;
+  flex-wrap: wrap;
 }
 
 .primaryBtn,
 .secondaryBtn {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   padding: 15px 26px;
   border-radius: 999px;
   text-decoration: none;
   font-weight: bold;
+  min-height: 48px;
+  text-align: center;
 }
 
 .primaryBtn {
@@ -326,7 +345,7 @@ nav a:hover {
 }
 
 .section h2 {
-  font-size: 42px;
+  font-size: clamp(32px, 4vw, 42px);
   margin: 0 0 20px;
   max-width: 950px;
   letter-spacing: -1px;
@@ -428,7 +447,7 @@ nav a:hover {
   border: 1px solid rgba(255, 255, 255, 0.12);
   background-color: #0a0a0a;
   color: #ffffff;
-  font-size: 15px;
+  font-size: 16px;
   outline: none;
 }
 
@@ -446,8 +465,8 @@ nav a:hover {
     linear-gradient(45deg, transparent 50%, #e682d2 50%),
     linear-gradient(135deg, #e682d2 50%, transparent 50%);
   background-position:
-    calc(100% - 22px) 21px,
-    calc(100% - 16px) 21px;
+    calc(100% - 22px) 22px,
+    calc(100% - 16px) 22px;
   background-size: 6px 6px, 6px 6px;
   background-repeat: no-repeat;
 }
@@ -459,6 +478,7 @@ nav a:hover {
 
 .form textarea {
   min-height: 140px;
+  resize: vertical;
 }
 
 .footer {
@@ -522,8 +542,8 @@ nav a:hover {
 
 .whatsappBtn {
   position: fixed;
-  right: 24px;
-  bottom: 24px;
+  right: max(18px, env(safe-area-inset-right));
+  bottom: max(18px, env(safe-area-inset-bottom));
   z-index: 99;
   background: #25d366;
   color: #0a0a0a;
@@ -539,27 +559,106 @@ nav a:hover {
   transform: translateY(-2px);
 }
 
-@media (max-width: 900px) {
-  nav,
-  .navBtn {
-    display: none;
-  }
-
+/* TABLET */
+@media (max-width: 1100px) {
   .navbar {
+    flex-wrap: wrap;
     justify-content: center;
+    text-align: center;
   }
 
-  .siteLogo {
-    width: 230px;
+  nav {
+    order: 3;
+    width: 100%;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 18px;
   }
 
-  .hero,
+  .hero {
+    grid-template-columns: 1fr;
+    padding: 90px 6%;
+  }
+
+  .heroCard {
+    max-width: 720px;
+  }
+
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .productGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .processGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
   .contact {
     grid-template-columns: 1fr;
   }
 
+  .footerGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* MOBILE */
+@media (max-width: 700px) {
+  .navbar {
+    padding: 16px 5%;
+    gap: 14px;
+  }
+
+  .siteLogo {
+    width: 220px;
+  }
+
+  .navbar > div:last-child {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .navBtn {
+    width: 100%;
+    max-width: 220px;
+  }
+
+  nav {
+    display: none;
+  }
+
+  .hero {
+    padding: 70px 5%;
+    gap: 32px;
+  }
+
+  .tag,
+  .smallTitle {
+    letter-spacing: 2.5px;
+    font-size: 11px;
+  }
+
   .hero h1 {
-    font-size: 42px;
+    font-size: 38px;
+    letter-spacing: -1px;
+  }
+
+  .hero p,
+  .section p {
+    font-size: 16px;
+    line-height: 1.7;
+  }
+
+  .buttons {
+    flex-direction: column;
+  }
+
+  .primaryBtn,
+  .secondaryBtn {
+    width: 100%;
   }
 
   .heroStats,
@@ -571,11 +670,104 @@ nav a:hover {
     grid-template-columns: 1fr;
   }
 
-  .buttons {
-    flex-direction: column;
+  .heroCard,
+  .card,
+  .form {
+    padding: 24px;
+    border-radius: 24px;
+  }
+
+  .premiumVisual {
+    height: 260px;
+    padding: 20px;
+  }
+
+  .visualCenter {
+    transform: scale(0.82);
+    transform-origin: center;
+  }
+
+  .visualBottom {
+    gap: 8px;
+  }
+
+  .visualBottom div {
+    padding: 10px 8px;
+  }
+
+  .section {
+    padding: 70px 5%;
+  }
+
+  .section h2 {
+    font-size: 32px;
+  }
+
+  .seoBox {
+    margin: 60px 5%;
+    border-radius: 26px;
+  }
+
+  .footer {
+    padding: 55px 5% 28px;
+  }
+
+  .footer .siteLogo {
+    width: 220px;
   }
 
   .footerBottom {
     flex-direction: column;
   }
+
+  .whatsappBtn {
+    right: 16px;
+    bottom: 16px;
+    padding: 13px 18px;
+    font-size: 14px;
+  }
+}
+
+/* SMALL MOBILE */
+@media (max-width: 420px) {
+  .siteLogo {
+    width: 190px;
+  }
+
+  .hero h1 {
+    font-size: 32px;
+  }
+
+  .premiumVisual {
+    height: 235px;
+  }
+
+  .visualCenter {
+    transform: scale(0.72);
+  }
+
+  .section h2 {
+    font-size: 28px;
+  }
+
+  .heroCard h3,
+  .card h3 {
+    font-size: 21px;
+  }
+}
+
+/* ARABIC RTL FINE TUNING */
+main[dir="rtl"] .heroText,
+main[dir="rtl"] .section,
+main[dir="rtl"] .footer,
+main[dir="rtl"] .form input,
+main[dir="rtl"] .form textarea,
+main[dir="rtl"] .form select {
+  text-align: right;
+}
+
+main[dir="rtl"] .buttons,
+main[dir="rtl"] .heroStats,
+main[dir="rtl"] .visualBottom {
+  direction: rtl;
 }
