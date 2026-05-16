@@ -11,35 +11,11 @@ type CartItem = {
 
 function BirkinLogo() {
   return (
-    <svg
+    <img
+      src="/birkin-logo.png"
+      alt="Birkin Contract Logo"
       className="siteLogo"
-      viewBox="0 0 520 120"
-      xmlns="http://www.w3.org/2000/svg"
-      role="img"
-      aria-label="Birkin Contract Logo"
-    >
-      <text
-        x="0"
-        y="52"
-        fontFamily="Arial, Helvetica, sans-serif"
-        fontSize="40"
-        fontWeight="800"
-        fill="#E682D2"
-        letterSpacing="2"
-      >
-        BIRKIN CONTRACT
-      </text>
-
-      <text
-        x="125"
-        y="88"
-        fontFamily="Brush Script MT, Segoe Script, cursive"
-        fontSize="34"
-        fill="#7A22FF"
-      >
-        Crafted for Spaces
-      </text>
-    </svg>
+    />
   )
 }
 
@@ -888,8 +864,8 @@ ${form.message}`
               onClick={() => changeLanguage(item)}
               style={{
                 border: "1px solid rgba(255,255,255,0.18)",
-                background: lang === item ? "#e682d2" : "transparent",
-                color: lang === item ? "#0a0a0a" : "#ffffff",
+                background: lang === item ? "#c9a86a" : "transparent",
+                color: lang === item ? "#070707" : "#ffffff",
                 borderRadius: "999px",
                 padding: "10px 12px",
                 fontWeight: "bold",
