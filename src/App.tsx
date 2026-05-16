@@ -39,7 +39,7 @@ function BirkinLogo() {
 
 const content = {
   en: {
-    nav: ["About", "Services", "Products", "Profile", "Process", "Contact"],
+    nav: ["About", "Services", "Products", "Models", "Profile", "Process", "Contact"],
     requestQuote: "Request a Quote",
     tag: "Tailored Furniture Solutions",
     heroTitle:
@@ -95,6 +95,32 @@ const content = {
       "Banquette Seating",
       "Sunbeds",
       "Custom Pieces",
+    ],
+    modelsSmall: "Sample Models",
+    modelsTitle: "Selected reference models for hospitality projects.",
+    modelButton: "Request Price",
+    models: [
+      {
+        name: "BIRKIN L01 Lounge Chair",
+        category: "Lounge Chair",
+        usage: "Lobby, lounge, villa, suite",
+        desc: "Upholstered lounge chair with soft lines and wooden frame, suitable for hospitality and premium residential projects.",
+        image: "/model-lounge-chair.png",
+      },
+      {
+        name: "BIRKIN BS01 Bar Stool",
+        category: "Bar Stool",
+        usage: "Restaurant, bar, cafe",
+        desc: "Compact upholstered bar stool with a refined silhouette for restaurant and bar concepts.",
+        image: "/model-bar-stool.png",
+      },
+      {
+        name: "BIRKIN C03 Dining Chair",
+        category: "Dining Chair",
+        usage: "Restaurant, hotel dining, cafe",
+        desc: "Wooden dining chair with upholstered seat and back, designed for comfortable and elegant dining spaces.",
+        image: "/model-dining-chair.png",
+      },
     ],
     profileSmall: "Company Profile",
     profileTitle: "Download Birkin Contract company profile.",
@@ -167,7 +193,7 @@ const content = {
   },
 
   tr: {
-    nav: ["Hakkımızda", "Hizmetler", "Ürünler", "Profil", "Süreç", "İletişim"],
+    nav: ["Hakkımızda", "Hizmetler", "Ürünler", "Modeller", "Profil", "Süreç", "İletişim"],
     requestQuote: "Teklif Al",
     tag: "Proje Bazlı Mobilya Çözümleri",
     heroTitle:
@@ -223,6 +249,32 @@ const content = {
       "Banket Oturma",
       "Şezlonglar",
       "Özel Üretim Ürünler",
+    ],
+    modelsSmall: "Örnek Modeller",
+    modelsTitle: "Hospitality projeleri için seçilmiş referans modeller.",
+    modelButton: "Fiyat Talep Et",
+    models: [
+      {
+        name: "BIRKIN L01 Lounge Chair",
+        category: "Lounge Koltuk",
+        usage: "Lobi, lounge, villa, suit oda",
+        desc: "Yumuşak hatlara ve ahşap iskelete sahip döşemeli lounge koltuk; hospitality ve premium konut projeleri için uygundur.",
+        image: "/model-lounge-chair.png",
+      },
+      {
+        name: "BIRKIN BS01 Bar Stool",
+        category: "Bar Sandalyesi",
+        usage: "Restoran, bar, kafe",
+        desc: "Restoran ve bar konseptleri için şık formda, kompakt yapılı döşemeli bar sandalyesi.",
+        image: "/model-bar-stool.png",
+      },
+      {
+        name: "BIRKIN C03 Dining Chair",
+        category: "Yemek Sandalyesi",
+        usage: "Restoran, otel restoranı, kafe",
+        desc: "Döşemeli oturum ve sırt detayına sahip, konforlu ve zarif ahşap yemek sandalyesi.",
+        image: "/model-dining-chair.png",
+      },
     ],
     profileSmall: "Company Profile",
     profileTitle: "Birkin Contract şirket profilini indirin.",
@@ -295,7 +347,7 @@ const content = {
   },
 
   ar: {
-    nav: ["من نحن", "الخدمات", "المنتجات", "الملف", "العملية", "اتصال"],
+    nav: ["من نحن", "الخدمات", "المنتجات", "النماذج", "الملف", "العملية", "اتصال"],
     requestQuote: "طلب عرض سعر",
     tag: "حلول أثاث مخصصة للمشاريع",
     heroTitle:
@@ -351,6 +403,32 @@ const content = {
       "جلسات بنش",
       "كراسي استلقاء",
       "قطع مخصصة",
+    ],
+    modelsSmall: "نماذج مختارة",
+    modelsTitle: "نماذج مرجعية مختارة لمشاريع الضيافة.",
+    modelButton: "اطلب السعر",
+    models: [
+      {
+        name: "BIRKIN L01 Lounge Chair",
+        category: "كرسي Lounge",
+        usage: "اللوبي، اللاونج، الفلل، الأجنحة",
+        desc: "كرسي Lounge منجد بخطوط ناعمة وهيكل خشبي، مناسب لمشاريع الضيافة والمشاريع السكنية الراقية.",
+        image: "/model-lounge-chair.png",
+      },
+      {
+        name: "BIRKIN BS01 Bar Stool",
+        category: "كرسي بار",
+        usage: "مطعم، بار، مقهى",
+        desc: "كرسي بار منجد بتصميم أنيق ومقاس مدمج مناسب لمفاهيم المطاعم والبارات.",
+        image: "/model-bar-stool.png",
+      },
+      {
+        name: "BIRKIN C03 Dining Chair",
+        category: "كرسي طعام",
+        usage: "مطعم، فندق، مقهى",
+        desc: "كرسي طعام خشبي مع مقعد ومسند منجد، مصمم لمساحات الطعام الأنيقة والمريحة.",
+        image: "/model-dining-chair.png",
+      },
     ],
     profileSmall: "ملف الشركة",
     profileTitle: "تحميل ملف شركة Birkin Contract.",
@@ -423,7 +501,7 @@ const content = {
   },
 
   ru: {
-    nav: ["О нас", "Услуги", "Продукты", "Профиль", "Процесс", "Контакты"],
+    nav: ["О нас", "Услуги", "Продукты", "Модели", "Профиль", "Процесс", "Контакты"],
     requestQuote: "Запросить предложение",
     tag: "Индивидуальные мебельные решения",
     heroTitle:
@@ -479,6 +557,32 @@ const content = {
       "Банкетки",
       "Шезлонги",
       "Индивидуальные изделия",
+    ],
+    modelsSmall: "Примерные модели",
+    modelsTitle: "Выбранные референс-модели для hospitality проектов.",
+    modelButton: "Запросить цену",
+    models: [
+      {
+        name: "BIRKIN L01 Lounge Chair",
+        category: "Lounge Chair",
+        usage: "Лобби, lounge-зона, вилла, сьют",
+        desc: "Мягкое lounge-кресло с деревянным каркасом, подходящее для гостиничных и премиальных жилых проектов.",
+        image: "/model-lounge-chair.png",
+      },
+      {
+        name: "BIRKIN BS01 Bar Stool",
+        category: "Bar Stool",
+        usage: "Ресторан, бар, кафе",
+        desc: "Компактный мягкий барный стул с элегантным силуэтом для ресторанных и барных концепций.",
+        image: "/model-bar-stool.png",
+      },
+      {
+        name: "BIRKIN C03 Dining Chair",
+        category: "Dining Chair",
+        usage: "Ресторан, отель, кафе",
+        desc: "Деревянный обеденный стул с мягким сиденьем и спинкой для комфортных и элегантных пространств.",
+        image: "/model-dining-chair.png",
+      },
     ],
     profileSmall: "Профиль компании",
     profileTitle: "Скачать профиль компании Birkin Contract.",
@@ -628,9 +732,10 @@ ${form.message}`
           <a href="#about">{t.nav[0]}</a>
           <a href="#services">{t.nav[1]}</a>
           <a href="#products">{t.nav[2]}</a>
-          <a href="#company-profile">{t.nav[3]}</a>
-          <a href="#process">{t.nav[4]}</a>
-          <a href="#contact">{t.nav[5]}</a>
+          <a href="#sample-models">{t.nav[3]}</a>
+          <a href="#company-profile">{t.nav[4]}</a>
+          <a href="#process">{t.nav[5]}</a>
+          <a href="#contact">{t.nav[6]}</a>
         </nav>
 
         <div style={{ display: "flex", gap: "8px", alignItems: "center" }}>
@@ -744,6 +849,32 @@ ${form.message}`
         <div className="productGrid">
           {t.products.map((item) => (
             <div key={item}>{item}</div>
+          ))}
+        </div>
+      </section>
+
+      <section id="sample-models" className="section darkSection">
+        <span className="smallTitle">{t.modelsSmall}</span>
+        <h2>{t.modelsTitle}</h2>
+
+        <div className="modelGrid">
+          {t.models.map((item) => (
+            <div className="modelCard" key={item.name}>
+              <div className="modelImageWrap">
+                <img src={item.image} alt={item.name} className="modelImage" />
+              </div>
+
+              <div className="modelBody">
+                <span className="modelCategory">{item.category}</span>
+                <h3>{item.name}</h3>
+                <p className="modelUsage">{item.usage}</p>
+                <p>{item.desc}</p>
+
+                <a href="#contact" className="secondaryBtn modelBtn">
+                  {t.modelButton}
+                </a>
+              </div>
+            </div>
           ))}
         </div>
       </section>
@@ -911,8 +1042,9 @@ ${form.message}`
             <a href="#about">{t.nav[0]}</a>
             <a href="#services">{t.nav[1]}</a>
             <a href="#products">{t.nav[2]}</a>
-            <a href="#company-profile">{t.nav[3]}</a>
-            <a href="#process">{t.nav[4]}</a>
+            <a href="#sample-models">{t.nav[3]}</a>
+            <a href="#company-profile">{t.nav[4]}</a>
+            <a href="#process">{t.nav[5]}</a>
           </div>
 
           <div>
