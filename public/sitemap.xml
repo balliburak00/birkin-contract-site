@@ -1,32 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="https://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://birkin-contract.vercel.app/</loc>
+    <loc>https://birkin-contract-site.vercel.app/</loc>
     <priority>1.00</priority>
   </url>
 
   <url>
-    <loc>https://birkin-contract.vercel.app/#about</loc>
+    <loc>https://birkin-contract-site.vercel.app/#about</loc>
     <priority>0.80</priority>
   </url>
 
   <url>
-    <loc>https://birkin-contract.vercel.app/#services</loc>
+    <loc>https://birkin-contract-site.vercel.app/#services</loc>
     <priority>0.80</priority>
   </url>
 
   <url>
-    <loc>https://birkin-contract.vercel.app/#products</loc>
+    <loc>https://birkin-contract-site.vercel.app/#products</loc>
     <priority>0.80</priority>
   </url>
 
   <url>
-    <loc>https://birkin-contract.vercel.app/#process</loc>
+    <loc>https://birkin-contract-site.vercel.app/#process</loc>
     <priority>0.70</priority>
   </url>
 
   <url>
-    <loc>https://birkin-contract.vercel.app/#contact</loc>
+    <loc>https://birkin-contract-site.vercel.app/#contact</loc>
     <priority>0.90</priority>
   </url>
 </urlset>
