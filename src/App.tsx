@@ -3,6 +3,12 @@ import "./index.css"
 
 type Lang = "en" | "tr" | "ar" | "ru"
 
+type CartItem = {
+  name: string
+  category: string
+  qty: number
+}
+
 function BirkinLogo() {
   return (
     <svg
@@ -98,7 +104,7 @@ const content = {
     ],
     modelsSmall: "Sample Models",
     modelsTitle: "Selected reference models for hospitality projects.",
-    modelButton: "Request Price",
+    modelButton: "Add to Quote Cart",
     models: [
       {
         name: "BIRKIN L01 Lounge Chair",
@@ -122,6 +128,21 @@ const content = {
         image: "/model-dining-chair.png",
       },
     ],
+    cartSmall: "Quote Cart",
+    cartTitle: "Selected models for price request.",
+    cartText:
+      "Add models to your quote cart, adjust quantities, fill in your project details and send your request directly via WhatsApp.",
+    emptyCart: "Your quote cart is empty. Please add a model first.",
+    remove: "Remove",
+    whatsappQuote: "Get Price Quote via WhatsApp",
+    cartFields: {
+      name: "Name / Company",
+      phone: "Phone / WhatsApp",
+      country: "Country / City",
+      projectType: "Project Type",
+      deliveryLocation: "Delivery Location",
+      notes: "Project notes, dimensions, material preferences",
+    },
     profileSmall: "Company Profile",
     profileTitle: "Download Birkin Contract company profile.",
     profileText:
@@ -252,7 +273,7 @@ const content = {
     ],
     modelsSmall: "Örnek Modeller",
     modelsTitle: "Hospitality projeleri için seçilmiş referans modeller.",
-    modelButton: "Fiyat Talep Et",
+    modelButton: "Teklif Sepetine Ekle",
     models: [
       {
         name: "BIRKIN L01 Lounge Chair",
@@ -276,6 +297,21 @@ const content = {
         image: "/model-dining-chair.png",
       },
     ],
+    cartSmall: "Teklif Sepeti",
+    cartTitle: "Fiyat talebi için seçilen modeller.",
+    cartText:
+      "Modelleri teklif sepetine ekleyin, adetleri sepette ayarlayın, proje bilgilerinizi doldurun ve talebinizi doğrudan WhatsApp üzerinden gönderin.",
+    emptyCart: "Teklif sepetiniz boş. Lütfen önce bir model ekleyin.",
+    remove: "Kaldır",
+    whatsappQuote: "WhatsApp’tan Fiyat Teklifi Al",
+    cartFields: {
+      name: "Ad / Firma",
+      phone: "Telefon / WhatsApp",
+      country: "Ülke / Şehir",
+      projectType: "Proje Tipi",
+      deliveryLocation: "Teslimat Lokasyonu",
+      notes: "Proje notları, ölçüler, malzeme tercihleri",
+    },
     profileSmall: "Company Profile",
     profileTitle: "Birkin Contract şirket profilini indirin.",
     profileText:
@@ -406,7 +442,7 @@ const content = {
     ],
     modelsSmall: "نماذج مختارة",
     modelsTitle: "نماذج مرجعية مختارة لمشاريع الضيافة.",
-    modelButton: "اطلب السعر",
+    modelButton: "إضافة إلى سلة العرض",
     models: [
       {
         name: "BIRKIN L01 Lounge Chair",
@@ -430,6 +466,21 @@ const content = {
         image: "/model-dining-chair.png",
       },
     ],
+    cartSmall: "سلة طلب السعر",
+    cartTitle: "النماذج المختارة لطلب السعر.",
+    cartText:
+      "أضف النماذج إلى سلة طلب السعر، عدّل الكميات داخل السلة، املأ معلومات المشروع وأرسل طلبك مباشرة عبر واتساب.",
+    emptyCart: "سلة طلب السعر فارغة. يرجى إضافة نموذج أولاً.",
+    remove: "إزالة",
+    whatsappQuote: "طلب السعر عبر واتساب",
+    cartFields: {
+      name: "الاسم / الشركة",
+      phone: "الهاتف / واتساب",
+      country: "الدولة / المدينة",
+      projectType: "نوع المشروع",
+      deliveryLocation: "موقع التسليم",
+      notes: "ملاحظات المشروع، المقاسات، تفضيلات المواد",
+    },
     profileSmall: "ملف الشركة",
     profileTitle: "تحميل ملف شركة Birkin Contract.",
     profileText:
@@ -560,7 +611,7 @@ const content = {
     ],
     modelsSmall: "Примерные модели",
     modelsTitle: "Выбранные референс-модели для hospitality проектов.",
-    modelButton: "Запросить цену",
+    modelButton: "Добавить в корзину",
     models: [
       {
         name: "BIRKIN L01 Lounge Chair",
@@ -584,6 +635,21 @@ const content = {
         image: "/model-dining-chair.png",
       },
     ],
+    cartSmall: "Корзина запроса",
+    cartTitle: "Выбранные модели для запроса цены.",
+    cartText:
+      "Добавьте модели в корзину, настройте количество, заполните данные проекта и отправьте запрос напрямую через WhatsApp.",
+    emptyCart: "Корзина пуста. Сначала добавьте модель.",
+    remove: "Удалить",
+    whatsappQuote: "Запросить цену через WhatsApp",
+    cartFields: {
+      name: "Имя / Компания",
+      phone: "Телефон / WhatsApp",
+      country: "Страна / Город",
+      projectType: "Тип проекта",
+      deliveryLocation: "Место доставки",
+      notes: "Заметки, размеры, предпочтения по материалам",
+    },
     profileSmall: "Профиль компании",
     profileTitle: "Скачать профиль компании Birkin Contract.",
     profileText:
@@ -678,6 +744,17 @@ export default function App() {
 
   const t = content[lang]
 
+  const [cart, setCart] = useState<CartItem[]>([])
+
+  const [quoteInfo, setQuoteInfo] = useState({
+    name: "",
+    phone: "",
+    country: "",
+    projectType: "",
+    deliveryLocation: "",
+    notes: "",
+  })
+
   const [form, setForm] = useState({
     name: "",
     email: "",
@@ -690,6 +767,68 @@ export default function App() {
     deliveryLocation: "",
     message: "",
   })
+
+  const addToCart = (item: { name: string; category: string }) => {
+    setCart((current) => {
+      const exists = current.find((cartItem) => cartItem.name === item.name)
+
+      if (exists) {
+        return current
+      }
+
+      return [...current, { name: item.name, category: item.category, qty: 1 }]
+    })
+  }
+
+  const increaseQty = (name: string) => {
+    setCart((current) =>
+      current.map((item) =>
+        item.name === name ? { ...item, qty: item.qty + 1 } : item
+      )
+    )
+  }
+
+  const decreaseQty = (name: string) => {
+    setCart((current) =>
+      current
+        .map((item) =>
+          item.name === name ? { ...item, qty: item.qty - 1 } : item
+        )
+        .filter((item) => item.qty > 0)
+    )
+  }
+
+  const removeFromCart = (name: string) => {
+    setCart((current) => current.filter((item) => item.name !== name))
+  }
+
+  const whatsappQuoteLink = useMemo(() => {
+    const selectedModels =
+      cart.length === 0
+        ? "-"
+        : cart
+            .map(
+              (item) => `- ${item.name} / ${item.category} x ${item.qty}`
+            )
+            .join("\n")
+
+    const message = `Merhaba, Birkin Contract web sitesi üzerinden fiyat teklifi almak istiyorum.
+
+Seçilen Modeller:
+${selectedModels}
+
+Proje Bilgileri:
+Ad / Firma: ${quoteInfo.name}
+Telefon / WhatsApp: ${quoteInfo.phone}
+Ülke / Şehir: ${quoteInfo.country}
+Proje Tipi: ${quoteInfo.projectType}
+Teslimat Lokasyonu: ${quoteInfo.deliveryLocation}
+
+Notlar:
+${quoteInfo.notes}`
+
+    return `https://wa.me/905525000320?text=${encodeURIComponent(message)}`
+  }, [cart, quoteInfo])
 
   const mailLink = useMemo(() => {
     const subject = encodeURIComponent(
@@ -858,24 +997,142 @@ ${form.message}`
         <h2>{t.modelsTitle}</h2>
 
         <div className="modelGrid">
-          {t.models.map((item) => (
-            <div className="modelCard" key={item.name}>
-              <div className="modelImageWrap">
-                <img src={item.image} alt={item.name} className="modelImage" />
-              </div>
+          {t.models.map((item) => {
+            const isAdded = cart.some((cartItem) => cartItem.name === item.name)
 
-              <div className="modelBody">
-                <span className="modelCategory">{item.category}</span>
-                <h3>{item.name}</h3>
-                <p className="modelUsage">{item.usage}</p>
-                <p>{item.desc}</p>
+            return (
+              <div className="modelCard" key={item.name}>
+                <div className="modelImageWrap">
+                  <img src={item.image} alt={item.name} className="modelImage" />
+                </div>
 
-                <a href="#contact" className="secondaryBtn modelBtn">
-                  {t.modelButton}
-                </a>
+                <div className="modelBody">
+                  <span className="modelCategory">{item.category}</span>
+                  <h3>{item.name}</h3>
+                  <p className="modelUsage">{item.usage}</p>
+                  <p>{item.desc}</p>
+
+                  <button
+                    type="button"
+                    className="secondaryBtn modelBtn"
+                    onClick={() =>
+                      addToCart({
+                        name: item.name,
+                        category: item.category,
+                      })
+                    }
+                  >
+                    {isAdded ? "✓ Added" : t.modelButton}
+                  </button>
+                </div>
               </div>
-            </div>
-          ))}
+            )
+          })}
+        </div>
+      </section>
+
+      <section id="quote-cart" className="section cartSection">
+        <span className="smallTitle">{t.cartSmall}</span>
+        <h2>{t.cartTitle}</h2>
+        <p>{t.cartText}</p>
+
+        <div className="cartLayout">
+          <div className="cartBox">
+            {cart.length === 0 ? (
+              <p className="emptyCart">{t.emptyCart}</p>
+            ) : (
+              <div className="cartList">
+                {cart.map((item) => (
+                  <div className="cartItem" key={item.name}>
+                    <div>
+                      <strong>{item.name}</strong>
+                      <span>{item.category}</span>
+                    </div>
+
+                    <div className="qtyControls">
+                      <button type="button" onClick={() => decreaseQty(item.name)}>
+                        -
+                      </button>
+                      <span>{item.qty}</span>
+                      <button type="button" onClick={() => increaseQty(item.name)}>
+                        +
+                      </button>
+                    </div>
+
+                    <button
+                      type="button"
+                      className="removeBtn"
+                      onClick={() => removeFromCart(item.name)}
+                    >
+                      {t.remove}
+                    </button>
+                  </div>
+                ))}
+              </div>
+            )}
+          </div>
+
+          <div className="cartForm">
+            <input
+              placeholder={t.cartFields.name}
+              value={quoteInfo.name}
+              onChange={(e) =>
+                setQuoteInfo({ ...quoteInfo, name: e.target.value })
+              }
+            />
+
+            <input
+              placeholder={t.cartFields.phone}
+              value={quoteInfo.phone}
+              onChange={(e) =>
+                setQuoteInfo({ ...quoteInfo, phone: e.target.value })
+              }
+            />
+
+            <input
+              placeholder={t.cartFields.country}
+              value={quoteInfo.country}
+              onChange={(e) =>
+                setQuoteInfo({ ...quoteInfo, country: e.target.value })
+              }
+            />
+
+            <input
+              placeholder={t.cartFields.projectType}
+              value={quoteInfo.projectType}
+              onChange={(e) =>
+                setQuoteInfo({ ...quoteInfo, projectType: e.target.value })
+              }
+            />
+
+            <input
+              placeholder={t.cartFields.deliveryLocation}
+              value={quoteInfo.deliveryLocation}
+              onChange={(e) =>
+                setQuoteInfo({
+                  ...quoteInfo,
+                  deliveryLocation: e.target.value,
+                })
+              }
+            />
+
+            <textarea
+              placeholder={t.cartFields.notes}
+              value={quoteInfo.notes}
+              onChange={(e) =>
+                setQuoteInfo({ ...quoteInfo, notes: e.target.value })
+              }
+            ></textarea>
+
+            <a
+              href={whatsappQuoteLink}
+              className="primaryBtn whatsappQuoteBtn"
+              target="_blank"
+              rel="noreferrer"
+            >
+              {t.whatsappQuote}
+            </a>
+          </div>
         </div>
       </section>
 
