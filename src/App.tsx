@@ -137,6 +137,7 @@ const content = {
     whatsappQuote: "Get Price Quote via WhatsApp",
     cartFields: {
       name: "Name / Company",
+      email: "E-mail",
       phone: "Phone / WhatsApp",
       country: "Country / City",
       projectType: "Project Type",
@@ -306,6 +307,7 @@ const content = {
     whatsappQuote: "WhatsApp’tan Fiyat Teklifi Al",
     cartFields: {
       name: "Ad / Firma",
+      email: "E-mail",
       phone: "Telefon / WhatsApp",
       country: "Ülke / Şehir",
       projectType: "Proje Tipi",
@@ -475,6 +477,7 @@ const content = {
     whatsappQuote: "طلب السعر عبر واتساب",
     cartFields: {
       name: "الاسم / الشركة",
+      email: "البريد الإلكتروني",
       phone: "الهاتف / واتساب",
       country: "الدولة / المدينة",
       projectType: "نوع المشروع",
@@ -644,6 +647,7 @@ const content = {
     whatsappQuote: "Запросить цену через WhatsApp",
     cartFields: {
       name: "Имя / Компания",
+      email: "E-mail",
       phone: "Телефон / WhatsApp",
       country: "Страна / Город",
       projectType: "Тип проекта",
@@ -748,6 +752,7 @@ export default function App() {
 
   const [quoteInfo, setQuoteInfo] = useState({
     name: "",
+    email: "",
     phone: "",
     country: "",
     projectType: "",
@@ -807,9 +812,7 @@ export default function App() {
       cart.length === 0
         ? "-"
         : cart
-            .map(
-              (item) => `- ${item.name} / ${item.category} x ${item.qty}`
-            )
+            .map((item) => `- ${item.name} / ${item.category} x ${item.qty}`)
             .join("\n")
 
     const message = `Merhaba, Birkin Contract web sitesi üzerinden fiyat teklifi almak istiyorum.
@@ -819,6 +822,7 @@ ${selectedModels}
 
 Proje Bilgileri:
 Ad / Firma: ${quoteInfo.name}
+E-mail: ${quoteInfo.email}
 Telefon / WhatsApp: ${quoteInfo.phone}
 Ülke / Şehir: ${quoteInfo.country}
 Proje Tipi: ${quoteInfo.projectType}
@@ -1078,6 +1082,14 @@ ${form.message}`
               value={quoteInfo.name}
               onChange={(e) =>
                 setQuoteInfo({ ...quoteInfo, name: e.target.value })
+              }
+            />
+
+            <input
+              placeholder={t.cartFields.email}
+              value={quoteInfo.email}
+              onChange={(e) =>
+                setQuoteInfo({ ...quoteInfo, email: e.target.value })
               }
             />
 
