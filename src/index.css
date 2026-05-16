@@ -135,16 +135,19 @@ nav a:hover {
   font-weight: bold;
   min-height: 48px;
   text-align: center;
+  cursor: pointer;
 }
 
 .primaryBtn {
   background: #e682d2;
   color: #0a0a0a;
+  border: none;
 }
 
 .secondaryBtn {
   border: 1px solid rgba(255, 255, 255, 0.25);
   color: white;
+  background: transparent;
 }
 
 .heroStats {
@@ -428,7 +431,7 @@ nav a:hover {
 
 .modelImageWrap {
   background:
-    radial-gradient(circle at center, rgba(230, 130, 210, 0.10), transparent 45%),
+    radial-gradient(circle at center, rgba(230, 130, 210, 0.1), transparent 45%),
     #f2f2f2;
   padding: 24px;
   aspect-ratio: 1 / 1;
@@ -482,6 +485,142 @@ nav a:hover {
 .modelBtn {
   margin-top: auto;
   width: 100%;
+  border: 1px solid rgba(230, 130, 210, 0.45);
+}
+
+.cartSection {
+  background:
+    radial-gradient(circle at top left, rgba(230, 130, 210, 0.12), transparent 30%),
+    rgba(255, 255, 255, 0.015);
+}
+
+.cartLayout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 28px;
+  margin-top: 36px;
+  align-items: start;
+}
+
+.cartBox,
+.cartForm {
+  background: rgba(255, 255, 255, 0.055);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 28px;
+  border-radius: 28px;
+}
+
+.emptyCart {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.62);
+}
+
+.cartList {
+  display: grid;
+  gap: 14px;
+}
+
+.cartItem {
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  gap: 16px;
+  align-items: center;
+  padding: 18px;
+  border-radius: 20px;
+  background: rgba(10, 10, 10, 0.36);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.cartItem strong {
+  display: block;
+  color: #ffffff;
+  font-size: 15px;
+  margin-bottom: 6px;
+}
+
+.cartItem span {
+  display: block;
+  color: rgba(255, 255, 255, 0.62);
+  font-size: 13px;
+}
+
+.qtyControls {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 7px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.055);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.qtyControls button {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  border: none;
+  background: #e682d2;
+  color: #0a0a0a;
+  font-size: 20px;
+  font-weight: bold;
+  cursor: pointer;
+  line-height: 1;
+}
+
+.qtyControls span {
+  min-width: 22px;
+  text-align: center;
+  color: #ffffff;
+  font-weight: bold;
+  font-size: 15px;
+}
+
+.removeBtn {
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  background: transparent;
+  color: rgba(255, 255, 255, 0.72);
+  padding: 10px 14px;
+  border-radius: 999px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.removeBtn:hover {
+  color: #ffffff;
+  border-color: rgba(230, 130, 210, 0.5);
+}
+
+.cartForm {
+  display: grid;
+  gap: 14px;
+}
+
+.cartForm input,
+.cartForm textarea {
+  width: 100%;
+  padding: 16px;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background-color: #0a0a0a;
+  color: #ffffff;
+  font-size: 16px;
+  outline: none;
+}
+
+.cartForm input::placeholder,
+.cartForm textarea::placeholder {
+  color: rgba(255, 255, 255, 0.45);
+}
+
+.cartForm textarea {
+  min-height: 130px;
+  resize: vertical;
+}
+
+.whatsappQuoteBtn {
+  width: 100%;
+  background: #25d366;
+  color: #0a0a0a;
 }
 
 .contact {
@@ -679,7 +818,8 @@ nav a:hover {
     grid-template-columns: repeat(3, 1fr);
   }
 
-  .contact {
+  .contact,
+  .cartLayout {
     grid-template-columns: 1fr;
   }
 
@@ -756,9 +896,24 @@ nav a:hover {
 
   .heroCard,
   .card,
-  .form {
+  .form,
+  .cartBox,
+  .cartForm {
     padding: 24px;
     border-radius: 24px;
+  }
+
+  .cartItem {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .qtyControls {
+    width: fit-content;
+  }
+
+  .removeBtn {
+    width: fit-content;
   }
 
   .premiumVisual {
@@ -862,7 +1017,9 @@ main[dir="rtl"] .section,
 main[dir="rtl"] .footer,
 main[dir="rtl"] .form input,
 main[dir="rtl"] .form textarea,
-main[dir="rtl"] .form select {
+main[dir="rtl"] .form select,
+main[dir="rtl"] .cartForm input,
+main[dir="rtl"] .cartForm textarea {
   text-align: right;
 }
 
