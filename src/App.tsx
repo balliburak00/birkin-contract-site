@@ -1,6 +1,8 @@
 import { useMemo, useState } from "react"
 import "./index.css"
 
+type Lang = "en" | "tr" | "ar" | "ru"
+
 function BirkinLogo() {
   return (
     <svg
@@ -529,10 +531,27 @@ const content = {
   },
 }
 
-type Lang = "en" | "tr" | "ar" | "ru"
-
 export default function App() {
-  const [lang, setLang] = useState<Lang>("en")
+  const [lang, setLang] = useState<Lang>(() => {
+    const savedLang = localStorage.getItem("birkin-language") as Lang | null
+
+    if (
+      savedLang === "en" ||
+      savedLang === "tr" ||
+      savedLang === "ar" ||
+      savedLang === "ru"
+    ) {
+      return savedLang
+    }
+
+    return "en"
+  })
+
+  const changeLanguage = (newLang: Lang) => {
+    setLang(newLang)
+    localStorage.setItem("birkin-language", newLang)
+  }
+
   const t = content[lang]
 
   const [form, setForm] = useState({
@@ -597,7 +616,7 @@ ${form.message}`
           {(["en", "tr", "ar", "ru"] as Lang[]).map((item) => (
             <button
               key={item}
-              onClick={() => setLang(item)}
+              onClick={() => changeLanguage(item)}
               style={{
                 border: "1px solid rgba(255,255,255,0.18)",
                 background: lang === item ? "#e682d2" : "transparent",
