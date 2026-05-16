@@ -35,7 +35,506 @@ function BirkinLogo() {
   )
 }
 
+const content = {
+  en: {
+    nav: ["About", "Services", "Products", "Process", "Contact"],
+    requestQuote: "Request a Quote",
+    tag: "Tailored Furniture Solutions",
+    heroTitle:
+      "Custom-made contract furniture for hospitality and commercial projects.",
+    heroText:
+      "Birkin Contract provides project-based furniture sourcing and custom-made production coordination for hotels, restaurants, cafés, villas and commercial interiors.",
+    productGroups: "Product Groups",
+    stats: [
+      ["Hotels", "Rooms, lobby, restaurant & outdoor areas"],
+      ["Restaurants", "Dining, bar, banquette & terrace furniture"],
+      ["Villas", "Custom indoor & outdoor furniture pieces"],
+    ],
+    visualSmall: "Project-Based Supply",
+    visualTitle: "Contract Furniture",
+    visualSteps: ["Brief", "Quotation", "Production"],
+    cardTitle: "Hospitality & Commercial Projects",
+    cardText:
+      "Tables, chairs, bar stools, lounge seating, outdoor furniture, banquette seating and custom-made furniture solutions.",
+    cardList: [
+      "Custom measurements",
+      "Material and finish alternatives",
+      "Production coordination",
+      "Domestic and international supply",
+    ],
+    aboutSmall: "About Birkin Contract",
+    aboutTitle: "A project partner for contract furniture needs.",
+    aboutText:
+      "Birkin Contract is a project-based contract furniture partner providing custom-made furniture solutions for hospitality and commercial spaces. We support architects, interior designers, procurement teams and investors with furniture sourcing, production coordination and tailored manufacturing solutions.",
+    servicesSmall: "Services",
+    servicesTitle: "Designed for project-based work.",
+    services: [
+      [
+        "Custom-Made Production",
+        "Furniture solutions according to project dimensions, materials, concept and budget.",
+      ],
+      [
+        "Contract Furniture Supply",
+        "Project-based supply for hotels, restaurants, cafés, villas and commercial interiors.",
+      ],
+      [
+        "Production Coordination",
+        "Supplier coordination, sample approval, quality control and delivery follow-up.",
+      ],
+    ],
+    productsSmall: "Product Groups",
+    productsTitle: "Furniture categories for commercial projects.",
+    products: [
+      "Dining Tables",
+      "Chairs",
+      "Bar Stools",
+      "Outdoor Furniture",
+      "Lounge Seating",
+      "Banquette Seating",
+      "Sunbeds",
+      "Custom Pieces",
+    ],
+    processSmall: "Our Process",
+    processTitle: "From brief to delivery.",
+    process: [
+      "Project Brief",
+      "Technical Review",
+      "Material Selection",
+      "Quotation",
+      "Production",
+      "Delivery",
+    ],
+    seoSmall: "Contract Furniture from Türkiye",
+    seoTitle:
+      "Custom furniture solutions for hotels, restaurants and commercial spaces.",
+    seoText:
+      "Birkin Contract provides custom-made contract furniture solutions from Türkiye for hospitality and commercial projects. Our product groups include hotel furniture, restaurant furniture, café furniture, outdoor furniture, lounge seating, bar stools, dining tables and bespoke furniture pieces.",
+    formSmall: "Request a Quote",
+    formTitle: "Tell us about your project.",
+    formText:
+      "Share your project details and we will prepare a project-based response. For accurate pricing, please include product groups, quantities, dimensions, material preferences and delivery location.",
+    checklist: [
+      "Project type",
+      "Product groups",
+      "Quantity & dimensions",
+      "Material preference",
+      "Delivery location",
+    ],
+    placeholders: {
+      name: "Name / Company",
+      email: "Email",
+      phone: "Phone / WhatsApp",
+      country: "Country / City",
+      projectType: "Project Type",
+      productGroup: "Product Group",
+      quantity: "Estimated Quantity",
+      deliveryDate: "Target Delivery Date",
+      deliveryLocation: "Delivery Location",
+      message:
+        "Dimensions, materials, finishes, reference images or project notes",
+    },
+    projectOptions: [
+      "Hotel / Resort",
+      "Restaurant / Cafe",
+      "Villa / Residence",
+      "Office / Commercial Space",
+      "Outdoor / Terrace / Beach Club",
+    ],
+    productOptions: [
+      "Tables",
+      "Chairs",
+      "Bar Stools",
+      "Lounge Seating",
+      "Outdoor Furniture",
+      "Banquette Seating",
+      "Custom-Made Pieces",
+    ],
+    send: "Send Project Inquiry",
+    quickLinks: "Quick Links",
+    footerProducts: "Product Groups",
+    contact: "Contact",
+    footerText:
+      "Birkin Contract provides custom-made contract furniture solutions for hospitality and commercial projects.",
+    rights: "© 2026 Birkin Contract. All rights reserved.",
+    footerSlogan: "Tailored Furniture Solutions",
+  },
+
+  tr: {
+    nav: ["Hakkımızda", "Hizmetler", "Ürünler", "Süreç", "İletişim"],
+    requestQuote: "Teklif Al",
+    tag: "Proje Bazlı Mobilya Çözümleri",
+    heroTitle:
+      "Hospitality ve ticari projeler için özel üretim contract mobilya çözümleri.",
+    heroText:
+      "Birkin Contract; otel, restoran, kafe, villa ve ticari iç mekân projeleri için proje bazlı mobilya tedariki ve özel üretim koordinasyonu sağlar.",
+    productGroups: "Ürün Grupları",
+    stats: [
+      ["Oteller", "Oda, lobi, restoran ve dış mekân alanları"],
+      ["Restoranlar", "Yemek alanı, bar, banket ve teras mobilyaları"],
+      ["Villalar", "İç ve dış mekân özel üretim mobilyalar"],
+    ],
+    visualSmall: "Proje Bazlı Tedarik",
+    visualTitle: "Contract Mobilya",
+    visualSteps: ["Brief", "Teklif", "Üretim"],
+    cardTitle: "Hospitality ve Ticari Projeler",
+    cardText:
+      "Masa, sandalye, bar sandalyesi, lounge oturma, dış mekân mobilyaları, banket oturma ve özel üretim mobilya çözümleri.",
+    cardList: [
+      "Özel ölçü üretim",
+      "Malzeme ve yüzey alternatifleri",
+      "Üretim koordinasyonu",
+      "Yurt içi ve yurt dışı proje tedariki",
+    ],
+    aboutSmall: "Birkin Contract Hakkında",
+    aboutTitle: "Contract mobilya ihtiyaçları için proje çözüm partneri.",
+    aboutText:
+      "Birkin Contract; hospitality ve ticari alanlar için özel üretim mobilya çözümleri sunan proje bazlı bir contract mobilya partneridir. Mimarlar, iç mimarlar, satın alma ekipleri ve yatırımcılar için mobilya tedariki, üretim koordinasyonu ve özel üretim çözümleri sağlar.",
+    servicesSmall: "Hizmetler",
+    servicesTitle: "Proje bazlı çalışma için tasarlandı.",
+    services: [
+      [
+        "Özel Üretim",
+        "Proje ölçüsü, malzeme, konsept ve bütçeye göre mobilya çözümleri.",
+      ],
+      [
+        "Contract Mobilya Tedariki",
+        "Otel, restoran, kafe, villa ve ticari iç mekânlar için proje bazlı tedarik.",
+      ],
+      [
+        "Üretim Koordinasyonu",
+        "Tedarikçi koordinasyonu, numune onayı, kalite kontrol ve teslimat takibi.",
+      ],
+    ],
+    productsSmall: "Ürün Grupları",
+    productsTitle: "Ticari projeler için mobilya kategorileri.",
+    products: [
+      "Yemek Masaları",
+      "Sandalyeler",
+      "Bar Sandalyeleri",
+      "Dış Mekân Mobilyaları",
+      "Lounge Oturma",
+      "Banket Oturma",
+      "Şezlonglar",
+      "Özel Üretim Ürünler",
+    ],
+    processSmall: "Süreç",
+    processTitle: "Brief aşamasından teslimata kadar.",
+    process: [
+      "Proje Briefi",
+      "Teknik İnceleme",
+      "Malzeme Seçimi",
+      "Teklif",
+      "Üretim",
+      "Teslimat",
+    ],
+    seoSmall: "Türkiye’den Contract Mobilya",
+    seoTitle:
+      "Otel, restoran ve ticari alanlar için özel üretim mobilya çözümleri.",
+    seoText:
+      "Birkin Contract; Türkiye’den hospitality ve ticari projeler için özel üretim contract mobilya çözümleri sunar. Ürün gruplarımız otel mobilyaları, restoran mobilyaları, kafe mobilyaları, dış mekân mobilyaları, lounge oturma, bar sandalyeleri, yemek masaları ve özel üretim mobilya parçalarını kapsar.",
+    formSmall: "Teklif Talebi",
+    formTitle: "Projenizi bize anlatın.",
+    formText:
+      "Proje detaylarınızı paylaşın, size proje bazlı bir dönüş hazırlayalım. Doğru fiyatlandırma için ürün grupları, adetler, ölçüler, malzeme tercihleri ve teslimat lokasyonunu belirtmenizi rica ederiz.",
+    checklist: [
+      "Proje tipi",
+      "Ürün grupları",
+      "Adet ve ölçüler",
+      "Malzeme tercihi",
+      "Teslimat lokasyonu",
+    ],
+    placeholders: {
+      name: "Ad / Firma",
+      email: "E-posta",
+      phone: "Telefon / WhatsApp",
+      country: "Ülke / Şehir",
+      projectType: "Proje Tipi",
+      productGroup: "Ürün Grubu",
+      quantity: "Tahmini Adet",
+      deliveryDate: "Hedef Teslim Tarihi",
+      deliveryLocation: "Teslimat Lokasyonu",
+      message:
+        "Ölçüler, malzemeler, yüzey bitişleri, referans görseller veya proje notları",
+    },
+    projectOptions: [
+      "Otel / Resort",
+      "Restoran / Kafe",
+      "Villa / Residence",
+      "Ofis / Ticari Alan",
+      "Dış Mekân / Teras / Beach Club",
+    ],
+    productOptions: [
+      "Masalar",
+      "Sandalyeler",
+      "Bar Sandalyeleri",
+      "Lounge Oturma",
+      "Dış Mekân Mobilyaları",
+      "Banket Oturma",
+      "Özel Üretim Ürünler",
+    ],
+    send: "Proje Talebi Gönder",
+    quickLinks: "Hızlı Linkler",
+    footerProducts: "Ürün Grupları",
+    contact: "İletişim",
+    footerText:
+      "Birkin Contract, hospitality ve ticari projeler için özel üretim contract mobilya çözümleri sunar.",
+    rights: "© 2026 Birkin Contract. Tüm hakları saklıdır.",
+    footerSlogan: "Proje Bazlı Mobilya Çözümleri",
+  },
+
+  ar: {
+    nav: ["من نحن", "الخدمات", "المنتجات", "العملية", "اتصال"],
+    requestQuote: "طلب عرض سعر",
+    tag: "حلول أثاث مخصصة للمشاريع",
+    heroTitle:
+      "أثاث تعاقدي مخصص لمشاريع الضيافة والمساحات التجارية.",
+    heroText:
+      "تقدم Birkin Contract حلول توريد وتنسيق إنتاج أثاث مخصص للمشاريع الفندقية والمطاعم والمقاهي والفلل والمساحات التجارية.",
+    productGroups: "مجموعات المنتجات",
+    stats: [
+      ["الفنادق", "الغرف، اللوبي، المطاعم والمساحات الخارجية"],
+      ["المطاعم", "أثاث الطعام، البار، الجلسات والتراسات"],
+      ["الفلل", "قطع أثاث مخصصة للداخل والخارج"],
+    ],
+    visualSmall: "توريد حسب المشروع",
+    visualTitle: "أثاث تعاقدي",
+    visualSteps: ["المتطلبات", "عرض السعر", "الإنتاج"],
+    cardTitle: "مشاريع الضيافة والمساحات التجارية",
+    cardText:
+      "طاولات، كراسي، كراسي بار، جلسات lounge، أثاث خارجي، جلسات بنش وقطع أثاث مخصصة.",
+    cardList: [
+      "قياسات مخصصة",
+      "خيارات المواد والتشطيبات",
+      "تنسيق الإنتاج",
+      "توريد محلي ودولي للمشاريع",
+    ],
+    aboutSmall: "عن Birkin Contract",
+    aboutTitle: "شريك مشاريع لاحتياجات الأثاث التعاقدي.",
+    aboutText:
+      "Birkin Contract هي شريك أثاث تعاقدي قائم على المشاريع، تقدم حلول أثاث مخصصة لمساحات الضيافة والمساحات التجارية. ندعم المعماريين ومصممي الديكور وفرق المشتريات والمستثمرين في التوريد وتنسيق الإنتاج والحلول المخصصة.",
+    servicesSmall: "الخدمات",
+    servicesTitle: "مصممة للعمل حسب المشروع.",
+    services: [
+      [
+        "إنتاج مخصص",
+        "حلول أثاث حسب المقاسات والمواد والمفهوم والميزانية.",
+      ],
+      [
+        "توريد أثاث تعاقدي",
+        "توريد حسب المشروع للفنادق والمطاعم والمقاهي والفلل والمساحات التجارية.",
+      ],
+      [
+        "تنسيق الإنتاج",
+        "تنسيق الموردين، اعتماد العينات، مراقبة الجودة ومتابعة التسليم.",
+      ],
+    ],
+    productsSmall: "مجموعات المنتجات",
+    productsTitle: "فئات أثاث للمشاريع التجارية.",
+    products: [
+      "طاولات طعام",
+      "كراسي",
+      "كراسي بار",
+      "أثاث خارجي",
+      "جلسات Lounge",
+      "جلسات بنش",
+      "كراسي استلقاء",
+      "قطع مخصصة",
+    ],
+    processSmall: "العملية",
+    processTitle: "من المتطلبات إلى التسليم.",
+    process: [
+      "متطلبات المشروع",
+      "مراجعة فنية",
+      "اختيار المواد",
+      "عرض السعر",
+      "الإنتاج",
+      "التسليم",
+    ],
+    seoSmall: "أثاث تعاقدي من تركيا",
+    seoTitle:
+      "حلول أثاث مخصصة للفنادق والمطاعم والمساحات التجارية.",
+    seoText:
+      "تقدم Birkin Contract حلول أثاث تعاقدي مخصص من تركيا لمشاريع الضيافة والمساحات التجارية. تشمل مجموعاتنا أثاث الفنادق، أثاث المطاعم، أثاث المقاهي، الأثاث الخارجي، جلسات lounge، كراسي البار، طاولات الطعام وقطع الأثاث المخصصة.",
+    formSmall: "طلب عرض سعر",
+    formTitle: "أخبرنا عن مشروعك.",
+    formText:
+      "شارك تفاصيل مشروعك وسنقوم بإعداد رد مناسب حسب المشروع. للحصول على تسعير دقيق، يرجى إضافة مجموعات المنتجات، الكميات، المقاسات، تفضيلات المواد وموقع التسليم.",
+    checklist: [
+      "نوع المشروع",
+      "مجموعات المنتجات",
+      "الكميات والمقاسات",
+      "تفضيل المواد",
+      "موقع التسليم",
+    ],
+    placeholders: {
+      name: "الاسم / الشركة",
+      email: "البريد الإلكتروني",
+      phone: "الهاتف / واتساب",
+      country: "الدولة / المدينة",
+      projectType: "نوع المشروع",
+      productGroup: "مجموعة المنتجات",
+      quantity: "الكمية المتوقعة",
+      deliveryDate: "تاريخ التسليم المستهدف",
+      deliveryLocation: "موقع التسليم",
+      message:
+        "المقاسات، المواد، التشطيبات، الصور المرجعية أو ملاحظات المشروع",
+    },
+    projectOptions: [
+      "فندق / منتجع",
+      "مطعم / مقهى",
+      "فيلا / ريزيدنس",
+      "مكتب / مساحة تجارية",
+      "خارجي / تراس / Beach Club",
+    ],
+    productOptions: [
+      "طاولات",
+      "كراسي",
+      "كراسي بار",
+      "جلسات Lounge",
+      "أثاث خارجي",
+      "جلسات بنش",
+      "قطع مخصصة",
+    ],
+    send: "إرسال طلب المشروع",
+    quickLinks: "روابط سريعة",
+    footerProducts: "مجموعات المنتجات",
+    contact: "اتصال",
+    footerText:
+      "تقدم Birkin Contract حلول أثاث تعاقدي مخصص لمشاريع الضيافة والمساحات التجارية.",
+    rights: "© 2026 Birkin Contract. جميع الحقوق محفوظة.",
+    footerSlogan: "حلول أثاث مخصصة للمشاريع",
+  },
+
+  ru: {
+    nav: ["О нас", "Услуги", "Продукты", "Процесс", "Контакты"],
+    requestQuote: "Запросить предложение",
+    tag: "Индивидуальные мебельные решения",
+    heroTitle:
+      "Мебель contract-класса на заказ для гостиничных и коммерческих проектов.",
+    heroText:
+      "Birkin Contract предлагает проектное снабжение мебелью и координацию индивидуального производства для отелей, ресторанов, кафе, вилл и коммерческих интерьеров.",
+    productGroups: "Группы продуктов",
+    stats: [
+      ["Отели", "Номера, лобби, рестораны и наружные зоны"],
+      ["Рестораны", "Обеденные зоны, бар, банкетки и террасы"],
+      ["Виллы", "Индивидуальная мебель для интерьера и экстерьера"],
+    ],
+    visualSmall: "Поставка под проект",
+    visualTitle: "Contract Furniture",
+    visualSteps: ["Бриф", "Предложение", "Производство"],
+    cardTitle: "Гостиничные и коммерческие проекты",
+    cardText:
+      "Столы, стулья, барные стулья, lounge-зоны, уличная мебель, банкетки и индивидуальные мебельные решения.",
+    cardList: [
+      "Индивидуальные размеры",
+      "Варианты материалов и отделки",
+      "Координация производства",
+      "Поставка для локальных и международных проектов",
+    ],
+    aboutSmall: "О Birkin Contract",
+    aboutTitle: "Проектный партнер для contract furniture.",
+    aboutText:
+      "Birkin Contract — проектный партнер по contract furniture, предлагающий индивидуальные мебельные решения для гостиничных и коммерческих пространств. Мы поддерживаем архитекторов, дизайнеров интерьера, закупочные команды и инвесторов в подборе мебели, координации производства и индивидуальных решениях.",
+    servicesSmall: "Услуги",
+    servicesTitle: "Создано для проектной работы.",
+    services: [
+      [
+        "Индивидуальное производство",
+        "Мебельные решения в соответствии с размерами, материалами, концепцией и бюджетом проекта.",
+      ],
+      [
+        "Поставка contract furniture",
+        "Проектная поставка для отелей, ресторанов, кафе, вилл и коммерческих интерьеров.",
+      ],
+      [
+        "Координация производства",
+        "Координация поставщиков, утверждение образцов, контроль качества и сопровождение доставки.",
+      ],
+    ],
+    productsSmall: "Группы продуктов",
+    productsTitle: "Категории мебели для коммерческих проектов.",
+    products: [
+      "Обеденные столы",
+      "Стулья",
+      "Барные стулья",
+      "Уличная мебель",
+      "Lounge seating",
+      "Банкетки",
+      "Шезлонги",
+      "Индивидуальные изделия",
+    ],
+    processSmall: "Процесс",
+    processTitle: "От брифа до поставки.",
+    process: [
+      "Бриф проекта",
+      "Технический анализ",
+      "Выбор материалов",
+      "Предложение",
+      "Производство",
+      "Поставка",
+    ],
+    seoSmall: "Contract Furniture из Турции",
+    seoTitle:
+      "Индивидуальные мебельные решения для отелей, ресторанов и коммерческих пространств.",
+    seoText:
+      "Birkin Contract предлагает индивидуальные решения contract furniture из Турции для гостиничных и коммерческих проектов. Наши группы продуктов включают мебель для отелей, ресторанов, кафе, уличную мебель, lounge seating, барные стулья, обеденные столы и индивидуальные изделия.",
+    formSmall: "Запрос предложения",
+    formTitle: "Расскажите нам о вашем проекте.",
+    formText:
+      "Поделитесь деталями проекта, и мы подготовим проектное предложение. Для точной оценки укажите группы продуктов, количество, размеры, предпочтения по материалам и место доставки.",
+    checklist: [
+      "Тип проекта",
+      "Группы продуктов",
+      "Количество и размеры",
+      "Предпочтения по материалам",
+      "Место доставки",
+    ],
+    placeholders: {
+      name: "Имя / Компания",
+      email: "E-mail",
+      phone: "Телефон / WhatsApp",
+      country: "Страна / Город",
+      projectType: "Тип проекта",
+      productGroup: "Группа продуктов",
+      quantity: "Ориентировочное количество",
+      deliveryDate: "Желаемая дата поставки",
+      deliveryLocation: "Место доставки",
+      message:
+        "Размеры, материалы, отделки, референсы или заметки по проекту",
+    },
+    projectOptions: [
+      "Отель / Курорт",
+      "Ресторан / Кафе",
+      "Вилла / Резиденция",
+      "Офис / Коммерческое пространство",
+      "Outdoor / Терраса / Beach Club",
+    ],
+    productOptions: [
+      "Столы",
+      "Стулья",
+      "Барные стулья",
+      "Lounge seating",
+      "Уличная мебель",
+      "Банкетки",
+      "Индивидуальные изделия",
+    ],
+    send: "Отправить запрос",
+    quickLinks: "Быстрые ссылки",
+    footerProducts: "Группы продуктов",
+    contact: "Контакты",
+    footerText:
+      "Birkin Contract предлагает индивидуальные решения contract furniture для гостиничных и коммерческих проектов.",
+    rights: "© 2026 Birkin Contract. Все права защищены.",
+    footerSlogan: "Индивидуальные мебельные решения",
+  },
+}
+
+type Lang = "en" | "tr" | "ar" | "ru"
+
 export default function App() {
+  const [lang, setLang] = useState<Lang>("en")
+  const t = content[lang]
+
   const [form, setForm] = useState({
     name: "",
     email: "",
@@ -50,7 +549,15 @@ export default function App() {
   })
 
   const mailLink = useMemo(() => {
-    const subject = encodeURIComponent("Project Inquiry - Birkin Contract")
+    const subject = encodeURIComponent(
+      lang === "tr"
+        ? "Proje Talebi - Birkin Contract"
+        : lang === "ar"
+        ? "طلب مشروع - Birkin Contract"
+        : lang === "ru"
+        ? "Запрос проекта - Birkin Contract"
+        : "Project Inquiry - Birkin Contract"
+    )
 
     const body = encodeURIComponent(
       `Name / Company: ${form.name}
@@ -69,73 +576,78 @@ ${form.message}`
     )
 
     return `mailto:burak@birkin.com?subject=${subject}&body=${body}`
-  }, [form])
+  }, [form, lang])
 
   return (
-    <main>
+    <main dir={lang === "ar" ? "rtl" : "ltr"}>
       <header className="navbar">
         <div className="brand">
           <BirkinLogo />
         </div>
 
         <nav>
-          <a href="#about">About</a>
-          <a href="#services">Services</a>
-          <a href="#products">Products</a>
-          <a href="#process">Process</a>
-          <a href="#contact">Contact</a>
+          <a href="#about">{t.nav[0]}</a>
+          <a href="#services">{t.nav[1]}</a>
+          <a href="#products">{t.nav[2]}</a>
+          <a href="#process">{t.nav[3]}</a>
+          <a href="#contact">{t.nav[4]}</a>
         </nav>
 
-        <a href="#contact" className="navBtn">
-          Request a Quote
-        </a>
+        <div style={{ display: "flex", gap: "8px", alignItems: "center" }}>
+          {(["en", "tr", "ar", "ru"] as Lang[]).map((item) => (
+            <button
+              key={item}
+              onClick={() => setLang(item)}
+              style={{
+                border: "1px solid rgba(255,255,255,0.18)",
+                background: lang === item ? "#e682d2" : "transparent",
+                color: lang === item ? "#0a0a0a" : "#ffffff",
+                borderRadius: "999px",
+                padding: "10px 12px",
+                fontWeight: "bold",
+                cursor: "pointer",
+              }}
+            >
+              {item.toUpperCase()}
+            </button>
+          ))}
+
+          <a href="#contact" className="navBtn">
+            {t.requestQuote}
+          </a>
+        </div>
       </header>
 
       <section className="hero">
         <div className="heroText">
-          <span className="tag">Tailored Furniture Solutions</span>
-
-          <h1>
-            Custom-made contract furniture for hospitality and commercial
-            projects.
-          </h1>
-
-          <p>
-            Birkin Contract provides project-based furniture sourcing and
-            custom-made production coordination for hotels, restaurants, cafés,
-            villas and commercial interiors.
-          </p>
+          <span className="tag">{t.tag}</span>
+          <h1>{t.heroTitle}</h1>
+          <p>{t.heroText}</p>
 
           <div className="buttons">
             <a href="#contact" className="primaryBtn">
-              Request a Quote
+              {t.requestQuote}
             </a>
             <a href="#products" className="secondaryBtn">
-              Product Groups
+              {t.productGroups}
             </a>
           </div>
 
           <div className="heroStats">
-            <div>
-              <strong>Hotels</strong>
-              <span>Rooms, lobby, restaurant & outdoor areas</span>
-            </div>
-            <div>
-              <strong>Restaurants</strong>
-              <span>Dining, bar, banquette & terrace furniture</span>
-            </div>
-            <div>
-              <strong>Villas</strong>
-              <span>Custom indoor & outdoor furniture pieces</span>
-            </div>
+            {t.stats.map(([title, text]) => (
+              <div key={title}>
+                <strong>{title}</strong>
+                <span>{text}</span>
+              </div>
+            ))}
           </div>
         </div>
 
         <div className="heroCard">
           <div className="premiumVisual">
             <div className="visualTop">
-              <span>Project-Based Supply</span>
-              <strong>Contract Furniture</strong>
+              <span>{t.visualSmall}</span>
+              <strong>{t.visualTitle}</strong>
             </div>
 
             <div className="visualCenter">
@@ -145,173 +657,87 @@ ${form.message}`
             </div>
 
             <div className="visualBottom">
-              <div>
-                <strong>01</strong>
-                <span>Brief</span>
-              </div>
-              <div>
-                <strong>02</strong>
-                <span>Quotation</span>
-              </div>
-              <div>
-                <strong>03</strong>
-                <span>Production</span>
-              </div>
+              {t.visualSteps.map((step, index) => (
+                <div key={step}>
+                  <strong>0{index + 1}</strong>
+                  <span>{step}</span>
+                </div>
+              ))}
             </div>
           </div>
 
-          <h3>Hospitality & Commercial Projects</h3>
-
-          <p>
-            Tables, chairs, bar stools, lounge seating, outdoor furniture,
-            banquette seating and custom-made furniture solutions.
-          </p>
+          <h3>{t.cardTitle}</h3>
+          <p>{t.cardText}</p>
 
           <ul>
-            <li>Custom measurements</li>
-            <li>Material and finish alternatives</li>
-            <li>Production coordination</li>
-            <li>Domestic and international supply</li>
+            {t.cardList.map((item) => (
+              <li key={item}>{item}</li>
+            ))}
           </ul>
         </div>
       </section>
 
       <section id="about" className="section">
-        <span className="smallTitle">About Birkin Contract</span>
-
-        <h2>A project partner for contract furniture needs.</h2>
-
-        <p>
-          Birkin Contract is a project-based contract furniture partner
-          providing custom-made furniture solutions for hospitality and
-          commercial spaces. We support architects, interior designers,
-          procurement teams and investors with furniture sourcing, production
-          coordination and tailored manufacturing solutions.
-        </p>
+        <span className="smallTitle">{t.aboutSmall}</span>
+        <h2>{t.aboutTitle}</h2>
+        <p>{t.aboutText}</p>
       </section>
 
       <section id="services" className="section darkSection">
-        <span className="smallTitle">Services</span>
-
-        <h2>Designed for project-based work.</h2>
+        <span className="smallTitle">{t.servicesSmall}</span>
+        <h2>{t.servicesTitle}</h2>
 
         <div className="grid">
-          <div className="card">
-            <h3>Custom-Made Production</h3>
-            <p>
-              Furniture solutions according to project dimensions, materials,
-              concept and budget.
-            </p>
-          </div>
-
-          <div className="card">
-            <h3>Contract Furniture Supply</h3>
-            <p>
-              Project-based supply for hotels, restaurants, cafés, villas and
-              commercial interiors.
-            </p>
-          </div>
-
-          <div className="card">
-            <h3>Production Coordination</h3>
-            <p>
-              Supplier coordination, sample approval, quality control and
-              delivery follow-up.
-            </p>
-          </div>
+          {t.services.map(([title, text]) => (
+            <div className="card" key={title}>
+              <h3>{title}</h3>
+              <p>{text}</p>
+            </div>
+          ))}
         </div>
       </section>
 
       <section id="products" className="section">
-        <span className="smallTitle">Product Groups</span>
-
-        <h2>Furniture categories for commercial projects.</h2>
+        <span className="smallTitle">{t.productsSmall}</span>
+        <h2>{t.productsTitle}</h2>
 
         <div className="productGrid">
-          <div>Dining Tables</div>
-          <div>Chairs</div>
-          <div>Bar Stools</div>
-          <div>Outdoor Furniture</div>
-          <div>Lounge Seating</div>
-          <div>Banquette Seating</div>
-          <div>Sunbeds</div>
-          <div>Custom Pieces</div>
+          {t.products.map((item) => (
+            <div key={item}>{item}</div>
+          ))}
         </div>
       </section>
 
       <section id="process" className="section darkSection">
-        <span className="smallTitle">Our Process</span>
-
-        <h2>From brief to delivery.</h2>
+        <span className="smallTitle">{t.processSmall}</span>
+        <h2>{t.processTitle}</h2>
 
         <div className="processGrid">
-          <div>
-            <strong>01</strong>
-            <span>Project Brief</span>
-          </div>
-
-          <div>
-            <strong>02</strong>
-            <span>Technical Review</span>
-          </div>
-
-          <div>
-            <strong>03</strong>
-            <span>Material Selection</span>
-          </div>
-
-          <div>
-            <strong>04</strong>
-            <span>Quotation</span>
-          </div>
-
-          <div>
-            <strong>05</strong>
-            <span>Production</span>
-          </div>
-
-          <div>
-            <strong>06</strong>
-            <span>Delivery</span>
-          </div>
+          {t.process.map((step, index) => (
+            <div key={step}>
+              <strong>0{index + 1}</strong>
+              <span>{step}</span>
+            </div>
+          ))}
         </div>
       </section>
 
       <section className="section seoBox">
-        <span className="smallTitle">Contract Furniture from Türkiye</span>
-
-        <h2>
-          Custom furniture solutions for hotels, restaurants and commercial
-          spaces.
-        </h2>
-
-        <p>
-          Birkin Contract provides custom-made contract furniture solutions from
-          Türkiye for hospitality and commercial projects. Our product groups
-          include hotel furniture, restaurant furniture, café furniture, outdoor
-          furniture, lounge seating, bar stools, dining tables and bespoke
-          furniture pieces.
-        </p>
+        <span className="smallTitle">{t.seoSmall}</span>
+        <h2>{t.seoTitle}</h2>
+        <p>{t.seoText}</p>
       </section>
 
       <section id="contact" className="section contact">
         <div>
-          <span className="smallTitle">Request a Quote</span>
-
-          <h2>Tell us about your project.</h2>
-
-          <p>
-            Share your project details and we will prepare a project-based
-            response. For accurate pricing, please include product groups,
-            quantities, dimensions, material preferences and delivery location.
-          </p>
+          <span className="smallTitle">{t.formSmall}</span>
+          <h2>{t.formTitle}</h2>
+          <p>{t.formText}</p>
 
           <div className="quoteChecklist">
-            <div>✓ Project type</div>
-            <div>✓ Product groups</div>
-            <div>✓ Quantity & dimensions</div>
-            <div>✓ Material preference</div>
-            <div>✓ Delivery location</div>
+            {t.checklist.map((item) => (
+              <div key={item}>✓ {item}</div>
+            ))}
           </div>
 
           <p className="contactInfo">Mail: burak@birkin.com</p>
@@ -322,13 +748,13 @@ ${form.message}`
         <form className="form">
           <div className="formRow">
             <input
-              placeholder="Name / Company"
+              placeholder={t.placeholders.name}
               value={form.name}
               onChange={(e) => setForm({ ...form, name: e.target.value })}
             />
 
             <input
-              placeholder="Email"
+              placeholder={t.placeholders.email}
               value={form.email}
               onChange={(e) => setForm({ ...form, email: e.target.value })}
             />
@@ -336,13 +762,13 @@ ${form.message}`
 
           <div className="formRow">
             <input
-              placeholder="Phone / WhatsApp"
+              placeholder={t.placeholders.phone}
               value={form.phone}
               onChange={(e) => setForm({ ...form, phone: e.target.value })}
             />
 
             <input
-              placeholder="Country / City"
+              placeholder={t.placeholders.country}
               value={form.country}
               onChange={(e) => setForm({ ...form, country: e.target.value })}
             />
@@ -355,13 +781,11 @@ ${form.message}`
             }
           >
             <option value="" disabled>
-              Project Type
+              {t.placeholders.projectType}
             </option>
-            <option>Hotel / Resort</option>
-            <option>Restaurant / Cafe</option>
-            <option>Villa / Residence</option>
-            <option>Office / Commercial Space</option>
-            <option>Outdoor / Terrace / Beach Club</option>
+            {t.projectOptions.map((item) => (
+              <option key={item}>{item}</option>
+            ))}
           </select>
 
           <select
@@ -371,26 +795,22 @@ ${form.message}`
             }
           >
             <option value="" disabled>
-              Product Group
+              {t.placeholders.productGroup}
             </option>
-            <option>Tables</option>
-            <option>Chairs</option>
-            <option>Bar Stools</option>
-            <option>Lounge Seating</option>
-            <option>Outdoor Furniture</option>
-            <option>Banquette Seating</option>
-            <option>Custom-Made Pieces</option>
+            {t.productOptions.map((item) => (
+              <option key={item}>{item}</option>
+            ))}
           </select>
 
           <div className="formRow">
             <input
-              placeholder="Estimated Quantity"
+              placeholder={t.placeholders.quantity}
               value={form.quantity}
               onChange={(e) => setForm({ ...form, quantity: e.target.value })}
             />
 
             <input
-              placeholder="Target Delivery Date"
+              placeholder={t.placeholders.deliveryDate}
               value={form.deliveryDate}
               onChange={(e) =>
                 setForm({ ...form, deliveryDate: e.target.value })
@@ -399,7 +819,7 @@ ${form.message}`
           </div>
 
           <input
-            placeholder="Delivery Location"
+            placeholder={t.placeholders.deliveryLocation}
             value={form.deliveryLocation}
             onChange={(e) =>
               setForm({ ...form, deliveryLocation: e.target.value })
@@ -407,13 +827,13 @@ ${form.message}`
           />
 
           <textarea
-            placeholder="Dimensions, materials, finishes, reference images or project notes"
+            placeholder={t.placeholders.message}
             value={form.message}
             onChange={(e) => setForm({ ...form, message: e.target.value })}
           ></textarea>
 
           <a href={mailLink} className="primaryBtn">
-            Send Project Inquiry
+            {t.send}
           </a>
         </form>
       </section>
@@ -422,30 +842,26 @@ ${form.message}`
         <div className="footerGrid">
           <div>
             <BirkinLogo />
-            <p className="footerText">
-              Birkin Contract provides custom-made contract furniture solutions
-              for hospitality and commercial projects.
-            </p>
+            <p className="footerText">{t.footerText}</p>
           </div>
 
           <div>
-            <h4>Quick Links</h4>
-            <a href="#about">About</a>
-            <a href="#services">Services</a>
-            <a href="#products">Product Groups</a>
-            <a href="#process">Process</a>
+            <h4>{t.quickLinks}</h4>
+            <a href="#about">{t.nav[0]}</a>
+            <a href="#services">{t.nav[1]}</a>
+            <a href="#products">{t.nav[2]}</a>
+            <a href="#process">{t.nav[3]}</a>
           </div>
 
           <div>
-            <h4>Product Groups</h4>
-            <span>Tables & Chairs</span>
-            <span>Lounge Seating</span>
-            <span>Outdoor Furniture</span>
-            <span>Custom-Made Pieces</span>
+            <h4>{t.footerProducts}</h4>
+            {t.products.slice(0, 4).map((item) => (
+              <span key={item}>{item}</span>
+            ))}
           </div>
 
           <div>
-            <h4>Contact</h4>
+            <h4>{t.contact}</h4>
             <span>burak@birkin.com</span>
             <span>+90 552 500 03 20</span>
             <span>Türkiye</span>
@@ -453,8 +869,8 @@ ${form.message}`
         </div>
 
         <div className="footerBottom">
-          <span>© 2026 Birkin Contract. All rights reserved.</span>
-          <span>Tailored Furniture Solutions</span>
+          <span>{t.rights}</span>
+          <span>{t.footerSlogan}</span>
         </div>
       </footer>
 
