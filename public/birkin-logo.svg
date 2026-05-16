@@ -1,9 +1,9 @@
-<svg width="900" height="260" viewBox="0 0 900 260" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <rect width="900" height="260" fill="transparent"/>
+<svg width="900" height="300" viewBox="0 0 900 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="900" height="300" fill="transparent"/>
 
   <text
     x="450"
-    y="128"
+    y="130"
     text-anchor="middle"
     font-family="Arial Black, Arial, Helvetica, sans-serif"
     font-size="72"
@@ -16,10 +16,10 @@
 
   <text
     x="450"
-    y="172"
+    y="190"
     text-anchor="middle"
     font-family="Brush Script MT, Segoe Script, cursive"
-    font-size="58"
+    font-size="56"
     font-style="italic"
     fill="#F4EFE7"
   >
