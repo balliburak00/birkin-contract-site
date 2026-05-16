@@ -39,7 +39,7 @@ function BirkinLogo() {
 
 const content = {
   en: {
-    nav: ["About", "Services", "Products", "Process", "Contact"],
+    nav: ["About", "Services", "Products", "Profile", "Process", "Contact"],
     requestQuote: "Request a Quote",
     tag: "Tailored Furniture Solutions",
     heroTitle:
@@ -96,6 +96,11 @@ const content = {
       "Sunbeds",
       "Custom Pieces",
     ],
+    profileSmall: "Company Profile",
+    profileTitle: "Download Birkin Contract company profile.",
+    profileText:
+      "Review our company profile to understand our project-based contract furniture approach, service scope, product groups and cooperation model for hospitality and commercial projects.",
+    profileButton: "Download Company Profile PDF",
     processSmall: "Our Process",
     processTitle: "From brief to delivery.",
     process: [
@@ -162,7 +167,7 @@ const content = {
   },
 
   tr: {
-    nav: ["Hakkımızda", "Hizmetler", "Ürünler", "Süreç", "İletişim"],
+    nav: ["Hakkımızda", "Hizmetler", "Ürünler", "Profil", "Süreç", "İletişim"],
     requestQuote: "Teklif Al",
     tag: "Proje Bazlı Mobilya Çözümleri",
     heroTitle:
@@ -219,6 +224,11 @@ const content = {
       "Şezlonglar",
       "Özel Üretim Ürünler",
     ],
+    profileSmall: "Company Profile",
+    profileTitle: "Birkin Contract şirket profilini indirin.",
+    profileText:
+      "Şirket profilimizde proje bazlı contract mobilya yaklaşımımızı, hizmet kapsamımızı, ürün gruplarımızı ve hospitality/ticari projeler için iş birliği modelimizi inceleyebilirsiniz.",
+    profileButton: "Company Profile PDF İndir",
     processSmall: "Süreç",
     processTitle: "Brief aşamasından teslimata kadar.",
     process: [
@@ -285,7 +295,7 @@ const content = {
   },
 
   ar: {
-    nav: ["من نحن", "الخدمات", "المنتجات", "العملية", "اتصال"],
+    nav: ["من نحن", "الخدمات", "المنتجات", "الملف", "العملية", "اتصال"],
     requestQuote: "طلب عرض سعر",
     tag: "حلول أثاث مخصصة للمشاريع",
     heroTitle:
@@ -342,6 +352,11 @@ const content = {
       "كراسي استلقاء",
       "قطع مخصصة",
     ],
+    profileSmall: "ملف الشركة",
+    profileTitle: "تحميل ملف شركة Birkin Contract.",
+    profileText:
+      "يمكنك الاطلاع على ملف الشركة لفهم نهجنا في الأثاث التعاقدي حسب المشروع، نطاق خدماتنا، مجموعات المنتجات ونموذج التعاون لمشاريع الضيافة والمساحات التجارية.",
+    profileButton: "تحميل ملف الشركة PDF",
     processSmall: "العملية",
     processTitle: "من المتطلبات إلى التسليم.",
     process: [
@@ -408,7 +423,7 @@ const content = {
   },
 
   ru: {
-    nav: ["О нас", "Услуги", "Продукты", "Процесс", "Контакты"],
+    nav: ["О нас", "Услуги", "Продукты", "Профиль", "Процесс", "Контакты"],
     requestQuote: "Запросить предложение",
     tag: "Индивидуальные мебельные решения",
     heroTitle:
@@ -465,6 +480,11 @@ const content = {
       "Шезлонги",
       "Индивидуальные изделия",
     ],
+    profileSmall: "Профиль компании",
+    profileTitle: "Скачать профиль компании Birkin Contract.",
+    profileText:
+      "Ознакомьтесь с профилем компании, чтобы понять наш проектный подход к contract furniture, объем услуг, группы продуктов и модель сотрудничества для гостиничных и коммерческих проектов.",
+    profileButton: "Скачать Company Profile PDF",
     processSmall: "Процесс",
     processTitle: "От брифа до поставки.",
     process: [
@@ -608,8 +628,9 @@ ${form.message}`
           <a href="#about">{t.nav[0]}</a>
           <a href="#services">{t.nav[1]}</a>
           <a href="#products">{t.nav[2]}</a>
-          <a href="#process">{t.nav[3]}</a>
-          <a href="#contact">{t.nav[4]}</a>
+          <a href="#company-profile">{t.nav[3]}</a>
+          <a href="#process">{t.nav[4]}</a>
+          <a href="#contact">{t.nav[5]}</a>
         </nav>
 
         <div style={{ display: "flex", gap: "8px", alignItems: "center" }}>
@@ -724,6 +745,27 @@ ${form.message}`
           {t.products.map((item) => (
             <div key={item}>{item}</div>
           ))}
+        </div>
+      </section>
+
+      <section id="company-profile" className="section seoBox">
+        <span className="smallTitle">{t.profileSmall}</span>
+        <h2>{t.profileTitle}</h2>
+        <p>{t.profileText}</p>
+
+        <div className="buttons">
+          <a
+            href="/birkin-company-profile.pdf"
+            className="primaryBtn"
+            target="_blank"
+            rel="noreferrer"
+          >
+            {t.profileButton}
+          </a>
+
+          <a href="#contact" className="secondaryBtn">
+            {t.requestQuote}
+          </a>
         </div>
       </section>
 
@@ -869,7 +911,8 @@ ${form.message}`
             <a href="#about">{t.nav[0]}</a>
             <a href="#services">{t.nav[1]}</a>
             <a href="#products">{t.nav[2]}</a>
-            <a href="#process">{t.nav[3]}</a>
+            <a href="#company-profile">{t.nav[3]}</a>
+            <a href="#process">{t.nav[4]}</a>
           </div>
 
           <div>
