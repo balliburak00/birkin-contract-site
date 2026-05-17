@@ -1,32 +1,67 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="https://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset
+  xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+>
   <url>
     <loc>https://birkin-contract-site.vercel.app/</loc>
+    <lastmod>2026-05-17</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>1.00</priority>
   </url>
 
   <url>
     <loc>https://birkin-contract-site.vercel.app/#about</loc>
-    <priority>0.80</priority>
-  </url>
-
-  <url>
-    <loc>https://birkin-contract-site.vercel.app/#services</loc>
+    <lastmod>2026-05-17</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.80</priority>
   </url>
 
   <url>
     <loc>https://birkin-contract-site.vercel.app/#products</loc>
-    <priority>0.80</priority>
+    <lastmod>2026-05-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.95</priority>
+  </url>
+
+  <url>
+    <loc>https://birkin-contract-site.vercel.app/#quote-list</loc>
+    <lastmod>2026-05-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+  </url>
+
+  <url>
+    <loc>https://birkin-contract-site.vercel.app/#profile</loc>
+    <lastmod>2026-05-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+  </url>
+
+  <url>
+    <loc>https://birkin-contract-site.vercel.app/#materials</loc>
+    <lastmod>2026-05-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
   </url>
 
   <url>
     <loc>https://birkin-contract-site.vercel.app/#process</loc>
-    <priority>0.70</priority>
+    <lastmod>2026-05-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.80</priority>
+  </url>
+
+  <url>
+    <loc>https://birkin-contract-site.vercel.app/#faq</loc>
+    <lastmod>2026-05-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.80</priority>
   </url>
 
   <url>
     <loc>https://birkin-contract-site.vercel.app/#contact</loc>
-    <priority>0.90</priority>
+    <lastmod>2026-05-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.70</priority>
   </url>
 </urlset>
