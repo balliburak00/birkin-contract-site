@@ -6,7 +6,6 @@
   --bg: #f3efe7;
   --surface: #faf8f3;
   --sand: #e8dfd2;
-  --sand-dark: #d8cec0;
   --stone: #8a7a63;
   --stone-soft: #b8a58a;
   --text: #2b2925;
@@ -34,6 +33,11 @@ input,
 textarea,
 a {
   font-family: inherit;
+}
+
+button {
+  appearance: none;
+  -webkit-appearance: none;
 }
 
 img {
@@ -152,7 +156,7 @@ nav a:hover,
 .secondaryBtn,
 .detailBtn {
   padding: 14px 24px;
-  background: rgba(255, 255, 255, 0.42);
+  background: rgba(255, 255, 255, 0.55);
   color: var(--text);
   border: 1px solid var(--border);
 }
@@ -510,7 +514,7 @@ nav a:hover,
 
 .modelActions {
   display: grid;
-  grid-template-columns: 0.8fr 1.2fr;
+  grid-template-columns: 0.85fr 1.15fr;
   gap: 10px;
   margin-top: 18px;
 }
@@ -526,26 +530,26 @@ nav a:hover,
 .detailBtn {
   width: 100%;
   min-height: 48px;
+  font-size: 13px;
 }
 
-/* PRODUCT MODAL */
+/* PRODUCT MODAL FIXED */
 .productModalOverlay {
   position: fixed;
   inset: 0;
-  z-index: 100000;
+  z-index: 999999;
   padding: clamp(16px, 4vw, 44px);
-  background: rgba(43, 41, 37, 0.42);
+  background: rgba(43, 41, 37, 0.55);
   backdrop-filter: blur(14px);
   display: flex;
   align-items: center;
   justify-content: center;
-  animation: modalOverlayFade 0.24s ease forwards;
 }
 
 .productModal {
   position: relative;
   width: min(1120px, 100%);
-  max-height: min(860px, 92vh);
+  max-height: 92vh;
   overflow: auto;
   border-radius: clamp(28px, 4vw, 46px);
   background:
@@ -555,19 +559,18 @@ nav a:hover,
   box-shadow: 0 38px 110px rgba(43, 41, 37, 0.32);
   display: grid;
   grid-template-columns: 0.95fr 1.05fr;
-  animation: modalEnter 0.28s ease forwards;
 }
 
 .modalCloseBtn {
   position: absolute;
   right: 22px;
   top: 22px;
-  z-index: 3;
+  z-index: 5;
   width: 44px;
   height: 44px;
   border: 1px solid var(--border);
   border-radius: 50%;
-  background: rgba(250, 248, 243, 0.86);
+  background: rgba(250, 248, 243, 0.92);
   color: var(--text);
   font-size: 28px;
   line-height: 1;
@@ -576,7 +579,6 @@ nav a:hover,
 }
 
 .modalCloseBtn:hover {
-  transform: rotate(90deg);
   background: var(--text);
   color: var(--surface);
 }
@@ -695,28 +697,6 @@ nav a:hover,
   min-width: 190px;
 }
 
-@keyframes modalOverlayFade {
-  from {
-    opacity: 0;
-  }
-
-  to {
-    opacity: 1;
-  }
-}
-
-@keyframes modalEnter {
-  from {
-    opacity: 0;
-    transform: translateY(18px) scale(0.98);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-  }
-}
-
 /* QUOTE */
 .quoteSection {
   background:
@@ -815,10 +795,6 @@ nav a:hover,
   font-weight: 700;
 }
 
-.removeBtn:hover {
-  color: var(--text);
-}
-
 .quoteForm {
   display: grid;
   gap: 14px;
@@ -834,17 +810,6 @@ nav a:hover,
   color: var(--text);
   font-size: 16px;
   outline: none;
-}
-
-.quoteForm input::placeholder,
-.quoteForm textarea::placeholder {
-  color: rgba(43, 41, 37, 0.45);
-}
-
-.quoteForm input:focus,
-.quoteForm textarea:focus {
-  border-color: var(--stone);
-  box-shadow: 0 0 0 4px rgba(138, 122, 99, 0.1);
 }
 
 .quoteForm textarea {
@@ -869,7 +834,7 @@ nav a:hover,
   align-items: center;
 }
 
-/* MATERIALS SECTION */
+/* MATERIALS */
 .materialsSection {
   background:
     radial-gradient(circle at top right, rgba(184, 165, 138, 0.18), transparent 32%),
@@ -1066,7 +1031,7 @@ nav a:hover,
   box-shadow: 0 16px 34px rgba(78, 67, 51, 0.18);
 }
 
-/* INTRO ANIMATION */
+/* ANIMATION */
 body::before {
   content: "";
   position: fixed;
@@ -1088,7 +1053,7 @@ body::before {
   background-size: 260% 100%, 100% 100%, 100% 100%;
   background-position: 120% 0, center, center;
   pointer-events: none;
-  animation: birkinIntroOverlay 3s ease forwards;
+  animation: birkinIntroOverlay 2.2s ease forwards;
 }
 
 body::after {
@@ -1106,7 +1071,7 @@ body::after {
   background-size: contain;
   pointer-events: none;
   filter: drop-shadow(0 22px 45px rgba(78, 67, 51, 0.14));
-  animation: birkinIntroLogo 3s ease forwards;
+  animation: birkinIntroLogo 2.2s ease forwards;
 }
 
 @keyframes birkinIntroOverlay {
@@ -1115,7 +1080,7 @@ body::after {
     background-position: 120% 0, center, center;
   }
 
-  55% {
+  70% {
     opacity: 1;
     background-position: -20% 0, center, center;
   }
@@ -1172,7 +1137,7 @@ body::after {
   }
 }
 
-/* LARGE TABLET */
+/* RESPONSIVE */
 @media (max-width: 1200px) {
   .navbar {
     grid-template-columns: 1fr;
@@ -1233,7 +1198,6 @@ body::after {
   }
 }
 
-/* TABLET */
 @media (max-width: 900px) {
   nav {
     gap: 12px;
@@ -1245,10 +1209,6 @@ body::after {
 
   .siteLogo {
     width: 210px;
-  }
-
-  .hero h1 {
-    max-width: 760px;
   }
 
   .heroStats {
@@ -1265,7 +1225,6 @@ body::after {
   }
 }
 
-/* MOBILE */
 @media (max-width: 700px) {
   .navbar {
     position: relative;
@@ -1365,16 +1324,6 @@ body::after {
     min-height: 46px;
   }
 
-  .heroStats {
-    margin-top: 28px;
-    gap: 10px;
-  }
-
-  .heroStats div {
-    padding: 16px;
-    border-radius: 18px;
-  }
-
   .editorialFrame {
     min-height: 360px;
     border-radius: 30px;
@@ -1393,17 +1342,6 @@ body::after {
     bottom: 7%;
   }
 
-  .visualCircle {
-    width: 240px;
-    height: 240px;
-    right: -90px;
-    top: 78px;
-  }
-
-  .visualLine {
-    bottom: 96px;
-  }
-
   .section {
     padding: 58px 16px;
   }
@@ -1412,10 +1350,6 @@ body::after {
   .categoryHeader h2 {
     font-size: clamp(32px, 10vw, 42px);
     letter-spacing: -1.2px;
-  }
-
-  .splitSection {
-    gap: 24px;
   }
 
   .categoryGrid {
@@ -1432,10 +1366,6 @@ body::after {
 
   .categoryCard strong {
     font-size: 19px;
-  }
-
-  .categoryCard span {
-    font-size: 15px;
   }
 
   .modelGrid {
@@ -1468,16 +1398,8 @@ body::after {
     font-size: 21px;
   }
 
-  .modelBody p {
-    font-size: 14px;
-  }
-
   .modelActions {
     grid-template-columns: 1fr;
-  }
-
-  .quoteLayout {
-    gap: 18px;
   }
 
   .quoteBox,
@@ -1493,83 +1415,28 @@ body::after {
     border-radius: 22px;
   }
 
-  .qtyControls {
-    width: fit-content;
-  }
-
-  .removeBtn {
-    width: fit-content;
-  }
-
-  .quoteForm input,
-  .quoteForm textarea {
-    font-size: 15px;
-    padding: 14px;
-    border-radius: 16px;
-  }
-
-  .whatsappQuoteBtn {
-    width: 100%;
-    min-height: 48px;
-    text-align: center;
-  }
-
   .profileSection {
     margin: 58px 16px;
     padding: 24px;
     border-radius: 28px;
   }
 
-  .materialsGrid {
-    grid-template-columns: 1fr;
-    gap: 14px;
-  }
-
-  .materialCard {
-    min-height: 210px;
-    padding: 22px;
-    border-radius: 26px;
-  }
-
-  .materialCard span {
-    font-size: 28px;
-  }
-
-  .materialCard h3 {
-    font-size: 20px;
-    margin-top: 22px;
-  }
-
-  .processGrid {
-    grid-template-columns: 1fr;
-  }
-
-  .processItem {
-    min-height: 110px;
-  }
-
+  .materialsGrid,
+  .processGrid,
   .faqGrid {
     grid-template-columns: 1fr;
     gap: 14px;
   }
 
+  .materialCard,
   .faqCard {
     min-height: auto;
     padding: 22px;
     border-radius: 26px;
   }
 
-  .faqCard span {
-    font-size: 24px;
-    margin-bottom: 18px;
-  }
-
-  .faqCard h3 {
-    font-size: 20px;
-  }
-
-  .faqCard p {
-    font-size: 14px;
+  .processItem {
+    min-height: 110px;
   }
 
   .contactSection {
@@ -1581,23 +1448,8 @@ body::after {
     border-radius: 28px;
   }
 
-  .contactCard span {
-    font-size: 16px;
-  }
-
   .footer {
     padding: 48px 16px 26px;
-  }
-
-  .footerLinks {
-    gap: 10px;
-  }
-
-  .footerLinks a {
-    padding: 8px 10px;
-    border: 1px solid var(--border);
-    border-radius: 999px;
-    background: rgba(255, 255, 255, 0.35);
   }
 
   .footerBottom {
@@ -1646,30 +1498,8 @@ body::after {
     padding: 24px 18px 22px;
   }
 
-  .modalCode {
-    font-size: 10px;
-    letter-spacing: 2.2px;
-  }
-
   .modalContentArea h2 {
     font-size: 30px;
-  }
-
-  .modalDesc {
-    font-size: 15px;
-  }
-
-  .modalOptions {
-    padding: 18px;
-    border-radius: 22px;
-  }
-
-  .modalOptions h3 {
-    font-size: 18px;
-  }
-
-  .modalOptions li {
-    font-size: 14px;
   }
 
   .modalActions {
@@ -1682,42 +1512,7 @@ body::after {
   }
 }
 
-/* SMALL MOBILE */
-@media (max-width: 420px) {
-  .siteLogo {
-    width: 168px;
-  }
-
-  .hero {
-    padding-top: 36px;
-  }
-
-  .hero h1 {
-    font-size: 36px;
-  }
-
-  .editorialFrame {
-    min-height: 320px;
-  }
-
-  .modelImageWrap {
-    height: 235px;
-  }
-
-  .categoryCard {
-    min-height: 88px;
-  }
-
-  .navBtn {
-    font-size: 13px;
-  }
-
-  .langBtn {
-    font-size: 12px;
-  }
-}
-
-/* ARABIC RTL */
+/* RTL */
 main[dir="rtl"] .heroContent,
 main[dir="rtl"] .section,
 main[dir="rtl"] .footer,
@@ -1729,14 +1524,7 @@ main[dir="rtl"] .modalContentArea {
 }
 
 main[dir="rtl"] .heroButtons,
-main[dir="rtl"] .heroStats {
-  direction: rtl;
-}
-
-main[dir="rtl"] .categoryCard {
-  align-items: flex-start;
-}
-
+main[dir="rtl"] .heroStats,
 main[dir="rtl"] nav,
 main[dir="rtl"] .navActions {
   direction: rtl;
@@ -1754,13 +1542,8 @@ main[dir="rtl"] .modalOptions li::before {
 
 @media (prefers-reduced-motion: reduce) {
   body::before,
-  body::after {
-    animation-duration: 1s;
-  }
-
-  .heroProduct,
-  .productModalOverlay,
-  .productModal {
+  body::after,
+  .heroProduct {
     animation: none;
   }
 
