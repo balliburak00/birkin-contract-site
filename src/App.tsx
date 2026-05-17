@@ -293,6 +293,7 @@ const content = {
   en: {
     nav: ["About", "Products", "Quote List", "Profile", "Materials", "Process", "FAQ", "Contact"],
     quote: "Request a Quote",
+    clearList: "Clear List",
     heroKicker: "Contract Furniture / Custom-Made Production",
     heroTitle: "Furniture shaped around your project.",
     heroText:
@@ -411,6 +412,7 @@ const content = {
   tr: {
     nav: ["Hakkımızda", "Ürünler", "Teklif Listesi", "Profil", "Malzemeler", "Süreç", "SSS", "İletişim"],
     quote: "Teklif Al",
+    clearList: "Listeyi Temizle",
     heroKicker: "Contract Mobilya / Özel Üretim",
     heroTitle: "Projenize göre şekillenen mobilya çözümleri.",
     heroText:
@@ -527,6 +529,7 @@ const content = {
   ar: {
     nav: ["من نحن", "المنتجات", "قائمة العرض", "الملف", "المواد", "العملية", "الأسئلة", "اتصال"],
     quote: "طلب عرض سعر",
+    clearList: "مسح القائمة",
     heroKicker: "أثاث تعاقدي / إنتاج مخصص",
     heroTitle: "حلول أثاث تتشكل حسب مشروعك.",
     heroText: "توريد أثاث تعاقدي مخصص من تركيا للفنادق والمطاعم والفلل ومشاريع الضيافة والمساحات المعمارية.",
@@ -629,6 +632,7 @@ const content = {
   ru: {
     nav: ["О нас", "Продукты", "Запрос", "Профиль", "Материалы", "Процесс", "FAQ", "Контакты"],
     quote: "Запросить предложение",
+    clearList: "Очистить список",
     heroKicker: "Contract Furniture / Индивидуальное производство",
     heroTitle: "Мебельные решения, созданные вокруг вашего проекта.",
     heroText: "Поставка custom-made contract furniture из Турции для отелей, ресторанов, вилл, hospitality и архитектурных проектов.",
@@ -889,6 +893,11 @@ export default function App() {
 
   const removeFromCart = (name: string) => {
     setCart((current) => current.filter((item) => item.name !== name))
+  }
+
+  const clearCart = () => {
+    setCart([])
+    localStorage.removeItem("birkin-quote-cart")
   }
 
   const whatsappQuoteLink = useMemo(() => {
@@ -1338,36 +1347,48 @@ ${quoteInfo.notes}`
             {cart.length === 0 ? (
               <p className="emptyText">{t.empty}</p>
             ) : (
-              <div className="quoteItems">
-                {cart.map((item) => (
-                  <div className="quoteItem" key={item.name}>
-                    <div>
-                      <small>
-                        {item.code} / {t.categoryLabels[item.category]}
-                      </small>
-                      <strong>{item.name}</strong>
-                    </div>
+              <>
+                <div style={{ display: "flex", justifyContent: "flex-end", marginBottom: "16px" }}>
+                  <button
+                    type="button"
+                    className="removeBtn"
+                    onClick={clearCart}
+                  >
+                    {t.clearList}
+                  </button>
+                </div>
 
-                    <div className="qtyControls">
-                      <button type="button" onClick={() => decreaseQty(item.name)}>
-                        -
-                      </button>
-                      <span>{item.qty}</span>
-                      <button type="button" onClick={() => increaseQty(item.name)}>
-                        +
+                <div className="quoteItems">
+                  {cart.map((item) => (
+                    <div className="quoteItem" key={item.name}>
+                      <div>
+                        <small>
+                          {item.code} / {t.categoryLabels[item.category]}
+                        </small>
+                        <strong>{item.name}</strong>
+                      </div>
+
+                      <div className="qtyControls">
+                        <button type="button" onClick={() => decreaseQty(item.name)}>
+                          -
+                        </button>
+                        <span>{item.qty}</span>
+                        <button type="button" onClick={() => increaseQty(item.name)}>
+                          +
+                        </button>
+                      </div>
+
+                      <button
+                        type="button"
+                        className="removeBtn"
+                        onClick={() => removeFromCart(item.name)}
+                      >
+                        {t.remove}
                       </button>
                     </div>
-
-                    <button
-                      type="button"
-                      className="removeBtn"
-                      onClick={() => removeFromCart(item.name)}
-                    >
-                      {t.remove}
-                    </button>
-                  </div>
-                ))}
-              </div>
+                  ))}
+                </div>
+              </>
             )}
           </div>
 
