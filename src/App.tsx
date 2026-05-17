@@ -328,6 +328,12 @@ const content = {
       ["Customization", "Dimensions, fabric, frame color, wood finish and comfort details can be adapted according to project requirements."],
       ["Export & Quality", "Export-suitable packaging and optional third-party pre-shipment inspection can be arranged upon request."],
     ],
+    productCtaKicker: "Project-Based Quotation",
+    productCtaTitle: "Interested in this model?",
+    productCtaText:
+      "Share your quantity, delivery location and project type with us. We can prepare a project-based quotation according to your material and production preferences.",
+    productCtaPoints: ["Quantity", "Delivery Location", "Project Type"],
+    productCtaButton: "Add This Model to Quote List",
     options: [
       "Custom dimensions according to project requirements",
       "Fabric, frame color and finish alternatives",
@@ -440,6 +446,12 @@ const content = {
       ["Özelleştirme", "Ölçü, kumaş, gövde rengi, ahşap yüzey ve konfor detayları proje ihtiyacına göre uyarlanabilir."],
       ["İhracat ve Kalite", "Talebe göre ihracata uygun ambalaj ve sevkiyat öncesi üçüncü taraf kalite kontrol organize edilebilir."],
     ],
+    productCtaKicker: "Proje Bazlı Teklif",
+    productCtaTitle: "Bu modelle ilgileniyor musunuz?",
+    productCtaText:
+      "Adet, teslimat lokasyonu ve proje tipinizi bizimle paylaşın. Malzeme ve üretim tercihlerinize göre proje bazlı özel teklif hazırlayabiliriz.",
+    productCtaPoints: ["Adet", "Teslimat Lokasyonu", "Proje Tipi"],
+    productCtaButton: "Bu Modeli Teklif Listesine Ekle",
     options: [
       "Proje ihtiyacına göre özel ölçü çalışması",
       "Kumaş, gövde rengi ve yüzey alternatifleri",
@@ -544,6 +556,12 @@ const content = {
       ["التخصيص", "يمكن تعديل المقاسات والأقمشة وألوان الهيكل وتشطيبات الخشب وتفاصيل الراحة حسب المشروع."],
       ["التصدير والجودة", "يمكن تنظيم تغليف مناسب للتصدير وفحص طرف ثالث قبل الشحن عند الطلب."],
     ],
+    productCtaKicker: "عرض سعر حسب المشروع",
+    productCtaTitle: "هل أنت مهتم بهذا النموذج؟",
+    productCtaText:
+      "شاركنا الكمية وموقع التسليم ونوع المشروع. يمكننا إعداد عرض سعر حسب المشروع وفقاً لاختيارات المواد والإنتاج.",
+    productCtaPoints: ["الكمية", "موقع التسليم", "نوع المشروع"],
+    productCtaButton: "إضافة هذا النموذج إلى قائمة العرض",
     options: ["مقاسات مخصصة حسب متطلبات المشروع", "بدائل الأقمشة وألوان الإطار والتشطيبات", "مراجعة عينة أو نموذج أولي لبعض المشاريع", "تغليف مناسب للتصدير عند الطلب", "فحص جودة اختياري من طرف ثالث قبل الشحن"],
     categoryLabels: {
       Chair: "كرسي",
@@ -640,6 +658,12 @@ const content = {
       ["Кастомизация", "Размеры, ткань, цвет каркаса, отделка дерева и комфорт могут быть адаптированы под проект."],
       ["Экспорт и качество", "Экспортная упаковка и независимая инспекция перед отгрузкой могут быть организованы по запросу."],
     ],
+    productCtaKicker: "Проектное предложение",
+    productCtaTitle: "Интересует эта модель?",
+    productCtaText:
+      "Поделитесь количеством, местом доставки и типом проекта. Мы можем подготовить проектное предложение с учетом материалов и производственных предпочтений.",
+    productCtaPoints: ["Количество", "Место доставки", "Тип проекта"],
+    productCtaButton: "Добавить модель в запрос",
     options: ["Индивидуальные размеры под требования проекта", "Варианты ткани, цвета каркаса и отделки", "Образец или прототип для отдельных проектов", "Экспортная упаковка по запросу", "Опциональная независимая инспекция перед отгрузкой"],
     categoryLabels: {
       Chair: "Стул",
@@ -1000,6 +1024,43 @@ ${quoteInfo.notes}`
                 <p>{text}</p>
               </div>
             ))}
+          </div>
+        </section>
+
+        <section className="section productCtaSection">
+          <div className="productCtaBox">
+            <div>
+              <span className="kicker">{t.productCtaKicker}</span>
+              <h2>{t.productCtaTitle}</h2>
+              <p>{t.productCtaText}</p>
+            </div>
+
+            <div className="productCtaSide">
+              <div className="productCtaPoints">
+                {t.productCtaPoints.map((point, index) => (
+                  <div className="productCtaPoint" key={point}>
+                    <span>{String(index + 1).padStart(2, "0")}</span>
+                    <strong>{point}</strong>
+                  </div>
+                ))}
+              </div>
+
+              <div className="productCtaActions">
+                <button
+                  type="button"
+                  className="primaryBtn"
+                  onClick={() => addToCart(activeProduct)}
+                >
+                  {cart.some((item) => item.name === activeProduct.name)
+                    ? `✓ ${t.added}`
+                    : t.productCtaButton}
+                </button>
+
+                <a href="/#quote-list" className="secondaryBtn" onClick={() => setCurrentPath("/")}>
+                  {t.quote}
+                </a>
+              </div>
+            </div>
           </div>
         </section>
 
