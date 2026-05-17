@@ -260,7 +260,7 @@ const content = {
     heroKicker: "Contract Furniture / Custom-Made Production",
     heroTitle: "Furniture shaped around your project.",
     heroText:
-      "Custom-made contract furniture solutions for hotels, restaurants, villas and architectural spaces.",
+      "Türkiye-based custom-made contract furniture supply for hotels, restaurants, villas, hospitality and architectural projects.",
     heroPrimary: "View Products",
     heroSecondary: "Download Profile",
     heroStats: [
@@ -271,7 +271,7 @@ const content = {
     aboutKicker: "About Birkin Contract",
     aboutTitle: "A project partner for architectural furniture needs.",
     aboutText:
-      "Birkin Contract provides project-based contract furniture solutions for hospitality and commercial interiors. We support architects, interior designers, procurement teams and investors with sourcing, custom-made production coordination and project follow-up.",
+      "Birkin Contract is a Türkiye-based custom-made contract furniture supplier for hotels, restaurants, villas, hospitality and architectural projects. We support architects, interior designers, procurement teams and investors with material selection, project-based production coordination, export packaging and quality control follow-up.",
     productKicker: "Products",
     productTitle: "Explore product sections.",
     productIntro:
@@ -353,7 +353,7 @@ const content = {
     heroKicker: "Contract Mobilya / Özel Üretim",
     heroTitle: "Projenize göre şekillenen mobilya çözümleri.",
     heroText:
-      "Otel, restoran, villa ve mimari projeler için özel üretim contract mobilya çözümleri.",
+      "Türkiye merkezli; otel, restoran, villa, hospitality ve mimari projeler için özel üretim contract mobilya tedariki.",
     heroPrimary: "Ürünleri İncele",
     heroSecondary: "Profili İndir",
     heroStats: [
@@ -364,7 +364,7 @@ const content = {
     aboutKicker: "Birkin Contract Hakkında",
     aboutTitle: "Mimari mobilya ihtiyaçları için proje çözüm partneri.",
     aboutText:
-      "Birkin Contract; hospitality ve ticari iç mekân projeleri için proje bazlı contract mobilya çözümleri sunar. Mimarlar, iç mimarlar, satın alma ekipleri ve yatırımcılar için tedarik, özel üretim koordinasyonu ve proje takibi sağlar.",
+      "Birkin Contract; otel, restoran, villa, hospitality ve mimari projeler için Türkiye merkezli özel üretim contract mobilya tedarikçisidir. Mimarlar, iç mimarlar, satın alma ekipleri ve yatırımcılar için malzeme seçimi, proje bazlı üretim koordinasyonu, ihracata uygun ambalaj ve kalite kontrol takibi sağlar.",
     productKicker: "Ürünler",
     productTitle: "Ürün bölümlerini inceleyin.",
     productIntro:
@@ -446,7 +446,7 @@ const content = {
     heroKicker: "أثاث تعاقدي / إنتاج مخصص",
     heroTitle: "حلول أثاث تتشكل حسب مشروعك.",
     heroText:
-      "حلول أثاث تعاقدي مخصصة للفنادق والمطاعم والفلل والمساحات المعمارية.",
+      "توريد أثاث تعاقدي مخصص من تركيا للفنادق والمطاعم والفلل ومشاريع الضيافة والمساحات المعمارية.",
     heroPrimary: "عرض المنتجات",
     heroSecondary: "تحميل الملف",
     heroStats: [
@@ -457,7 +457,7 @@ const content = {
     aboutKicker: "عن Birkin Contract",
     aboutTitle: "شريك مشاريع لاحتياجات الأثاث المعماري.",
     aboutText:
-      "تقدم Birkin Contract حلول أثاث تعاقدي قائمة على المشاريع لمساحات الضيافة والمساحات التجارية. ندعم المعماريين ومصممي الديكور وفرق المشتريات والمستثمرين في التوريد وتنسيق الإنتاج والمتابعة.",
+      "Birkin Contract هي مورد أثاث تعاقدي مخصص من تركيا للفنادق والمطاعم والفلل ومشاريع الضيافة والمساحات المعمارية. ندعم المعماريين ومصممي الديكور وفرق المشتريات والمستثمرين في اختيار المواد، تنسيق الإنتاج حسب المشروع، التغليف المناسب للتصدير ومتابعة الجودة.",
     productKicker: "المنتجات",
     productTitle: "استكشف أقسام المنتجات.",
     productIntro: "اختر قسم المنتج لعرض النماذج المتاحة لمشروعك.",
@@ -538,7 +538,7 @@ const content = {
     heroKicker: "Contract Furniture / Индивидуальное производство",
     heroTitle: "Мебельные решения, созданные вокруг вашего проекта.",
     heroText:
-      "Индивидуальные решения contract furniture для отелей, ресторанов, вилл и архитектурных пространств.",
+      "Поставка custom-made contract furniture из Турции для отелей, ресторанов, вилл, hospitality и архитектурных проектов.",
     heroPrimary: "Посмотреть продукты",
     heroSecondary: "Скачать профиль",
     heroStats: [
@@ -549,7 +549,7 @@ const content = {
     aboutKicker: "О Birkin Contract",
     aboutTitle: "Проектный партнер для архитектурной мебели.",
     aboutText:
-      "Birkin Contract предлагает проектные решения contract furniture для hospitality и коммерческих интерьеров. Мы поддерживаем архитекторов, дизайнеров, закупочные команды и инвесторов в подборе мебели, координации производства и сопровождении проекта.",
+      "Birkin Contract — поставщик custom-made contract furniture из Турции для отелей, ресторанов, вилл, hospitality и архитектурных проектов. Мы поддерживаем архитекторов, дизайнеров, закупочные команды и инвесторов в выборе материалов, проектной координации производства, экспортной упаковке и контроле качества.",
     productKicker: "Продукты",
     productTitle: "Изучите разделы продуктов.",
     productIntro:
