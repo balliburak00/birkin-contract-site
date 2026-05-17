@@ -652,7 +652,7 @@ nav a:hover,
   border: none;
 }
 
-/* PROFILE / PROCESS / CONTACT */
+/* PROFILE */
 .profileSection {
   margin: clamp(64px, 7vw, 96px) clamp(18px, 5vw, 72px);
   padding: clamp(30px, 4vw, 54px);
@@ -662,6 +662,56 @@ nav a:hover,
   align-items: center;
 }
 
+/* MATERIALS SECTION */
+.materialsSection {
+  background:
+    radial-gradient(circle at top right, rgba(184, 165, 138, 0.18), transparent 32%),
+    rgba(250, 248, 243, 0.62);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+.materialsGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+  margin-top: 36px;
+}
+
+.materialCard {
+  min-height: 260px;
+  padding: 26px;
+  border-radius: 30px;
+  background: rgba(255, 255, 255, 0.68);
+  border: 1px solid var(--border);
+  box-shadow: 0 20px 60px rgba(78, 67, 51, 0.08);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.materialCard span {
+  color: rgba(138, 122, 99, 0.38);
+  font-size: 34px;
+  font-weight: 800;
+  letter-spacing: -1px;
+}
+
+.materialCard h3 {
+  margin: 28px 0 12px;
+  color: var(--text);
+  font-size: 22px;
+  letter-spacing: -0.5px;
+}
+
+.materialCard p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 15px;
+  line-height: 1.65;
+}
+
+/* PROCESS / CONTACT */
 .processSection {
   background: var(--surface);
 }
@@ -894,6 +944,10 @@ body::after {
   }
 
   .modelGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .materialsGrid {
     grid-template-columns: repeat(2, 1fr);
   }
 
@@ -1189,6 +1243,26 @@ body::after {
     margin: 58px 16px;
     padding: 24px;
     border-radius: 28px;
+  }
+
+  .materialsGrid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .materialCard {
+    min-height: 210px;
+    padding: 22px;
+    border-radius: 26px;
+  }
+
+  .materialCard span {
+    font-size: 28px;
+  }
+
+  .materialCard h3 {
+    font-size: 20px;
+    margin-top: 22px;
   }
 
   .processGrid {
