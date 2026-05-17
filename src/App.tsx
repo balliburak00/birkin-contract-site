@@ -740,7 +740,18 @@ export default function App() {
   const [heroProductIndex, setHeroProductIndex] = useState(0)
   const [currentPath, setCurrentPath] = useState(window.location.pathname)
 
-  const [cart, setCart] = useState<CartItem[]>([])
+  const [cart, setCart] = useState<CartItem[]>(() => {
+    const savedCart = localStorage.getItem("birkin-quote-cart")
+
+    if (!savedCart) return []
+
+    try {
+      return JSON.parse(savedCart) as CartItem[]
+    } catch {
+      return []
+    }
+  })
+
   const [quoteInfo, setQuoteInfo] = useState({
     name: "",
     email: "",
@@ -750,6 +761,10 @@ export default function App() {
     deliveryLocation: "",
     notes: "",
   })
+
+  useEffect(() => {
+    localStorage.setItem("birkin-quote-cart", JSON.stringify(cart))
+  }, [cart])
 
   useEffect(() => {
     const interval = window.setInterval(() => {
@@ -822,6 +837,18 @@ export default function App() {
   const goTo = (path: string) => {
     window.history.pushState({}, "", path)
     setCurrentPath(window.location.pathname)
+
+    const hash = path.includes("#") ? path.split("#")[1] : ""
+
+    if (hash) {
+      setTimeout(() => {
+        const target = document.getElementById(hash)
+        target?.scrollIntoView({ behavior: "smooth", block: "start" })
+      }, 120)
+
+      return
+    }
+
     window.scrollTo({ top: 0, behavior: "smooth" })
   }
 
@@ -901,14 +928,14 @@ ${quoteInfo.notes}`
       </button>
 
       <nav>
-        <a href="/#about" onClick={() => setCurrentPath("/")}>{t.nav[0]}</a>
-        <a href="/#products" onClick={() => setCurrentPath("/")}>{t.nav[1]}</a>
-        <a href="/#quote-list" onClick={() => setCurrentPath("/")}>{t.nav[2]}</a>
-        <a href="/#profile" onClick={() => setCurrentPath("/")}>{t.nav[3]}</a>
-        <a href="/#materials" onClick={() => setCurrentPath("/")}>{t.nav[4]}</a>
-        <a href="/#process" onClick={() => setCurrentPath("/")}>{t.nav[5]}</a>
-        <a href="/#faq" onClick={() => setCurrentPath("/")}>{t.nav[6]}</a>
-        <a href="/#contact" onClick={() => setCurrentPath("/")}>{t.nav[7]}</a>
+        <a href="/#about" onClick={(e) => { e.preventDefault(); goTo("/#about") }}>{t.nav[0]}</a>
+        <a href="/#products" onClick={(e) => { e.preventDefault(); goTo("/#products") }}>{t.nav[1]}</a>
+        <a href="/#quote-list" onClick={(e) => { e.preventDefault(); goTo("/#quote-list") }}>{t.nav[2]}</a>
+        <a href="/#profile" onClick={(e) => { e.preventDefault(); goTo("/#profile") }}>{t.nav[3]}</a>
+        <a href="/#materials" onClick={(e) => { e.preventDefault(); goTo("/#materials") }}>{t.nav[4]}</a>
+        <a href="/#process" onClick={(e) => { e.preventDefault(); goTo("/#process") }}>{t.nav[5]}</a>
+        <a href="/#faq" onClick={(e) => { e.preventDefault(); goTo("/#faq") }}>{t.nav[6]}</a>
+        <a href="/#contact" onClick={(e) => { e.preventDefault(); goTo("/#contact") }}>{t.nav[7]}</a>
       </nav>
 
       <div className="navActions">
@@ -923,9 +950,13 @@ ${quoteInfo.notes}`
           </button>
         ))}
 
-        <a href="/#quote-list" className="navBtn" onClick={() => setCurrentPath("/")}>
+        <button
+          type="button"
+          className="navBtn"
+          onClick={() => goTo("/#quote-list")}
+        >
           {t.quote}
-        </a>
+        </button>
       </div>
     </header>
   )
@@ -1002,9 +1033,13 @@ ${quoteInfo.notes}`
                   : t.addToQuote}
               </button>
 
-              <a href="/#quote-list" className="secondaryBtn" onClick={() => setCurrentPath("/")}>
+              <button
+                type="button"
+                className="secondaryBtn"
+                onClick={() => goTo("/#quote-list")}
+              >
                 {t.quote}
-              </a>
+              </button>
             </div>
           </div>
         </section>
@@ -1056,9 +1091,13 @@ ${quoteInfo.notes}`
                     : t.productCtaButton}
                 </button>
 
-                <a href="/#quote-list" className="secondaryBtn" onClick={() => setCurrentPath("/")}>
+                <button
+                  type="button"
+                  className="secondaryBtn"
+                  onClick={() => goTo("/#quote-list")}
+                >
                   {t.quote}
-                </a>
+                </button>
               </div>
             </div>
           </div>
