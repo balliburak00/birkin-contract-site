@@ -57,6 +57,14 @@ const products: Product[] = [
     desc: "A soft curved chair designed for hospitality, restaurant and architectural interiors.",
     image: "/product-chair-birkin-arc-c01.png",
   },
+  {
+    code: "C02",
+    name: "BIRKIN ARC C01 PAD",
+    category: "Chair",
+    usage: "Restaurant / Cafe / Hotel Dining / Villa",
+    desc: "A cushioned version of the BIRKIN ARC chair, designed for longer seating comfort in hospitality and dining projects.",
+    image: "/product-chair-birkin-arc-c01-pad.png",
+  },
 ]
 
 const content = {
@@ -506,8 +514,8 @@ ${quoteInfo.notes}`
             <span className="frameLabel">BIRKIN / PRODUCTS</span>
 
             <img
-              src="/product-chair-birkin-arc-c01.png"
-              alt="BIRKIN ARC C01"
+              src="/product-chair-birkin-arc-c01-pad.png"
+              alt="BIRKIN ARC C01 PAD"
               className="heroProduct mainProduct"
             />
 
