@@ -10,6 +10,7 @@ type ProductSection =
   | "Coffee Table"
   | "Bar Stool"
   | "Lounge"
+  | "Ottoman"
   | "Outdoor"
 
 type Product = {
@@ -45,6 +46,7 @@ const productSections: ProductSection[] = [
   "Coffee Table",
   "Bar Stool",
   "Lounge",
+  "Ottoman",
   "Outdoor",
 ]
 
@@ -82,12 +84,44 @@ const products: Product[] = [
     image: "/product-chair-birkin-loop-c03-pad.png",
   },
   {
+    code: "A01",
+    name: "BIRKIN HAVEN A01",
+    category: "Armchair",
+    usage: "Lobby / Lounge / Villa / Hotel Room",
+    desc: "A warm wooden armchair with soft upholstered cushions, designed for lounge, villa and hospitality interiors.",
+    image: "/product-armchair-birkin-haven-a01.png",
+  },
+  {
     code: "DT01",
     name: "BIRKIN PURE DT01",
     category: "Dining Table",
     usage: "Restaurant / Cafe / Hotel Dining / Villa",
     desc: "A clean round dining table with a central pedestal base, designed for refined hospitality and dining spaces.",
     image: "/product-dining-table-birkin-pure-dt01.png",
+  },
+  {
+    code: "DT02",
+    name: "BIRKIN AXIS DT02",
+    category: "Dining Table",
+    usage: "Restaurant / Cafe / Hotel Dining / Bistro",
+    desc: "A square dining table with a wooden top and central metal pedestal base, designed for restaurants, cafes and hospitality dining areas.",
+    image: "/product-dining-table-birkin-axis-dt02.png",
+  },
+  {
+    code: "L02",
+    name: "BIRKIN HAVEN L02",
+    category: "Lounge",
+    usage: "Lobby / Lounge / Villa / Hotel Room",
+    desc: "A two-seat lounge model with a warm wooden frame and soft upholstered cushions, designed for hospitality lounges, villas and hotel interiors.",
+    image: "/product-lounge-birkin-haven-l02.png",
+  },
+  {
+    code: "O01",
+    name: "BIRKIN HAVEN O01",
+    category: "Ottoman",
+    usage: "Lobby / Lounge / Villa / Hotel Room",
+    desc: "A soft upholstered ottoman with a warm wooden frame, designed to complement lounge seating in hospitality and residential interiors.",
+    image: "/product-ottoman-birkin-haven-o01.png",
   },
 ]
 
