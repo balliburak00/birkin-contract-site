@@ -25,6 +25,7 @@ type CartItem = {
   code: string
   name: string
   category: string
+  image: string
   qty: number
 }
 
@@ -212,8 +213,7 @@ const content = {
       "تقدم Birkin Contract حلول أثاث تعاقدي قائمة على المشاريع لمساحات الضيافة والمساحات التجارية. ندعم المعماريين ومصممي الديكور وفرق المشتريات والمستثمرين في التوريد وتنسيق الإنتاج والمتابعة.",
     productKicker: "المنتجات",
     productTitle: "استكشف أقسام المنتجات.",
-    productIntro:
-      "اختر قسم المنتج لعرض النماذج المتاحة لمشروعك.",
+    productIntro: "اختر قسم المنتج لعرض النماذج المتاحة لمشروعك.",
     allProducts: "كل المنتجات",
     emptyCategory: "لم تتم إضافة منتجات إلى هذا القسم بعد.",
     addToQuote: "إضافة إلى قائمة العرض",
@@ -380,6 +380,7 @@ export default function App() {
           code: product.code,
           name: product.name,
           category: product.category,
+          image: product.image,
           qty: 1,
         },
       ]
@@ -625,11 +626,17 @@ ${quoteInfo.notes}`
               <div className="quoteItems">
                 {cart.map((item) => (
                   <div className="quoteItem" key={item.name}>
-                    <div>
-                      <small>
-                        {item.code} / {item.category}
-                      </small>
-                      <strong>{item.name}</strong>
+                    <div className="quoteProductInfo">
+                      <div className="quoteProductImage">
+                        <img src={item.image} alt={item.name} />
+                      </div>
+
+                      <div>
+                        <small>
+                          {item.code} / {item.category}
+                        </small>
+                        <strong>{item.name}</strong>
+                      </div>
                     </div>
 
                     <div className="qtyControls">
