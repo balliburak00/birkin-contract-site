@@ -3,11 +3,19 @@ import "./index.css"
 
 type Lang = "en" | "tr" | "ar" | "ru"
 
+type ProductSection =
+  | "Chair"
+  | "Armchair"
+  | "Dining Table"
+  | "Coffee Table"
+  | "Bar Stool"
+  | "Lounge"
+  | "Outdoor"
+
 type Product = {
   code: string
   name: string
-  category: string
-  section: string
+  category: ProductSection
   usage: string
   desc: string
   image: string
@@ -30,12 +38,21 @@ function BirkinLogo() {
   )
 }
 
+const productSections: ProductSection[] = [
+  "Chair",
+  "Armchair",
+  "Dining Table",
+  "Coffee Table",
+  "Bar Stool",
+  "Lounge",
+  "Outdoor",
+]
+
 const products: Product[] = [
   {
-    code: "01",
+    code: "C01",
     name: "BIRKIN ARC C01",
     category: "Chair",
-    section: "Chairs",
     usage: "Restaurant / Cafe / Hotel Dining / Villa",
     desc: "A soft curved chair designed for hospitality, restaurant and architectural interiors.",
     image: "/product-chair-birkin-arc-c01.png",
@@ -62,9 +79,11 @@ const content = {
     aboutText:
       "Birkin Contract provides project-based contract furniture solutions for hospitality and commercial interiors. We support architects, interior designers, procurement teams and investors with sourcing, custom-made production coordination and project follow-up.",
     productKicker: "Products",
-    productTitle: "Selected product sections.",
-    productsKicker: "Product Section",
-    productsTitle: "Chairs",
+    productTitle: "Explore product sections.",
+    productIntro:
+      "Select a product section to view available models for your project.",
+    allProducts: "All Products",
+    emptyCategory: "No products added to this section yet.",
     addToQuote: "Add to Quote List",
     added: "Added",
     quoteKicker: "Quote List",
@@ -126,9 +145,11 @@ const content = {
     aboutText:
       "Birkin Contract; hospitality ve ticari iç mekân projeleri için proje bazlı contract mobilya çözümleri sunar. Mimarlar, iç mimarlar, satın alma ekipleri ve yatırımcılar için tedarik, özel üretim koordinasyonu ve proje takibi sağlar.",
     productKicker: "Ürünler",
-    productTitle: "Seçili ürün bölümleri.",
-    productsKicker: "Ürün Bölümü",
-    productsTitle: "Chairs",
+    productTitle: "Ürün bölümlerini inceleyin.",
+    productIntro:
+      "Projeniz için mevcut modelleri görmek üzere bir ürün bölümü seçin.",
+    allProducts: "Tüm Ürünler",
+    emptyCategory: "Bu bölüme henüz ürün eklenmedi.",
     addToQuote: "Teklif Listesine Ekle",
     added: "Eklendi",
     quoteKicker: "Teklif Listesi",
@@ -190,9 +211,11 @@ const content = {
     aboutText:
       "تقدم Birkin Contract حلول أثاث تعاقدي قائمة على المشاريع لمساحات الضيافة والمساحات التجارية. ندعم المعماريين ومصممي الديكور وفرق المشتريات والمستثمرين في التوريد وتنسيق الإنتاج والمتابعة.",
     productKicker: "المنتجات",
-    productTitle: "أقسام المنتجات المختارة.",
-    productsKicker: "قسم المنتج",
-    productsTitle: "Chairs",
+    productTitle: "استكشف أقسام المنتجات.",
+    productIntro:
+      "اختر قسم المنتج لعرض النماذج المتاحة لمشروعك.",
+    allProducts: "كل المنتجات",
+    emptyCategory: "لم تتم إضافة منتجات إلى هذا القسم بعد.",
     addToQuote: "إضافة إلى قائمة العرض",
     added: "تمت الإضافة",
     quoteKicker: "قائمة العرض",
@@ -254,9 +277,11 @@ const content = {
     aboutText:
       "Birkin Contract предлагает проектные решения contract furniture для hospitality и коммерческих интерьеров. Мы поддерживаем архитекторов, дизайнеров, закупочные команды и инвесторов в подборе мебели, координации производства и сопровождении проекта.",
     productKicker: "Продукты",
-    productTitle: "Выбранные разделы продуктов.",
-    productsKicker: "Раздел продукта",
-    productsTitle: "Chairs",
+    productTitle: "Изучите разделы продуктов.",
+    productIntro:
+      "Выберите раздел, чтобы увидеть доступные модели для вашего проекта.",
+    allProducts: "Все продукты",
+    emptyCategory: "В этот раздел пока не добавлены продукты.",
     addToQuote: "Добавить в запрос",
     added: "Добавлено",
     quoteKicker: "Список запроса",
@@ -316,6 +341,10 @@ export default function App() {
     return "en"
   })
 
+  const [selectedSection, setSelectedSection] = useState<ProductSection | "All">(
+    "All"
+  )
+
   const t = content[lang]
 
   const [cart, setCart] = useState<CartItem[]>([])
@@ -328,6 +357,11 @@ export default function App() {
     deliveryLocation: "",
     notes: "",
   })
+
+  const filteredProducts =
+    selectedSection === "All"
+      ? products
+      : products.filter((product) => product.category === selectedSection)
 
   const changeLanguage = (newLang: Lang) => {
     setLang(newLang)
@@ -499,46 +533,80 @@ ${quoteInfo.notes}`
         <div className="sectionHead">
           <span className="kicker">{t.productKicker}</span>
           <h2>{t.productTitle}</h2>
+          <p>{t.productIntro}</p>
+        </div>
+
+        <div className="categoryGrid">
+          <button
+            type="button"
+            className={
+              selectedSection === "All" ? "categoryCard active" : "categoryCard"
+            }
+            onClick={() => setSelectedSection("All")}
+          >
+            <span>00</span>
+            <strong>{t.allProducts}</strong>
+          </button>
+
+          {productSections.map((section, index) => (
+            <button
+              type="button"
+              key={section}
+              className={
+                selectedSection === section
+                  ? "categoryCard active"
+                  : "categoryCard"
+              }
+              onClick={() => setSelectedSection(section)}
+            >
+              <span>{String(index + 1).padStart(2, "0")}</span>
+              <strong>{section}</strong>
+            </button>
+          ))}
         </div>
 
         <div className="productCategoryBlock">
           <div className="categoryHeader">
-            <span>{t.productsKicker}</span>
-            <h2>{t.productsTitle}</h2>
+            <span>Selected Section</span>
+            <h2>{selectedSection === "All" ? t.allProducts : selectedSection}</h2>
           </div>
 
-          <div className="modelGrid">
-            {products.map((product) => {
-              const isAdded = cart.some((item) => item.name === product.name)
+          {filteredProducts.length === 0 ? (
+            <div className="emptyCategoryBox">{t.emptyCategory}</div>
+          ) : (
+            <div className="modelGrid">
+              {filteredProducts.map((product) => {
+                const isAdded = cart.some((item) => item.name === product.name)
 
-              return (
-                <article className="modelCard" key={product.name}>
-                  <div className="modelTop">
-                    <span>{product.code}</span>
-                    <small>{product.category}</small>
-                  </div>
+                return (
+                  <article className="modelCard" key={product.name}>
+                    <div className="modelTop">
+                      <span>{product.code}</span>
+                      <small>{product.category}</small>
+                    </div>
 
-                  <div className="modelImageWrap">
-                    <img src={product.image} alt={product.name} />
-                  </div>
+                    <div className="modelImageWrap">
+                      <img src={product.image} alt={product.name} />
+                    </div>
 
-                  <div className="modelBody">
-                    <p className="modelUsage">{product.usage}</p>
-                    <h3>{product.name}</h3>
-                    <p>{product.desc}</p>
+                    <div className="modelBody">
+                      <p className="modelUsage">{product.usage}</p>
+                      <h3>{product.name}</h3>
+                      <p>{product.desc}</p>
 
-                    <button
-                      type="button"
-                      onClick={() => addToCart(product)}
-                      className="modelBtn"
-                    >
-                      {isAdded ? `✓ ${t.added}` : t.addToQuote}
-                    </button>
-                  </div>
-                </article>
-              )
-            })}
-          </div>
+                      <button
+                        type="button"
+                        onClick={() => addToCart(product)}
+                        className="modelBtn"
+                      >
+                        {isAdded ? `✓ ${t.added}` : t.addToQuote}
+                      </button>
+                    </div>
+                  </article>
+                )
+              })}
+            </div>
+          )}
         </div>
       </section>
 
