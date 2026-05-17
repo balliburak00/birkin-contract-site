@@ -1,0 +1,28 @@
+{
+  "rewrites": [
+    {
+      "source": "/products/:path*",
+      "destination": "/"
+    },
+    {
+      "source": "/about",
+      "destination": "/"
+    },
+    {
+      "source": "/materials",
+      "destination": "/"
+    },
+    {
+      "source": "/process",
+      "destination": "/"
+    },
+    {
+      "source": "/faq",
+      "destination": "/"
+    },
+    {
+      "source": "/contact",
+      "destination": "/"
+    }
+  ]
+}
