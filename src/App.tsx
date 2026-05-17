@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react"
+import { useEffect, useMemo, useState } from "react"
 import "./index.css"
 
 type Lang = "en" | "tr" | "ar" | "ru"
@@ -376,6 +376,17 @@ export default function App() {
     "All"
   )
 
+  const [heroProductIndex, setHeroProductIndex] = useState(0)
+
+  useEffect(() => {
+    const interval = window.setInterval(() => {
+      setHeroProductIndex((current) => (current + 1) % products.length)
+    }, 2600)
+
+    return () => window.clearInterval(interval)
+  }, [])
+
+  const heroProduct = products[heroProductIndex]
   const t = content[lang]
 
   const [cart, setCart] = useState<CartItem[]>([])
@@ -538,8 +549,9 @@ ${quoteInfo.notes}`
             <span className="frameLabel">BIRKIN / PRODUCTS</span>
 
             <img
-              src="/product-chair-birkin-arc-c01-pad.png"
-              alt="BIRKIN ARC C01 PAD"
+              key={heroProduct.name}
+              src={heroProduct.image}
+              alt={heroProduct.name}
               className="heroProduct mainProduct"
             />
 
