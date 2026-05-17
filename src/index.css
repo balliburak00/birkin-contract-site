@@ -128,7 +128,8 @@ nav a:hover,
 .primaryBtn,
 .secondaryBtn,
 .modelBtn,
-.whatsappQuoteBtn {
+.whatsappQuoteBtn,
+.detailBtn {
   min-height: 48px;
   display: inline-flex;
   align-items: center;
@@ -148,7 +149,8 @@ nav a:hover,
   border: 1px solid var(--text);
 }
 
-.secondaryBtn {
+.secondaryBtn,
+.detailBtn {
   padding: 14px 24px;
   background: rgba(255, 255, 255, 0.42);
   color: var(--text);
@@ -158,7 +160,8 @@ nav a:hover,
 .primaryBtn:hover,
 .secondaryBtn:hover,
 .modelBtn:hover,
-.whatsappQuoteBtn:hover {
+.whatsappQuoteBtn:hover,
+.detailBtn:hover {
   transform: translateY(-2px);
 }
 
@@ -433,6 +436,10 @@ nav a:hover,
   min-width: 0;
 }
 
+.clickableModelCard {
+  cursor: pointer;
+}
+
 .modelCard:hover {
   transform: translateY(-8px);
   box-shadow: 0 30px 90px rgba(78, 67, 51, 0.15);
@@ -501,13 +508,213 @@ nav a:hover,
   line-height: 1.65;
 }
 
+.modelActions {
+  display: grid;
+  grid-template-columns: 0.8fr 1.2fr;
+  gap: 10px;
+  margin-top: 18px;
+}
+
 .modelBtn {
   width: 100%;
-  margin-top: 18px;
   padding: 14px 18px;
   background: var(--text);
   color: var(--surface);
   border: 1px solid var(--text);
+}
+
+.detailBtn {
+  width: 100%;
+  min-height: 48px;
+}
+
+/* PRODUCT MODAL */
+.productModalOverlay {
+  position: fixed;
+  inset: 0;
+  z-index: 100000;
+  padding: clamp(16px, 4vw, 44px);
+  background: rgba(43, 41, 37, 0.42);
+  backdrop-filter: blur(14px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: modalOverlayFade 0.24s ease forwards;
+}
+
+.productModal {
+  position: relative;
+  width: min(1120px, 100%);
+  max-height: min(860px, 92vh);
+  overflow: auto;
+  border-radius: clamp(28px, 4vw, 46px);
+  background:
+    radial-gradient(circle at top left, rgba(184, 165, 138, 0.18), transparent 36%),
+    linear-gradient(135deg, #ffffff 0%, #faf8f3 52%, #e8dfd2 100%);
+  border: 1px solid rgba(255, 255, 255, 0.65);
+  box-shadow: 0 38px 110px rgba(43, 41, 37, 0.32);
+  display: grid;
+  grid-template-columns: 0.95fr 1.05fr;
+  animation: modalEnter 0.28s ease forwards;
+}
+
+.modalCloseBtn {
+  position: absolute;
+  right: 22px;
+  top: 22px;
+  z-index: 3;
+  width: 44px;
+  height: 44px;
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  background: rgba(250, 248, 243, 0.86);
+  color: var(--text);
+  font-size: 28px;
+  line-height: 1;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.modalCloseBtn:hover {
+  transform: rotate(90deg);
+  background: var(--text);
+  color: var(--surface);
+}
+
+.modalImageArea {
+  min-height: 620px;
+  padding: 64px 34px 44px;
+  background:
+    radial-gradient(circle at center, rgba(184, 165, 138, 0.25), transparent 48%),
+    rgba(232, 223, 210, 0.35);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-right: 1px solid var(--border);
+}
+
+.modalImageArea img {
+  width: 100%;
+  height: 100%;
+  max-height: 540px;
+  object-fit: contain;
+  filter: drop-shadow(0 30px 50px rgba(78, 67, 51, 0.16));
+}
+
+.modalContentArea {
+  padding: clamp(32px, 4vw, 58px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.modalCode {
+  display: inline-block;
+  color: var(--stone);
+  text-transform: uppercase;
+  letter-spacing: 2.6px;
+  font-size: 12px;
+  font-weight: 800;
+  margin-bottom: 16px;
+}
+
+.modalContentArea h2 {
+  margin: 0 0 16px;
+  color: var(--text);
+  font-size: clamp(34px, 4vw, 58px);
+  line-height: 1;
+  letter-spacing: -1.6px;
+}
+
+.modalUsage {
+  margin: 0 0 18px;
+  color: var(--stone);
+  font-size: 14px !important;
+  font-weight: 800;
+  line-height: 1.6;
+}
+
+.modalDesc {
+  margin: 0;
+  color: var(--muted);
+  font-size: 17px;
+  line-height: 1.75;
+}
+
+.modalOptions {
+  margin-top: 28px;
+  padding: 24px;
+  border-radius: 26px;
+  background: rgba(255, 255, 255, 0.62);
+  border: 1px solid var(--border);
+}
+
+.modalOptions h3 {
+  margin: 0 0 16px;
+  color: var(--text);
+  font-size: 20px;
+  letter-spacing: -0.4px;
+}
+
+.modalOptions ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 10px;
+}
+
+.modalOptions li {
+  position: relative;
+  padding-left: 24px;
+  color: var(--muted);
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+.modalOptions li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 8px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--stone-soft);
+}
+
+.modalActions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 28px;
+}
+
+.modalActions .primaryBtn,
+.modalActions .secondaryBtn {
+  min-width: 190px;
+}
+
+@keyframes modalOverlayFade {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes modalEnter {
+  from {
+    opacity: 0;
+    transform: translateY(18px) scale(0.98);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
 }
 
 /* QUOTE */
@@ -943,7 +1150,6 @@ body::after {
   }
 }
 
-/* HERO PRODUCT ROTATION */
 @keyframes heroProductFade {
   0% {
     opacity: 0;
@@ -1013,6 +1219,17 @@ body::after {
   .quoteLayout,
   .contactSection {
     grid-template-columns: 1fr;
+  }
+
+  .productModal {
+    grid-template-columns: 1fr;
+    max-width: 760px;
+  }
+
+  .modalImageArea {
+    min-height: 420px;
+    border-right: none;
+    border-bottom: 1px solid var(--border);
   }
 }
 
@@ -1255,6 +1472,10 @@ body::after {
     font-size: 14px;
   }
 
+  .modelActions {
+    grid-template-columns: 1fr;
+  }
+
   .quoteLayout {
     gap: 18px;
   }
@@ -1390,6 +1611,71 @@ body::after {
     font-size: 13px;
   }
 
+  .productModalOverlay {
+    padding: 12px;
+    align-items: flex-end;
+  }
+
+  .productModal {
+    width: 100%;
+    max-height: 94vh;
+    border-radius: 28px 28px 18px 18px;
+    grid-template-columns: 1fr;
+  }
+
+  .modalCloseBtn {
+    right: 14px;
+    top: 14px;
+    width: 40px;
+    height: 40px;
+    font-size: 26px;
+  }
+
+  .modalImageArea {
+    min-height: 300px;
+    padding: 52px 18px 24px;
+    border-right: none;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .modalImageArea img {
+    max-height: 250px;
+  }
+
+  .modalContentArea {
+    padding: 24px 18px 22px;
+  }
+
+  .modalCode {
+    font-size: 10px;
+    letter-spacing: 2.2px;
+  }
+
+  .modalContentArea h2 {
+    font-size: 30px;
+  }
+
+  .modalDesc {
+    font-size: 15px;
+  }
+
+  .modalOptions {
+    padding: 18px;
+    border-radius: 22px;
+  }
+
+  .modalOptions h3 {
+    font-size: 18px;
+  }
+
+  .modalOptions li {
+    font-size: 14px;
+  }
+
+  .modalActions {
+    flex-direction: column;
+  }
+
   body::after {
     width: 82vw;
     height: 150px;
@@ -1437,7 +1723,8 @@ main[dir="rtl"] .section,
 main[dir="rtl"] .footer,
 main[dir="rtl"] .quoteForm input,
 main[dir="rtl"] .quoteForm textarea,
-main[dir="rtl"] .categoryCard {
+main[dir="rtl"] .categoryCard,
+main[dir="rtl"] .modalContentArea {
   text-align: right;
 }
 
@@ -1455,13 +1742,25 @@ main[dir="rtl"] .navActions {
   direction: rtl;
 }
 
+main[dir="rtl"] .modalOptions li {
+  padding-left: 0;
+  padding-right: 24px;
+}
+
+main[dir="rtl"] .modalOptions li::before {
+  left: auto;
+  right: 0;
+}
+
 @media (prefers-reduced-motion: reduce) {
   body::before,
   body::after {
     animation-duration: 1s;
   }
 
-  .heroProduct {
+  .heroProduct,
+  .productModalOverlay,
+  .productModal {
     animation: none;
   }
 
