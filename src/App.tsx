@@ -255,7 +255,7 @@ const products: Product[] = [
 
 const content = {
   en: {
-    nav: ["About", "Products", "Quote List", "Profile", "Process", "Contact"],
+    nav: ["About", "Products", "Quote List", "Profile", "Materials", "Process", "Contact"],
     quote: "Request a Quote",
     heroKicker: "Contract Furniture / Custom-Made Production",
     heroTitle: "Furniture shaped around your project.",
@@ -312,6 +312,16 @@ const content = {
     profileText:
       "Review our profile to understand our project-based approach, product scope and cooperation model.",
     profileButton: "Download Company Profile PDF",
+    materialsKicker: "Materials & Standards",
+    materialsTitle: "Project-based material and production standards.",
+    materialsText:
+      "We offer material options according to indoor, outdoor and hospitality usage needs. Our standard recommendations include iroko wood, outdoor-grade powder coated aluminum frames, high-density foam and UV-resistant outdoor fabric alternatives.",
+    materials: [
+      ["Wood Options", "Iroko, teak and project-based natural wood alternatives."],
+      ["Metal Finish", "Outdoor-grade electrostatic powder coating with matte and textured color options."],
+      ["Foam & Comfort", "High-density HR foam options depending on chair, armchair, lounge and ottoman models."],
+      ["Outdoor Fabrics", "UV-resistant, water-repellent and mildew-resistant outdoor fabric alternatives."],
+    ],
     processKicker: "Process",
     processTitle: "From brief to delivery.",
     process: [
@@ -332,7 +342,7 @@ const content = {
   },
 
   tr: {
-    nav: ["Hakkımızda", "Ürünler", "Teklif Listesi", "Profil", "Süreç", "İletişim"],
+    nav: ["Hakkımızda", "Ürünler", "Teklif Listesi", "Profil", "Malzemeler", "Süreç", "İletişim"],
     quote: "Teklif Al",
     heroKicker: "Contract Mobilya / Özel Üretim",
     heroTitle: "Projenize göre şekillenen mobilya çözümleri.",
@@ -389,6 +399,16 @@ const content = {
     profileText:
       "Proje bazlı çalışma yaklaşımımızı, ürün kapsamımızı ve iş birliği modelimizi inceleyebilirsiniz.",
     profileButton: "Company Profile PDF İndir",
+    materialsKicker: "Malzeme ve Standartlar",
+    materialsTitle: "Projeye göre malzeme ve üretim standartları.",
+    materialsText:
+      "İç mekân, dış mekân ve hospitality kullanım ihtiyaçlarına göre proje bazlı malzeme seçenekleri sunuyoruz. Standart önerilerimiz arasında iroko ağacı, dış mekân kullanıma uygun elektrostatik toz boyalı alüminyum gövde, yüksek yoğunluklu sünger ve UV dayanımlı outdoor kumaş alternatifleri yer alır.",
+    materials: [
+      ["Ahşap Seçenekleri", "Iroko, teak ve projeye özel doğal ahşap alternatifleri."],
+      ["Metal Yüzey", "Dış mekâna uygun elektrostatik toz boya; mat ve dokulu renk seçenekleri."],
+      ["Sünger ve Konfor", "Sandalye, berjer, lounge ve puf modellerine göre yüksek yoğunluklu HR sünger seçenekleri."],
+      ["Outdoor Kumaşlar", "UV dayanımlı, su itici ve küf dayanımlı dış mekân kumaş alternatifleri."],
+    ],
     processKicker: "Süreç",
     processTitle: "Brief aşamasından teslimata kadar.",
     process: [
@@ -409,7 +429,7 @@ const content = {
   },
 
   ar: {
-    nav: ["من نحن", "المنتجات", "قائمة العرض", "الملف", "العملية", "اتصال"],
+    nav: ["من نحن", "المنتجات", "قائمة العرض", "الملف", "المواد", "العملية", "اتصال"],
     quote: "طلب عرض سعر",
     heroKicker: "أثاث تعاقدي / إنتاج مخصص",
     heroTitle: "حلول أثاث تتشكل حسب مشروعك.",
@@ -465,6 +485,16 @@ const content = {
     profileText:
       "اطلع على ملفنا لفهم نهجنا في العمل حسب المشروع ونطاق المنتجات ونموذج التعاون.",
     profileButton: "تحميل ملف الشركة PDF",
+    materialsKicker: "المواد والمعايير",
+    materialsTitle: "معايير مواد وإنتاج حسب المشروع.",
+    materialsText:
+      "نقدم خيارات مواد حسب احتياجات الاستخدام الداخلي والخارجي ومشاريع الضيافة. تشمل توصياتنا القياسية خشب الإيروكو، إطارات ألمنيوم مطلية ببودرة مناسبة للخارج، إسفنج عالي الكثافة وخيارات أقمشة خارجية مقاومة للأشعة فوق البنفسجية.",
+    materials: [
+      ["خيارات الخشب", "إيروكو، تيك وبدائل خشب طبيعية حسب المشروع."],
+      ["تشطيب المعدن", "طلاء بودرة كهربائي مناسب للخارج مع خيارات ألوان مطفية وملمسية."],
+      ["الإسفنج والراحة", "خيارات إسفنج HR عالي الكثافة حسب موديلات الكراسي واللاونج والبوف."],
+      ["أقمشة خارجية", "خيارات أقمشة مقاومة للأشعة فوق البنفسجية وطاردة للماء ومقاومة للعفن."],
+    ],
     processKicker: "العملية",
     processTitle: "من المتطلبات إلى التسليم.",
     process: [
@@ -485,7 +515,7 @@ const content = {
   },
 
   ru: {
-    nav: ["О нас", "Продукты", "Запрос", "Профиль", "Процесс", "Контакты"],
+    nav: ["О нас", "Продукты", "Запрос", "Профиль", "Материалы", "Процесс", "Контакты"],
     quote: "Запросить предложение",
     heroKicker: "Contract Furniture / Индивидуальное производство",
     heroTitle: "Мебельные решения, созданные вокруг вашего проекта.",
@@ -542,6 +572,16 @@ const content = {
     profileText:
       "Ознакомьтесь с нашим проектным подходом, объемом продукции и моделью сотрудничества.",
     profileButton: "Скачать Company Profile PDF",
+    materialsKicker: "Материалы и стандарты",
+    materialsTitle: "Материалы и производственные стандарты под проект.",
+    materialsText:
+      "Мы предлагаем варианты материалов в зависимости от потребностей indoor, outdoor и hospitality проектов. В стандартных рекомендациях: древесина iroko, алюминиевые каркасы с outdoor powder coating, высокоплотная пена и UV-resistant outdoor ткани.",
+    materials: [
+      ["Варианты дерева", "Iroko, teak и проектные натуральные древесные альтернативы."],
+      ["Металлическая отделка", "Outdoor electrostatic powder coating с матовыми и текстурными цветами."],
+      ["Пена и комфорт", "Высокоплотная HR-пена в зависимости от моделей chair, armchair, lounge и ottoman."],
+      ["Outdoor ткани", "UV-resistant, water-repellent и mildew-resistant варианты наружных тканей."],
+    ],
     processKicker: "Процесс",
     processTitle: "От брифа до поставки.",
     process: [
@@ -698,8 +738,9 @@ ${quoteInfo.notes}`
           <a href="#products">{t.nav[1]}</a>
           <a href="#quote-list">{t.nav[2]}</a>
           <a href="#profile">{t.nav[3]}</a>
-          <a href="#process">{t.nav[4]}</a>
-          <a href="#contact">{t.nav[5]}</a>
+          <a href="#materials">{t.nav[4]}</a>
+          <a href="#process">{t.nav[5]}</a>
+          <a href="#contact">{t.nav[6]}</a>
         </nav>
 
         <div className="navActions">
@@ -997,6 +1038,24 @@ ${quoteInfo.notes}`
         </a>
       </section>
 
+      <section id="materials" className="section materialsSection">
+        <div className="sectionHead">
+          <span className="kicker">{t.materialsKicker}</span>
+          <h2>{t.materialsTitle}</h2>
+          <p>{t.materialsText}</p>
+        </div>
+
+        <div className="materialsGrid">
+          {t.materials.map(([title, text], index) => (
+            <div className="materialCard" key={title}>
+              <span>{String(index + 1).padStart(2, "0")}</span>
+              <h3>{title}</h3>
+              <p>{text}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
       <section id="process" className="section processSection">
         <span className="kicker">{t.processKicker}</span>
         <h2>{t.processTitle}</h2>
@@ -1036,8 +1095,9 @@ ${quoteInfo.notes}`
           <a href="#products">{t.nav[1]}</a>
           <a href="#quote-list">{t.nav[2]}</a>
           <a href="#profile">{t.nav[3]}</a>
-          <a href="#process">{t.nav[4]}</a>
-          <a href="#contact">{t.nav[5]}</a>
+          <a href="#materials">{t.nav[4]}</a>
+          <a href="#process">{t.nav[5]}</a>
+          <a href="#contact">{t.nav[6]}</a>
         </div>
 
         <div className="footerBottom">
