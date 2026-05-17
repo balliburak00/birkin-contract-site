@@ -42,6 +42,30 @@ function BirkinLogo() {
   )
 }
 
+function updateMetaTag(name: string, content: string) {
+  let tag = document.querySelector(`meta[name="${name}"]`)
+
+  if (!tag) {
+    tag = document.createElement("meta")
+    tag.setAttribute("name", name)
+    document.head.appendChild(tag)
+  }
+
+  tag.setAttribute("content", content)
+}
+
+function updateOgTag(property: string, content: string) {
+  let tag = document.querySelector(`meta[property="${property}"]`)
+
+  if (!tag) {
+    tag = document.createElement("meta")
+    tag.setAttribute("property", property)
+    document.head.appendChild(tag)
+  }
+
+  tag.setAttribute("content", content)
+}
+
 const productSections: ProductSection[] = [
   "Chair",
   "Armchair",
@@ -705,6 +729,41 @@ export default function App() {
     : ""
 
   const activeProduct = products.find((product) => product.slug === activeProductSlug)
+
+  useEffect(() => {
+    const baseTitle =
+      "Birkin Contract | Custom-Made Contract Furniture Supplier from Türkiye"
+
+    const baseDescription =
+      "Birkin Contract is a Türkiye-based custom-made contract furniture supplier for hotels, restaurants, villas, hospitality and architectural projects."
+
+    if (activeProduct) {
+      const title = `${activeProduct.name} | ${activeProduct.category} | Birkin Contract`
+      const description = `${activeProduct.name} is a ${activeProduct.category.toLowerCase()} designed for hotels, restaurants, villas, hospitality and architectural projects. Türkiye-based custom-made contract furniture supply by Birkin Contract.`
+      const productUrl = `https://birkin-contract-site.vercel.app/products/${activeProduct.slug}`
+      const productImage = `https://birkin-contract-site.vercel.app${activeProduct.image}`
+
+      document.title = title
+      updateMetaTag("description", description)
+      updateOgTag("og:title", title)
+      updateOgTag("og:description", description)
+      updateOgTag("og:url", productUrl)
+      updateOgTag("og:image", productImage)
+      updateMetaTag("twitter:title", title)
+      updateMetaTag("twitter:description", description)
+      updateMetaTag("twitter:image", productImage)
+    } else {
+      document.title = baseTitle
+      updateMetaTag("description", baseDescription)
+      updateOgTag("og:title", baseTitle)
+      updateOgTag("og:description", baseDescription)
+      updateOgTag("og:url", "https://birkin-contract-site.vercel.app/")
+      updateOgTag("og:image", "https://birkin-contract-site.vercel.app/birkin-logo.png")
+      updateMetaTag("twitter:title", "Birkin Contract | Contract Furniture Supplier from Türkiye")
+      updateMetaTag("twitter:description", "Project-based custom-made contract furniture solutions for hospitality and architectural spaces.")
+      updateMetaTag("twitter:image", "https://birkin-contract-site.vercel.app/birkin-logo.png")
+    }
+  }, [activeProduct])
 
   const filteredProducts =
     selectedSection === "All"
