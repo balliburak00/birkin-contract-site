@@ -27,7 +27,7 @@ type Product = {
 type CartItem = {
   code: string
   name: string
-  category: string
+  category: ProductSection
   qty: number
 }
 
@@ -144,6 +144,24 @@ const products: Product[] = [
     image: "/product-armchair-birkin-haven-a01.png",
   },
   {
+    code: "A02",
+    name: "BIRKIN COCOON A02",
+    category: "Armchair",
+    usage: {
+      en: "Lobby / Lounge / Villa / Hotel Room",
+      tr: "Lobi / Lounge / Villa / Otel Odası",
+      ar: "لوبي / لاونج / فيلا / غرفة فندقية",
+      ru: "Лобби / Лаунж / Вилла / Номер отеля",
+    },
+    desc: {
+      en: "A soft rounded armchair with a cocoon-like form, designed for comfortable lounge, lobby and hospitality interiors.",
+      tr: "Koza formuna yakın yumuşak ve yuvarlak hatlı berjer modeli; lounge, lobi ve hospitality iç mekânlarında konforlu oturum için tasarlanmıştır.",
+      ar: "كرسي بذراعين ناعم ذو شكل دائري يشبه الشرنقة، مصمم لمساحات اللاونج واللوبي والضيافة المريحة.",
+      ru: "Мягкое округлое кресло с формой cocoon, созданное для комфортных lounge, lobby и hospitality интерьеров.",
+    },
+    image: "/product-armchair-birkin-cocoon-a02.png",
+  },
+  {
     code: "DT01",
     name: "BIRKIN PURE DT01",
     category: "Dining Table",
@@ -214,6 +232,24 @@ const products: Product[] = [
       ru: "Мягкий пуф с теплым деревянным каркасом, созданный для дополнения lounge seating в hospitality и residential интерьерах.",
     },
     image: "/product-ottoman-birkin-haven-o01.png",
+  },
+  {
+    code: "O02",
+    name: "BIRKIN COCOON O02",
+    category: "Ottoman",
+    usage: {
+      en: "Lobby / Lounge / Villa / Hotel Room",
+      tr: "Lobi / Lounge / Villa / Otel Odası",
+      ar: "لوبي / لاونج / فيلا / غرفة فندقية",
+      ru: "Лобби / Лаунж / Вилла / Номер отеля",
+    },
+    desc: {
+      en: "A soft rounded ottoman designed to complement the BIRKIN COCOON armchair in lounge, lobby and hospitality interiors.",
+      tr: "BIRKIN COCOON berjer ile tamamlayıcı olarak kullanılabilecek, yumuşak yuvarlak hatlı puf modeli.",
+      ar: "عثماني ناعم ذو خطوط دائرية، مصمم ليكمل كرسي BIRKIN COCOON في مساحات اللاونج واللوبي والضيافة.",
+      ru: "Мягкий округлый пуф, созданный как дополнение к креслу BIRKIN COCOON для lounge, lobby и hospitality интерьеров.",
+    },
+    image: "/product-ottoman-birkin-cocoon-o02.png",
   },
 ]
 
@@ -591,7 +627,7 @@ export default function App() {
         {
           code: product.code,
           name: product.name,
-          category: t.categoryLabels[product.category],
+          category: product.category,
           qty: 1,
         },
       ]
@@ -627,7 +663,7 @@ export default function App() {
         : cart
             .map(
               (item) =>
-                `- ${item.code} / ${item.name} / ${item.category} x ${item.qty}`
+                `- ${item.code} / ${item.name} / ${t.categoryLabels[item.category]} x ${item.qty}`
             )
             .join("\n")
 
@@ -648,7 +684,7 @@ Notlar:
 ${quoteInfo.notes}`
 
     return `https://wa.me/905525000320?text=${encodeURIComponent(message)}`
-  }, [cart, quoteInfo])
+  }, [cart, quoteInfo, t])
 
   return (
     <main dir={lang === "ar" ? "rtl" : "ltr"}>
@@ -844,7 +880,7 @@ ${quoteInfo.notes}`
                   <div className="quoteItem" key={item.name}>
                     <div>
                       <small>
-                        {item.code} / {item.category}
+                        {item.code} / {t.categoryLabels[item.category]}
                       </small>
                       <strong>{item.name}</strong>
                     </div>
