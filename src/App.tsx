@@ -255,7 +255,7 @@ const products: Product[] = [
 
 const content = {
   en: {
-    nav: ["About", "Products", "Quote List", "Profile", "Materials", "Process", "Contact"],
+    nav: ["About", "Products", "Quote List", "Profile", "Materials", "Process", "FAQ", "Contact"],
     quote: "Request a Quote",
     heroKicker: "Contract Furniture / Custom-Made Production",
     heroTitle: "Furniture shaped around your project.",
@@ -338,6 +338,36 @@ const content = {
       "Quality Control",
       "Delivery",
     ],
+    faqKicker: "FAQ",
+    faqTitle: "Frequently asked questions.",
+    faqText:
+      "Key information about custom-made furniture production, export packaging, samples and project-based supply.",
+    faqs: [
+      [
+        "Do you produce custom-made furniture?",
+        "Yes. Birkin Contract works on project-based custom-made contract furniture supply for hotels, restaurants, villas and architectural projects.",
+      ],
+      [
+        "Can product dimensions, fabrics and finishes be customized?",
+        "Yes. Dimensions, frame colors, fabric alternatives, wood finishes and comfort details can be customized according to project requirements.",
+      ],
+      [
+        "Can you arrange samples before mass production?",
+        "For selected projects, sample production or prototype review can be arranged before bulk production.",
+      ],
+      [
+        "Do you support export packaging?",
+        "Yes. Products can be packed with export-suitable protective materials according to product type, destination and shipping method.",
+      ],
+      [
+        "Can third-party inspection be arranged?",
+        "Upon request, third-party pre-shipment inspection by internationally recognized inspection companies can be arranged at additional cost.",
+      ],
+      [
+        "Which project types do you work with?",
+        "We support hotels, restaurants, cafes, villas, residences, hospitality areas and architectural interiors.",
+      ],
+    ],
     contactKicker: "Contact",
     contactTitle: "Tell us about your project.",
     contactText:
@@ -348,7 +378,7 @@ const content = {
   },
 
   tr: {
-    nav: ["Hakkımızda", "Ürünler", "Teklif Listesi", "Profil", "Malzemeler", "Süreç", "İletişim"],
+    nav: ["Hakkımızda", "Ürünler", "Teklif Listesi", "Profil", "Malzemeler", "Süreç", "SSS", "İletişim"],
     quote: "Teklif Al",
     heroKicker: "Contract Mobilya / Özel Üretim",
     heroTitle: "Projenize göre şekillenen mobilya çözümleri.",
@@ -431,6 +461,36 @@ const content = {
       "Kalite Kontrol",
       "Teslimat",
     ],
+    faqKicker: "SSS",
+    faqTitle: "Sık sorulan sorular.",
+    faqText:
+      "Özel üretim mobilya, ihracata uygun ambalaj, numune ve proje bazlı tedarik süreci hakkında temel bilgiler.",
+    faqs: [
+      [
+        "Özel üretim mobilya yapıyor musunuz?",
+        "Evet. Birkin Contract; otel, restoran, villa ve mimari projeler için proje bazlı özel üretim contract mobilya tedariki sağlar.",
+      ],
+      [
+        "Ürün ölçüsü, kumaşı ve yüzeyi özelleştirilebilir mi?",
+        "Evet. Ölçüler, gövde renkleri, kumaş alternatifleri, ahşap yüzeyler ve konfor detayları proje ihtiyacına göre özelleştirilebilir.",
+      ],
+      [
+        "Seri üretim öncesi numune yapılabilir mi?",
+        "Seçili projelerde seri üretim öncesi numune üretimi veya prototip değerlendirmesi organize edilebilir.",
+      ],
+      [
+        "İhracata uygun ambalaj desteği var mı?",
+        "Evet. Ürünler; ürün tipi, teslimat ülkesi ve taşıma yöntemine göre ihracata uygun koruyucu ambalaj malzemeleriyle paketlenebilir.",
+      ],
+      [
+        "Üçüncü taraf kalite kontrol yapılabilir mi?",
+        "Talep edilmesi halinde, ek maliyet karşılığında uluslararası tanınan denetim firmalarıyla sevkiyat öncesi üçüncü taraf kalite kontrol organize edilebilir.",
+      ],
+      [
+        "Hangi projelerle çalışıyorsunuz?",
+        "Otel, restoran, kafe, villa, residence, hospitality alanları ve mimari iç mekân projeleriyle çalışıyoruz.",
+      ],
+    ],
     contactKicker: "İletişim",
     contactTitle: "Projenizi bize anlatın.",
     contactText:
@@ -441,7 +501,7 @@ const content = {
   },
 
   ar: {
-    nav: ["من نحن", "المنتجات", "قائمة العرض", "الملف", "المواد", "العملية", "اتصال"],
+    nav: ["من نحن", "المنتجات", "قائمة العرض", "الملف", "المواد", "العملية", "الأسئلة", "اتصال"],
     quote: "طلب عرض سعر",
     heroKicker: "أثاث تعاقدي / إنتاج مخصص",
     heroTitle: "حلول أثاث تتشكل حسب مشروعك.",
@@ -523,6 +583,36 @@ const content = {
       "مراقبة الجودة",
       "التسليم",
     ],
+    faqKicker: "الأسئلة الشائعة",
+    faqTitle: "أسئلة شائعة.",
+    faqText:
+      "معلومات أساسية حول الإنتاج المخصص، التغليف المناسب للتصدير، العينات والتوريد حسب المشروع.",
+    faqs: [
+      [
+        "هل تنتجون أثاثاً مخصصاً؟",
+        "نعم. تقدم Birkin Contract توريد أثاث تعاقدي مخصص حسب المشروع للفنادق والمطاعم والفلل والمساحات المعمارية.",
+      ],
+      [
+        "هل يمكن تخصيص المقاسات والأقمشة والتشطيبات؟",
+        "نعم. يمكن تخصيص المقاسات وألوان الإطارات وخيارات الأقمشة وتشطيبات الخشب وتفاصيل الراحة حسب متطلبات المشروع.",
+      ],
+      [
+        "هل يمكن إنتاج عينة قبل الإنتاج الكمي؟",
+        "في بعض المشاريع، يمكن تنظيم إنتاج عينة أو مراجعة نموذج أولي قبل الإنتاج الكمي.",
+      ],
+      [
+        "هل توفرون تغليفاً مناسباً للتصدير؟",
+        "نعم. يمكن تغليف المنتجات بمواد حماية مناسبة للتصدير حسب نوع المنتج ووجهة التسليم وطريقة الشحن.",
+      ],
+      [
+        "هل يمكن تنظيم فحص جودة من طرف ثالث؟",
+        "عند الطلب، يمكن تنظيم فحص طرف ثالث قبل الشحن بواسطة شركات تفتيش معترف بها دولياً بتكلفة إضافية.",
+      ],
+      [
+        "ما أنواع المشاريع التي تعملون معها؟",
+        "نحن ندعم الفنادق والمطاعم والمقاهي والفلل والمساكن ومناطق الضيافة والمساحات المعمارية الداخلية.",
+      ],
+    ],
     contactKicker: "اتصال",
     contactTitle: "أخبرنا عن مشروعك.",
     contactText:
@@ -533,7 +623,7 @@ const content = {
   },
 
   ru: {
-    nav: ["О нас", "Продукты", "Запрос", "Профиль", "Материалы", "Процесс", "Контакты"],
+    nav: ["О нас", "Продукты", "Запрос", "Профиль", "Материалы", "Процесс", "FAQ", "Контакты"],
     quote: "Запросить предложение",
     heroKicker: "Contract Furniture / Индивидуальное производство",
     heroTitle: "Мебельные решения, созданные вокруг вашего проекта.",
@@ -615,6 +705,36 @@ const content = {
       "Производство",
       "Контроль качества",
       "Поставка",
+    ],
+    faqKicker: "FAQ",
+    faqTitle: "Часто задаваемые вопросы.",
+    faqText:
+      "Основная информация о custom-made производстве, экспортной упаковке, образцах и проектной поставке.",
+    faqs: [
+      [
+        "Вы производите мебель на заказ?",
+        "Да. Birkin Contract работает с проектными поставками custom-made contract furniture для отелей, ресторанов, вилл и архитектурных проектов.",
+      ],
+      [
+        "Можно ли адаптировать размеры, ткани и отделки?",
+        "Да. Размеры, цвета каркаса, варианты тканей, отделка дерева и детали комфорта могут быть адаптированы под требования проекта.",
+      ],
+      [
+        "Можно ли изготовить образец перед массовым производством?",
+        "Для отдельных проектов может быть организовано производство образца или проверка прототипа перед массовым производством.",
+      ],
+      [
+        "Вы поддерживаете экспортную упаковку?",
+        "Да. Продукты могут быть упакованы с защитными материалами для экспорта в зависимости от типа продукта, страны доставки и способа перевозки.",
+      ],
+      [
+        "Можно ли организовать независимую инспекцию?",
+        "По запросу может быть организована независимая инспекция перед отгрузкой международно признанными инспекционными компаниями за дополнительную стоимость.",
+      ],
+      [
+        "С какими типами проектов вы работаете?",
+        "Мы поддерживаем отели, рестораны, кафе, виллы, резиденции, hospitality зоны и архитектурные интерьеры.",
+      ],
     ],
     contactKicker: "Контакты",
     contactTitle: "Расскажите нам о вашем проекте.",
@@ -764,7 +884,8 @@ ${quoteInfo.notes}`
           <a href="#profile">{t.nav[3]}</a>
           <a href="#materials">{t.nav[4]}</a>
           <a href="#process">{t.nav[5]}</a>
-          <a href="#contact">{t.nav[6]}</a>
+          <a href="#faq">{t.nav[6]}</a>
+          <a href="#contact">{t.nav[7]}</a>
         </nav>
 
         <div className="navActions">
@@ -1094,6 +1215,24 @@ ${quoteInfo.notes}`
         </div>
       </section>
 
+      <section id="faq" className="section faqSection">
+        <div className="sectionHead">
+          <span className="kicker">{t.faqKicker}</span>
+          <h2>{t.faqTitle}</h2>
+          <p>{t.faqText}</p>
+        </div>
+
+        <div className="faqGrid">
+          {t.faqs.map(([question, answer], index) => (
+            <div className="faqCard" key={question}>
+              <span>{String(index + 1).padStart(2, "0")}</span>
+              <h3>{question}</h3>
+              <p>{answer}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
       <section id="contact" className="section contactSection">
         <div>
           <span className="kicker">{t.contactKicker}</span>
@@ -1121,7 +1260,8 @@ ${quoteInfo.notes}`
           <a href="#profile">{t.nav[3]}</a>
           <a href="#materials">{t.nav[4]}</a>
           <a href="#process">{t.nav[5]}</a>
-          <a href="#contact">{t.nav[6]}</a>
+          <a href="#faq">{t.nav[6]}</a>
+          <a href="#contact">{t.nav[7]}</a>
         </div>
 
         <div className="footerBottom">
