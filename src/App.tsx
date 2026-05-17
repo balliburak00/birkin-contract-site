@@ -13,12 +13,14 @@ type ProductSection =
   | "Ottoman"
   | "Outdoor"
 
+type LocalizedText = Record<Lang, string>
+
 type Product = {
   code: string
   name: string
   category: ProductSection
-  usage: string
-  desc: string
+  usage: LocalizedText
+  desc: LocalizedText
   image: string
 }
 
@@ -55,72 +57,162 @@ const products: Product[] = [
     code: "C01",
     name: "BIRKIN ARC C01",
     category: "Chair",
-    usage: "Restaurant / Cafe / Hotel Dining / Villa",
-    desc: "A soft curved chair designed for hospitality, restaurant and architectural interiors.",
+    usage: {
+      en: "Restaurant / Cafe / Hotel Dining / Villa",
+      tr: "Restoran / Kafe / Otel Yemek Alanı / Villa",
+      ar: "مطعم / مقهى / منطقة طعام فندقية / فيلا",
+      ru: "Ресторан / Кафе / Обеденная зона отеля / Вилла",
+    },
+    desc: {
+      en: "A soft curved chair designed for hospitality, restaurant and architectural interiors.",
+      tr: "Hospitality, restoran ve mimari iç mekân projeleri için tasarlanmış yumuşak kavisli sandalye modeli.",
+      ar: "كرسي بخطوط منحنية ناعمة مصمم لمشاريع الضيافة والمطاعم والمساحات المعمارية الداخلية.",
+      ru: "Стул с мягкими изогнутыми линиями, разработанный для hospitality, ресторанов и архитектурных интерьеров.",
+    },
     image: "/product-chair-birkin-arc-c01.png",
   },
   {
     code: "C02",
     name: "BIRKIN ARC C01 PAD",
     category: "Chair",
-    usage: "Restaurant / Cafe / Hotel Dining / Villa",
-    desc: "A cushioned version of the BIRKIN ARC chair, designed for longer seating comfort in hospitality and dining projects.",
+    usage: {
+      en: "Restaurant / Cafe / Hotel Dining / Villa",
+      tr: "Restoran / Kafe / Otel Yemek Alanı / Villa",
+      ar: "مطعم / مقهى / منطقة طعام فندقية / فيلا",
+      ru: "Ресторан / Кафе / Обеденная зона отеля / Вилла",
+    },
+    desc: {
+      en: "A cushioned version of the BIRKIN ARC chair, designed for longer seating comfort in hospitality and dining projects.",
+      tr: "BIRKIN ARC sandalyesinin minderli versiyonu; hospitality ve yemek alanı projelerinde daha uzun süreli oturum konforu için tasarlanmıştır.",
+      ar: "نسخة مبطنة من كرسي BIRKIN ARC، مصممة لتوفير راحة جلوس أطول في مشاريع الضيافة ومناطق الطعام.",
+      ru: "Версия кресла BIRKIN ARC с мягкой подушкой, созданная для более длительного комфорта в dining и hospitality проектах.",
+    },
     image: "/product-chair-birkin-arc-c01-pad.png",
   },
   {
     code: "C03",
     name: "BIRKIN LOOP C03",
     category: "Chair",
-    usage: "Restaurant / Cafe / Hotel Dining / Terrace",
-    desc: "A lightweight chair with a rounded metal frame and clean architectural lines, suitable for hospitality dining and cafe projects.",
+    usage: {
+      en: "Restaurant / Cafe / Hotel Dining / Terrace",
+      tr: "Restoran / Kafe / Otel Yemek Alanı / Teras",
+      ar: "مطعم / مقهى / منطقة طعام فندقية / تراس",
+      ru: "Ресторан / Кафе / Обеденная зона отеля / Терраса",
+    },
+    desc: {
+      en: "A lightweight chair with a rounded metal frame and clean architectural lines, suitable for hospitality dining and cafe projects.",
+      tr: "Yuvarlatılmış metal gövdesi ve sade mimari çizgileriyle hospitality, restoran ve kafe projelerine uygun hafif sandalye modeli.",
+      ar: "كرسي خفيف بإطار معدني دائري وخطوط معمارية نظيفة، مناسب لمشاريع الضيافة والمطاعم والمقاهي.",
+      ru: "Легкий стул с округлым металлическим каркасом и чистыми архитектурными линиями для кафе, ресторанов и hospitality проектов.",
+    },
     image: "/product-chair-birkin-loop-c03.png",
   },
   {
     code: "C04",
     name: "BIRKIN LOOP C03 PAD",
     category: "Chair",
-    usage: "Restaurant / Cafe / Hotel Dining / Terrace",
-    desc: "A cushioned version of the BIRKIN LOOP chair, offering extra seating comfort with the same rounded architectural frame.",
+    usage: {
+      en: "Restaurant / Cafe / Hotel Dining / Terrace",
+      tr: "Restoran / Kafe / Otel Yemek Alanı / Teras",
+      ar: "مطعم / مقهى / منطقة طعام فندقية / تراس",
+      ru: "Ресторан / Кафе / Обеденная зона отеля / Терраса",
+    },
+    desc: {
+      en: "A cushioned version of the BIRKIN LOOP chair, offering extra seating comfort with the same rounded architectural frame.",
+      tr: "BIRKIN LOOP sandalyesinin minderli versiyonu; aynı yuvarlatılmış mimari gövdeyle ekstra oturum konforu sunar.",
+      ar: "نسخة مبطنة من كرسي BIRKIN LOOP، توفر راحة جلوس إضافية مع نفس الإطار المعماري الدائري.",
+      ru: "Версия BIRKIN LOOP с мягкой подушкой, обеспечивающая дополнительный комфорт при сохранении округлого архитектурного каркаса.",
+    },
     image: "/product-chair-birkin-loop-c03-pad.png",
   },
   {
     code: "A01",
     name: "BIRKIN HAVEN A01",
     category: "Armchair",
-    usage: "Lobby / Lounge / Villa / Hotel Room",
-    desc: "A warm wooden armchair with soft upholstered cushions, designed for lounge, villa and hospitality interiors.",
+    usage: {
+      en: "Lobby / Lounge / Villa / Hotel Room",
+      tr: "Lobi / Lounge / Villa / Otel Odası",
+      ar: "لوبي / لاونج / فيلا / غرفة فندقية",
+      ru: "Лобби / Лаунж / Вилла / Номер отеля",
+    },
+    desc: {
+      en: "A warm wooden armchair with soft upholstered cushions, designed for lounge, villa and hospitality interiors.",
+      tr: "Sıcak ahşap gövdesi ve yumuşak döşemeli minderleriyle lounge, villa ve hospitality iç mekânları için tasarlanmış berjer modeli.",
+      ar: "كرسي بذراعين بإطار خشبي دافئ ووسائد منجدة ناعمة، مصمم لمساحات اللاونج والفلل والضيافة.",
+      ru: "Кресло с теплым деревянным каркасом и мягкими обитыми подушками для лаунжей, вилл и hospitality интерьеров.",
+    },
     image: "/product-armchair-birkin-haven-a01.png",
   },
   {
     code: "DT01",
     name: "BIRKIN PURE DT01",
     category: "Dining Table",
-    usage: "Restaurant / Cafe / Hotel Dining / Villa",
-    desc: "A clean round dining table with a central pedestal base, designed for refined hospitality and dining spaces.",
+    usage: {
+      en: "Restaurant / Cafe / Hotel Dining / Villa",
+      tr: "Restoran / Kafe / Otel Yemek Alanı / Villa",
+      ar: "مطعم / مقهى / منطقة طعام فندقية / فيلا",
+      ru: "Ресторан / Кафе / Обеденная зона отеля / Вилла",
+    },
+    desc: {
+      en: "A clean round dining table with a central pedestal base, designed for refined hospitality and dining spaces.",
+      tr: "Merkezi ayaklı, sade ve yuvarlak yemek masası; rafine hospitality ve yemek alanları için tasarlanmıştır.",
+      ar: "طاولة طعام دائرية نظيفة بقاعدة مركزية، مصممة لمساحات الضيافة والطعام الراقية.",
+      ru: "Чистый круглый обеденный стол с центральной опорой, разработанный для refined hospitality и dining пространств.",
+    },
     image: "/product-dining-table-birkin-pure-dt01.png",
   },
   {
     code: "DT02",
     name: "BIRKIN AXIS DT02",
     category: "Dining Table",
-    usage: "Restaurant / Cafe / Hotel Dining / Bistro",
-    desc: "A square dining table with a wooden top and central metal pedestal base, designed for restaurants, cafes and hospitality dining areas.",
+    usage: {
+      en: "Restaurant / Cafe / Hotel Dining / Bistro",
+      tr: "Restoran / Kafe / Otel Yemek Alanı / Bistro",
+      ar: "مطعم / مقهى / منطقة طعام فندقية / بيسترو",
+      ru: "Ресторан / Кафе / Обеденная зона отеля / Бистро",
+    },
+    desc: {
+      en: "A square dining table with a wooden top and central metal pedestal base, designed for restaurants, cafes and hospitality dining areas.",
+      tr: "Ahşap tablalı ve merkezi metal ayaklı kare yemek masası; restoran, kafe ve hospitality yemek alanları için tasarlanmıştır.",
+      ar: "طاولة طعام مربعة بسطح خشبي وقاعدة معدنية مركزية، مصممة للمطاعم والمقاهي ومساحات الطعام الفندقية.",
+      ru: "Квадратный обеденный стол с деревянной столешницей и центральной металлической опорой для ресторанов, кафе и hospitality зон.",
+    },
     image: "/product-dining-table-birkin-axis-dt02.png",
   },
   {
     code: "L02",
     name: "BIRKIN HAVEN L02",
     category: "Lounge",
-    usage: "Lobby / Lounge / Villa / Hotel Room",
-    desc: "A two-seat lounge model with a warm wooden frame and soft upholstered cushions, designed for hospitality lounges, villas and hotel interiors.",
+    usage: {
+      en: "Lobby / Lounge / Villa / Hotel Room",
+      tr: "Lobi / Lounge / Villa / Otel Odası",
+      ar: "لوبي / لاونج / فيلا / غرفة فندقية",
+      ru: "Лобби / Лаунж / Вилла / Номер отеля",
+    },
+    desc: {
+      en: "A two-seat lounge model with a warm wooden frame and soft upholstered cushions, designed for hospitality lounges, villas and hotel interiors.",
+      tr: "Sıcak ahşap gövdesi ve yumuşak döşemeli minderleriyle hospitality lounge alanları, villalar ve otel iç mekânları için tasarlanmış ikili oturum modeli.",
+      ar: "نموذج لاونج بمقعدين مع إطار خشبي دافئ ووسائد منجدة ناعمة، مصمم للفلل والفنادق ومساحات الضيافة.",
+      ru: "Двухместная lounge модель с теплым деревянным каркасом и мягкими подушками для hospitality лаунжей, вилл и отельных интерьеров.",
+    },
     image: "/product-lounge-birkin-haven-l02.png",
   },
   {
     code: "O01",
     name: "BIRKIN HAVEN O01",
     category: "Ottoman",
-    usage: "Lobby / Lounge / Villa / Hotel Room",
-    desc: "A soft upholstered ottoman with a warm wooden frame, designed to complement lounge seating in hospitality and residential interiors.",
+    usage: {
+      en: "Lobby / Lounge / Villa / Hotel Room",
+      tr: "Lobi / Lounge / Villa / Otel Odası",
+      ar: "لوبي / لاونج / فيلا / غرفة فندقية",
+      ru: "Лобби / Лаунж / Вилла / Номер отеля",
+    },
+    desc: {
+      en: "A soft upholstered ottoman with a warm wooden frame, designed to complement lounge seating in hospitality and residential interiors.",
+      tr: "Sıcak ahşap gövdeli, yumuşak döşemeli puf modeli; hospitality ve konut iç mekânlarında lounge oturum gruplarını tamamlamak için tasarlanmıştır.",
+      ar: "عثماني منجد ناعم بإطار خشبي دافئ، مصمم ليكمل جلسات اللاونج في مساحات الضيافة والسكن.",
+      ru: "Мягкий пуф с теплым деревянным каркасом, созданный для дополнения lounge seating в hospitality и residential интерьерах.",
+    },
     image: "/product-ottoman-birkin-haven-o01.png",
   },
 ]
@@ -148,10 +240,21 @@ const content = {
     productTitle: "Explore product sections.",
     productIntro:
       "Select a product section to view available models for your project.",
+    selectedSection: "Selected Section",
     allProducts: "All Products",
     emptyCategory: "No products added to this section yet.",
     addToQuote: "Add to Quote List",
     added: "Added",
+    categoryLabels: {
+      Chair: "Chair",
+      Armchair: "Armchair",
+      "Dining Table": "Dining Table",
+      "Coffee Table": "Coffee Table",
+      "Bar Stool": "Bar Stool",
+      Lounge: "Lounge",
+      Ottoman: "Ottoman",
+      Outdoor: "Outdoor",
+    } as Record<ProductSection, string>,
     quoteKicker: "Quote List",
     quoteTitle: "Select products and request pricing via WhatsApp.",
     quoteText:
@@ -214,10 +317,21 @@ const content = {
     productTitle: "Ürün bölümlerini inceleyin.",
     productIntro:
       "Projeniz için mevcut modelleri görmek üzere bir ürün bölümü seçin.",
+    selectedSection: "Seçilen Bölüm",
     allProducts: "Tüm Ürünler",
     emptyCategory: "Bu bölüme henüz ürün eklenmedi.",
     addToQuote: "Teklif Listesine Ekle",
     added: "Eklendi",
+    categoryLabels: {
+      Chair: "Sandalye",
+      Armchair: "Berjer",
+      "Dining Table": "Yemek Masası",
+      "Coffee Table": "Orta Sehpa",
+      "Bar Stool": "Bar Sandalyesi",
+      Lounge: "Lounge",
+      Ottoman: "Puf",
+      Outdoor: "Dış Mekân",
+    } as Record<ProductSection, string>,
     quoteKicker: "Teklif Listesi",
     quoteTitle: "Ürünleri seçin, WhatsApp üzerinden fiyat talep edin.",
     quoteText:
@@ -279,10 +393,21 @@ const content = {
     productKicker: "المنتجات",
     productTitle: "استكشف أقسام المنتجات.",
     productIntro: "اختر قسم المنتج لعرض النماذج المتاحة لمشروعك.",
+    selectedSection: "القسم المختار",
     allProducts: "كل المنتجات",
     emptyCategory: "لم تتم إضافة منتجات إلى هذا القسم بعد.",
     addToQuote: "إضافة إلى قائمة العرض",
     added: "تمت الإضافة",
+    categoryLabels: {
+      Chair: "كرسي",
+      Armchair: "كرسي بذراعين",
+      "Dining Table": "طاولة طعام",
+      "Coffee Table": "طاولة قهوة",
+      "Bar Stool": "كرسي بار",
+      Lounge: "لاونج",
+      Ottoman: "عثماني",
+      Outdoor: "خارجي",
+    } as Record<ProductSection, string>,
     quoteKicker: "قائمة العرض",
     quoteTitle: "اختر المنتجات واطلب السعر عبر واتساب.",
     quoteText:
@@ -345,10 +470,21 @@ const content = {
     productTitle: "Изучите разделы продуктов.",
     productIntro:
       "Выберите раздел, чтобы увидеть доступные модели для вашего проекта.",
+    selectedSection: "Выбранный раздел",
     allProducts: "Все продукты",
     emptyCategory: "В этот раздел пока не добавлены продукты.",
     addToQuote: "Добавить в запрос",
     added: "Добавлено",
+    categoryLabels: {
+      Chair: "Стул",
+      Armchair: "Кресло",
+      "Dining Table": "Обеденный стол",
+      "Coffee Table": "Журнальный стол",
+      "Bar Stool": "Барный стул",
+      Lounge: "Лаунж",
+      Ottoman: "Пуф",
+      Outdoor: "Уличная мебель",
+    } as Record<ProductSection, string>,
     quoteKicker: "Список запроса",
     quoteTitle: "Выберите продукты и запросите цену через WhatsApp.",
     quoteText:
@@ -455,7 +591,7 @@ export default function App() {
         {
           code: product.code,
           name: product.name,
-          category: product.category,
+          category: t.categoryLabels[product.category],
           qty: 1,
         },
       ]
@@ -637,15 +773,19 @@ ${quoteInfo.notes}`
               onClick={() => setSelectedSection(section)}
             >
               <span>{String(index + 1).padStart(2, "0")}</span>
-              <strong>{section}</strong>
+              <strong>{t.categoryLabels[section]}</strong>
             </button>
           ))}
         </div>
 
         <div className="productCategoryBlock">
           <div className="categoryHeader">
-            <span>Selected Section</span>
-            <h2>{selectedSection === "All" ? t.allProducts : selectedSection}</h2>
+            <span>{t.selectedSection}</span>
+            <h2>
+              {selectedSection === "All"
+                ? t.allProducts
+                : t.categoryLabels[selectedSection]}
+            </h2>
           </div>
 
           {filteredProducts.length === 0 ? (
@@ -659,7 +799,7 @@ ${quoteInfo.notes}`
                   <article className="modelCard" key={product.name}>
                     <div className="modelTop">
                       <span>{product.code}</span>
-                      <small>{product.category}</small>
+                      <small>{t.categoryLabels[product.category]}</small>
                     </div>
 
                     <div className="modelImageWrap">
@@ -667,9 +807,9 @@ ${quoteInfo.notes}`
                     </div>
 
                     <div className="modelBody">
-                      <p className="modelUsage">{product.usage}</p>
+                      <p className="modelUsage">{product.usage[lang]}</p>
                       <h3>{product.name}</h3>
-                      <p>{product.desc}</p>
+                      <p>{product.desc[lang]}</p>
 
                       <button
                         type="button"
