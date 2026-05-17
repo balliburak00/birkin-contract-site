@@ -56,7 +56,7 @@ main {
   display: grid;
   grid-template-columns: auto 1fr auto;
   align-items: center;
-  gap: 28px;
+  gap: 22px;
   padding: 16px clamp(18px, 5vw, 72px);
   background: rgba(250, 248, 243, 0.9);
   backdrop-filter: blur(18px);
@@ -82,7 +82,7 @@ nav {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: clamp(14px, 2vw, 28px);
+  gap: clamp(10px, 1.4vw, 22px);
   flex-wrap: wrap;
 }
 
@@ -711,7 +711,7 @@ nav a:hover,
   line-height: 1.65;
 }
 
-/* PROCESS / CONTACT */
+/* PROCESS */
 .processSection {
   background: var(--surface);
 }
@@ -743,6 +743,56 @@ nav a:hover,
   color: var(--text);
 }
 
+/* FAQ */
+.faqSection {
+  background:
+    radial-gradient(circle at top left, rgba(184, 165, 138, 0.14), transparent 34%),
+    #f3efe7;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+.faqGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 18px;
+  margin-top: 36px;
+}
+
+.faqCard {
+  min-height: 230px;
+  padding: 26px;
+  border-radius: 30px;
+  background: rgba(255, 255, 255, 0.7);
+  border: 1px solid var(--border);
+  box-shadow: 0 20px 60px rgba(78, 67, 51, 0.08);
+}
+
+.faqCard span {
+  display: inline-block;
+  color: rgba(138, 122, 99, 0.4);
+  font-size: 28px;
+  font-weight: 800;
+  letter-spacing: -1px;
+  margin-bottom: 22px;
+}
+
+.faqCard h3 {
+  margin: 0 0 14px;
+  color: var(--text);
+  font-size: 22px;
+  line-height: 1.2;
+  letter-spacing: -0.5px;
+}
+
+.faqCard p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 15px;
+  line-height: 1.68;
+}
+
+/* CONTACT */
 .contactSection {
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(320px, 0.8fr);
@@ -955,6 +1005,10 @@ body::after {
     grid-template-columns: repeat(2, 1fr);
   }
 
+  .faqGrid {
+    grid-template-columns: 1fr;
+  }
+
   .splitSection,
   .quoteLayout,
   .contactSection {
@@ -965,7 +1019,7 @@ body::after {
 /* TABLET */
 @media (max-width: 900px) {
   nav {
-    gap: 14px;
+    gap: 12px;
   }
 
   nav a {
@@ -1271,6 +1325,30 @@ body::after {
 
   .processItem {
     min-height: 110px;
+  }
+
+  .faqGrid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .faqCard {
+    min-height: auto;
+    padding: 22px;
+    border-radius: 26px;
+  }
+
+  .faqCard span {
+    font-size: 24px;
+    margin-bottom: 18px;
+  }
+
+  .faqCard h3 {
+    font-size: 20px;
+  }
+
+  .faqCard p {
+    font-size: 14px;
   }
 
   .contactSection {
