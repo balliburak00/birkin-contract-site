@@ -3,18 +3,19 @@
 }
 
 :root {
-  --bg: #070707;
-  --bg-soft: #0d0c0b;
-  --card: rgba(255, 255, 255, 0.045);
-  --card-strong: rgba(255, 255, 255, 0.07);
-  --border: rgba(244, 239, 231, 0.11);
-  --border-gold: rgba(201, 168, 106, 0.42);
-  --gold: #c9a86a;
-  --gold-soft: #e2c989;
-  --cream: #f4efe7;
-  --muted: #b8b1a8;
-  --muted-soft: rgba(244, 239, 231, 0.62);
-  --black: #070707;
+  --bg: #f6f1e8;
+  --bg-soft: #efe6d8;
+  --card: rgba(255, 255, 255, 0.72);
+  --card-strong: rgba(255, 255, 255, 0.9);
+  --border: rgba(96, 72, 42, 0.14);
+  --border-gold: rgba(177, 137, 74, 0.42);
+  --gold: #b1894a;
+  --gold-soft: #d2b06d;
+  --cream: #fffaf2;
+  --text: #17130e;
+  --muted: #6f6658;
+  --muted-soft: #7f7568;
+  --black: #080706;
   --whatsapp: #25d366;
 }
 
@@ -27,16 +28,16 @@ body {
   margin: 0;
   font-family: Arial, Helvetica, sans-serif;
   background: var(--bg);
-  color: var(--cream);
+  color: var(--text);
   overflow-x: hidden;
 }
 
 main {
   min-height: 100vh;
   background:
-    radial-gradient(circle at top left, rgba(201, 168, 106, 0.09), transparent 28%),
-    radial-gradient(circle at top right, rgba(244, 239, 231, 0.035), transparent 26%),
-    var(--bg);
+    radial-gradient(circle at top left, rgba(177, 137, 74, 0.14), transparent 28%),
+    radial-gradient(circle at top right, rgba(255, 255, 255, 0.9), transparent 28%),
+    linear-gradient(180deg, #fffaf2 0%, #f6f1e8 45%, #efe6d8 100%);
   overflow-x: hidden;
 }
 
@@ -49,9 +50,9 @@ main {
   align-items: center;
   gap: 18px;
   padding: 18px 6%;
-  background: rgba(7, 7, 7, 0.92);
+  background: rgba(255, 250, 242, 0.86);
   border-bottom: 1px solid var(--border);
-  backdrop-filter: blur(16px);
+  backdrop-filter: blur(18px);
 }
 
 .brand {
@@ -77,7 +78,7 @@ nav {
 }
 
 nav a {
-  color: rgba(244, 239, 231, 0.68);
+  color: rgba(23, 19, 14, 0.68);
   text-decoration: none;
   font-size: 14px;
   white-space: nowrap;
@@ -90,7 +91,7 @@ nav a:hover {
 
 .navBtn {
   background: linear-gradient(135deg, var(--gold), var(--gold-soft));
-  color: var(--black);
+  color: white;
   text-decoration: none;
   padding: 12px 20px;
   border-radius: 999px;
@@ -101,7 +102,7 @@ nav a:hover {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 12px 28px rgba(201, 168, 106, 0.16);
+  box-shadow: 0 12px 28px rgba(177, 137, 74, 0.18);
 }
 
 .hero {
@@ -111,8 +112,8 @@ nav a:hover {
   align-items: center;
   padding: 110px 6%;
   background:
-    radial-gradient(circle at top right, rgba(201, 168, 106, 0.17), transparent 34%),
-    radial-gradient(circle at left, rgba(244, 239, 231, 0.055), transparent 30%);
+    radial-gradient(circle at top right, rgba(177, 137, 74, 0.16), transparent 34%),
+    radial-gradient(circle at left, rgba(255, 255, 255, 0.85), transparent 34%);
 }
 
 .tag,
@@ -123,6 +124,7 @@ nav a:hover {
   letter-spacing: 4px;
   font-size: 12px;
   margin-bottom: 18px;
+  font-weight: bold;
 }
 
 .hero h1 {
@@ -131,7 +133,7 @@ nav a:hover {
   margin: 0;
   max-width: 900px;
   letter-spacing: -2px;
-  color: var(--cream);
+  color: var(--text);
 }
 
 .hero p,
@@ -166,25 +168,25 @@ nav a:hover {
 
 .primaryBtn {
   background: linear-gradient(135deg, var(--gold), var(--gold-soft));
-  color: var(--black);
+  color: white;
   border: none;
-  box-shadow: 0 14px 34px rgba(201, 168, 106, 0.16);
+  box-shadow: 0 14px 34px rgba(177, 137, 74, 0.18);
 }
 
 .primaryBtn:hover {
   transform: translateY(-2px);
-  box-shadow: 0 18px 44px rgba(201, 168, 106, 0.24);
+  box-shadow: 0 18px 44px rgba(177, 137, 74, 0.24);
 }
 
 .secondaryBtn {
   border: 1px solid var(--border-gold);
-  color: var(--cream);
-  background: rgba(201, 168, 106, 0.045);
+  color: var(--text);
+  background: rgba(255, 255, 255, 0.45);
 }
 
 .secondaryBtn:hover {
   border-color: var(--gold);
-  color: var(--gold-soft);
+  color: var(--gold);
   transform: translateY(-2px);
 }
 
@@ -201,6 +203,7 @@ nav a:hover {
   border-radius: 18px;
   background: var(--card);
   border: 1px solid var(--border);
+  box-shadow: 0 14px 36px rgba(75, 56, 28, 0.06);
 }
 
 .heroStats strong {
@@ -212,7 +215,7 @@ nav a:hover {
 
 .heroStats span {
   display: block;
-  color: rgba(244, 239, 231, 0.58);
+  color: rgba(23, 19, 14, 0.58);
   font-size: 13px;
   line-height: 1.5;
 }
@@ -220,11 +223,11 @@ nav a:hover {
 .heroCard,
 .card,
 .form {
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.032));
+  background: rgba(255, 255, 255, 0.74);
   border: 1px solid var(--border);
   padding: 34px;
   border-radius: 28px;
-  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.22);
+  box-shadow: 0 24px 80px rgba(85, 66, 35, 0.12);
 }
 
 .premiumVisual {
@@ -233,9 +236,9 @@ nav a:hover {
   margin-bottom: 28px;
   padding: 24px;
   background:
-    linear-gradient(135deg, rgba(201, 168, 106, 0.22), rgba(244, 239, 231, 0.045)),
-    rgba(255, 255, 255, 0.035);
-  border: 1px solid rgba(201, 168, 106, 0.14);
+    linear-gradient(135deg, rgba(177, 137, 74, 0.18), rgba(255, 255, 255, 0.7)),
+    rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(177, 137, 74, 0.18);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -251,7 +254,7 @@ nav a:hover {
   right: -70px;
   top: -70px;
   border-radius: 50%;
-  background: rgba(201, 168, 106, 0.16);
+  background: rgba(177, 137, 74, 0.16);
 }
 
 .visualTop {
@@ -261,14 +264,14 @@ nav a:hover {
 
 .visualTop span {
   display: block;
-  color: rgba(244, 239, 231, 0.58);
+  color: rgba(23, 19, 14, 0.58);
   font-size: 13px;
   margin-bottom: 6px;
 }
 
 .visualTop strong {
   display: block;
-  color: var(--cream);
+  color: var(--text);
   font-size: 24px;
 }
 
@@ -286,7 +289,7 @@ nav a:hover {
   height: 90px;
   border-radius: 34px 34px 18px 18px;
   background: linear-gradient(135deg, var(--gold), var(--gold-soft));
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.28);
+  box-shadow: 0 20px 40px rgba(85, 66, 35, 0.2);
 }
 
 .chairShape::after {
@@ -296,8 +299,8 @@ nav a:hover {
   right: 18px;
   bottom: -36px;
   height: 42px;
-  border-left: 6px solid rgba(244, 239, 231, 0.42);
-  border-right: 6px solid rgba(244, 239, 231, 0.42);
+  border-left: 6px solid rgba(23, 19, 14, 0.22);
+  border-right: 6px solid rgba(23, 19, 14, 0.22);
 }
 
 .tableShape {
@@ -307,7 +310,7 @@ nav a:hover {
   width: 120px;
   height: 42px;
   border-radius: 50%;
-  background: rgba(244, 239, 231, 0.88);
+  background: rgba(23, 19, 14, 0.18);
 }
 
 .tableShape::after {
@@ -318,7 +321,7 @@ nav a:hover {
   width: 16px;
   height: 70px;
   border-radius: 20px;
-  background: rgba(244, 239, 231, 0.5);
+  background: rgba(23, 19, 14, 0.16);
 }
 
 .sofaShape {
@@ -328,8 +331,8 @@ nav a:hover {
   width: 120px;
   height: 72px;
   border-radius: 26px;
-  background: rgba(201, 168, 106, 0.66);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+  background: rgba(177, 137, 74, 0.58);
+  box-shadow: 0 20px 40px rgba(85, 66, 35, 0.18);
 }
 
 .sofaShape::before {
@@ -340,7 +343,7 @@ nav a:hover {
   top: -30px;
   height: 42px;
   border-radius: 22px 22px 10px 10px;
-  background: rgba(201, 168, 106, 0.76);
+  background: rgba(177, 137, 74, 0.72);
 }
 
 .visualBottom {
@@ -354,8 +357,8 @@ nav a:hover {
 .visualBottom div {
   padding: 12px;
   border-radius: 14px;
-  background: rgba(7, 7, 7, 0.42);
-  border: 1px solid rgba(244, 239, 231, 0.08);
+  background: rgba(255, 255, 255, 0.58);
+  border: 1px solid rgba(96, 72, 42, 0.12);
 }
 
 .visualBottom strong {
@@ -367,7 +370,7 @@ nav a:hover {
 
 .visualBottom span {
   display: block;
-  color: rgba(244, 239, 231, 0.72);
+  color: rgba(23, 19, 14, 0.68);
   font-size: 12px;
 }
 
@@ -379,7 +382,7 @@ nav a:hover {
 
 .heroCard li {
   margin: 12px 0;
-  color: rgba(244, 239, 231, 0.72);
+  color: rgba(23, 19, 14, 0.68);
 }
 
 .section {
@@ -391,11 +394,11 @@ nav a:hover {
   margin: 0 0 20px;
   max-width: 950px;
   letter-spacing: -1px;
-  color: var(--cream);
+  color: var(--text);
 }
 
 .darkSection {
-  background: rgba(255, 255, 255, 0.025);
+  background: rgba(255, 255, 255, 0.34);
 }
 
 .grid {
@@ -416,9 +419,10 @@ nav a:hover {
 .processGrid div {
   padding: 22px;
   border-radius: 18px;
-  background: var(--card);
+  background: rgba(255, 255, 255, 0.66);
   border: 1px solid var(--border);
-  color: rgba(244, 239, 231, 0.84);
+  color: rgba(23, 19, 14, 0.78);
+  box-shadow: 0 12px 30px rgba(85, 66, 35, 0.06);
 }
 
 .processGrid {
@@ -441,10 +445,11 @@ nav a:hover {
 .seoBox {
   margin: 80px 6%;
   border-radius: 34px;
-  border: 1px solid rgba(201, 168, 106, 0.16);
+  border: 1px solid rgba(177, 137, 74, 0.18);
   background:
-    radial-gradient(circle at top right, rgba(201, 168, 106, 0.095), transparent 34%),
-    var(--card);
+    radial-gradient(circle at top right, rgba(177, 137, 74, 0.13), transparent 34%),
+    rgba(255, 255, 255, 0.62);
+  box-shadow: 0 24px 70px rgba(85, 66, 35, 0.08);
 }
 
 .modelGrid {
@@ -455,7 +460,7 @@ nav a:hover {
 }
 
 .modelCard {
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.055), rgba(255, 255, 255, 0.028));
+  background: rgba(255, 255, 255, 0.74);
   border: 1px solid var(--border);
   border-radius: 28px;
   overflow: hidden;
@@ -463,18 +468,19 @@ nav a:hover {
   flex-direction: column;
   min-height: 100%;
   transition: 0.25s ease;
+  box-shadow: 0 22px 60px rgba(85, 66, 35, 0.08);
 }
 
 .modelCard:hover {
   transform: translateY(-6px);
   border-color: var(--border-gold);
-  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.32);
+  box-shadow: 0 26px 70px rgba(85, 66, 35, 0.14);
 }
 
 .modelImageWrap {
   background:
-    radial-gradient(circle at center, rgba(201, 168, 106, 0.13), transparent 45%),
-    #f2eee7;
+    radial-gradient(circle at center, rgba(177, 137, 74, 0.1), transparent 45%),
+    #f7efe3;
   padding: 24px;
   aspect-ratio: 1 / 1;
   display: flex;
@@ -510,12 +516,12 @@ nav a:hover {
 .modelBody h3 {
   margin: 0;
   font-size: 23px;
-  color: var(--cream);
+  color: var(--text);
   letter-spacing: -0.3px;
 }
 
 .modelUsage {
-  color: rgba(244, 239, 231, 0.76);
+  color: rgba(23, 19, 14, 0.65);
   font-size: 14px;
   margin: 0;
 }
@@ -532,8 +538,8 @@ nav a:hover {
 
 .cartSection {
   background:
-    radial-gradient(circle at top left, rgba(201, 168, 106, 0.11), transparent 30%),
-    rgba(255, 255, 255, 0.015);
+    radial-gradient(circle at top left, rgba(177, 137, 74, 0.12), transparent 30%),
+    rgba(255, 255, 255, 0.28);
 }
 
 .cartLayout {
@@ -546,15 +552,16 @@ nav a:hover {
 
 .cartBox,
 .cartForm {
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.055), rgba(255, 255, 255, 0.028));
+  background: rgba(255, 255, 255, 0.74);
   border: 1px solid var(--border);
   padding: 28px;
   border-radius: 28px;
+  box-shadow: 0 22px 60px rgba(85, 66, 35, 0.08);
 }
 
 .emptyCart {
   margin: 0;
-  color: rgba(244, 239, 231, 0.62);
+  color: rgba(23, 19, 14, 0.62);
 }
 
 .cartList {
@@ -569,20 +576,20 @@ nav a:hover {
   align-items: center;
   padding: 18px;
   border-radius: 20px;
-  background: rgba(7, 7, 7, 0.42);
-  border: 1px solid rgba(244, 239, 231, 0.08);
+  background: rgba(246, 241, 232, 0.72);
+  border: 1px solid rgba(96, 72, 42, 0.1);
 }
 
 .cartItem strong {
   display: block;
-  color: var(--cream);
+  color: var(--text);
   font-size: 15px;
   margin-bottom: 6px;
 }
 
 .cartItem span {
   display: block;
-  color: rgba(244, 239, 231, 0.6);
+  color: rgba(23, 19, 14, 0.58);
   font-size: 13px;
 }
 
@@ -592,8 +599,8 @@ nav a:hover {
   gap: 10px;
   padding: 7px;
   border-radius: 999px;
-  background: rgba(255, 255, 255, 0.045);
-  border: 1px solid rgba(244, 239, 231, 0.1);
+  background: rgba(255, 255, 255, 0.62);
+  border: 1px solid rgba(96, 72, 42, 0.12);
 }
 
 .qtyControls button {
@@ -602,7 +609,7 @@ nav a:hover {
   border-radius: 50%;
   border: none;
   background: linear-gradient(135deg, var(--gold), var(--gold-soft));
-  color: var(--black);
+  color: white;
   font-size: 20px;
   font-weight: bold;
   cursor: pointer;
@@ -612,15 +619,15 @@ nav a:hover {
 .qtyControls span {
   min-width: 22px;
   text-align: center;
-  color: var(--cream);
+  color: var(--text);
   font-weight: bold;
   font-size: 15px;
 }
 
 .removeBtn {
-  border: 1px solid rgba(244, 239, 231, 0.16);
+  border: 1px solid rgba(96, 72, 42, 0.18);
   background: transparent;
-  color: rgba(244, 239, 231, 0.7);
+  color: rgba(23, 19, 14, 0.68);
   padding: 10px 14px;
   border-radius: 999px;
   cursor: pointer;
@@ -628,7 +635,7 @@ nav a:hover {
 }
 
 .removeBtn:hover {
-  color: var(--cream);
+  color: var(--gold);
   border-color: var(--border-gold);
 }
 
@@ -642,9 +649,9 @@ nav a:hover {
   width: 100%;
   padding: 16px;
   border-radius: 16px;
-  border: 1px solid rgba(244, 239, 231, 0.12);
-  background-color: #090909;
-  color: var(--cream);
+  border: 1px solid rgba(96, 72, 42, 0.16);
+  background-color: rgba(255, 250, 242, 0.9);
+  color: var(--text);
   font-size: 16px;
   outline: none;
 }
@@ -655,12 +662,12 @@ nav a:hover {
 .form textarea:focus,
 .form select:focus {
   border-color: var(--border-gold);
-  box-shadow: 0 0 0 3px rgba(201, 168, 106, 0.095);
+  box-shadow: 0 0 0 3px rgba(177, 137, 74, 0.11);
 }
 
 .cartForm input::placeholder,
 .cartForm textarea::placeholder {
-  color: rgba(244, 239, 231, 0.42);
+  color: rgba(23, 19, 14, 0.45);
 }
 
 .cartForm textarea {
@@ -690,9 +697,9 @@ nav a:hover {
 .quoteChecklist div {
   padding: 14px 16px;
   border-radius: 14px;
-  background: var(--card);
+  background: rgba(255, 255, 255, 0.62);
   border: 1px solid var(--border);
-  color: rgba(244, 239, 231, 0.74);
+  color: rgba(23, 19, 14, 0.72);
 }
 
 .contactInfo {
@@ -717,16 +724,16 @@ nav a:hover {
   width: 100%;
   padding: 16px;
   border-radius: 16px;
-  border: 1px solid rgba(244, 239, 231, 0.12);
-  background-color: #090909;
-  color: var(--cream);
+  border: 1px solid rgba(96, 72, 42, 0.16);
+  background-color: rgba(255, 250, 242, 0.9);
+  color: var(--text);
   font-size: 16px;
   outline: none;
 }
 
 .form input::placeholder,
 .form textarea::placeholder {
-  color: rgba(244, 239, 231, 0.42);
+  color: rgba(23, 19, 14, 0.45);
 }
 
 .form select {
@@ -745,8 +752,8 @@ nav a:hover {
 }
 
 .form select option {
-  background-color: #090909;
-  color: var(--cream);
+  background-color: #fffaf2;
+  color: var(--text);
 }
 
 .form textarea {
@@ -756,7 +763,7 @@ nav a:hover {
 
 .footer {
   padding: 70px 6% 30px;
-  background: #050505;
+  background: #eee3d3;
   border-top: 1px solid var(--border);
 }
 
@@ -773,7 +780,7 @@ nav a:hover {
 }
 
 .footerText {
-  color: rgba(244, 239, 231, 0.6);
+  color: rgba(23, 19, 14, 0.6);
   line-height: 1.7;
   max-width: 360px;
   margin-top: 18px;
@@ -789,7 +796,7 @@ nav a:hover {
 .footer a,
 .footer span {
   display: block;
-  color: rgba(244, 239, 231, 0.64);
+  color: rgba(23, 19, 14, 0.64);
   text-decoration: none;
   margin-bottom: 10px;
   font-size: 14px;
@@ -802,14 +809,14 @@ nav a:hover {
 .footerBottom {
   margin-top: 50px;
   padding-top: 24px;
-  border-top: 1px solid rgba(244, 239, 231, 0.08);
+  border-top: 1px solid rgba(96, 72, 42, 0.12);
   display: flex;
   justify-content: space-between;
   gap: 20px;
 }
 
 .footerBottom span {
-  color: rgba(244, 239, 231, 0.42);
+  color: rgba(23, 19, 14, 0.42);
   font-size: 13px;
   margin: 0;
 }
@@ -825,7 +832,7 @@ nav a:hover {
   padding: 15px 22px;
   border-radius: 999px;
   font-weight: bold;
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
+  box-shadow: 0 12px 30px rgba(85, 66, 35, 0.2);
   transition: 0.2s ease;
 }
 
@@ -844,18 +851,18 @@ body::before {
       115deg,
       transparent 0%,
       transparent 38%,
-      rgba(201, 168, 106, 0.08) 45%,
-      rgba(226, 201, 137, 0.32) 50%,
-      rgba(201, 168, 106, 0.08) 55%,
+      rgba(177, 137, 74, 0.08) 45%,
+      rgba(210, 176, 109, 0.32) 50%,
+      rgba(177, 137, 74, 0.08) 55%,
       transparent 62%,
       transparent 100%
     ),
-    radial-gradient(circle at center, rgba(201, 168, 106, 0.13), transparent 34%),
-    #070707;
+    radial-gradient(circle at center, rgba(177, 137, 74, 0.14), transparent 34%),
+    #f6f1e8;
   background-size: 260% 100%, 100% 100%, 100% 100%;
   background-position: 120% 0, center, center;
   pointer-events: none;
-  animation: birkinIntroOverlay 3.4s ease forwards;
+  animation: birkinIntroOverlay 3.1s ease forwards;
 }
 
 body::after {
@@ -872,8 +879,8 @@ body::after {
   background-position: center;
   background-size: contain;
   pointer-events: none;
-  filter: drop-shadow(0 22px 45px rgba(201, 168, 106, 0.18));
-  animation: birkinIntroLogo 3.4s ease forwards;
+  filter: drop-shadow(0 22px 45px rgba(177, 137, 74, 0.18));
+  animation: birkinIntroLogo 3.1s ease forwards;
 }
 
 @keyframes birkinIntroOverlay {
