@@ -250,6 +250,7 @@ nav a:hover,
   z-index: 2;
   object-fit: contain;
   filter: drop-shadow(0 30px 45px rgba(78, 67, 51, 0.16));
+  animation: heroProductFade 2.6s ease infinite;
 }
 
 .mainProduct {
@@ -811,6 +812,29 @@ body::after {
   }
 }
 
+/* HERO PRODUCT ROTATION */
+@keyframes heroProductFade {
+  0% {
+    opacity: 0;
+    transform: translateY(14px) scale(0.96);
+  }
+
+  18% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+
+  78% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateY(-10px) scale(0.98);
+  }
+}
+
 /* TABLET */
 @media (max-width: 1100px) {
   .navbar {
@@ -986,5 +1010,9 @@ main[dir="rtl"] .heroStats {
   body::before,
   body::after {
     animation-duration: 1s;
+  }
+
+  .heroProduct {
+    animation: none;
   }
 }
