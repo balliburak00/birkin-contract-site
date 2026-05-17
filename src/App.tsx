@@ -3,10 +3,11 @@ import "./index.css"
 
 type Lang = "en" | "tr" | "ar" | "ru"
 
-type Model = {
+type Product = {
   code: string
   name: string
   category: string
+  section: string
   usage: string
   desc: string
   image: string
@@ -29,42 +30,27 @@ function BirkinLogo() {
   )
 }
 
-const models: Model[] = [
+const products: Product[] = [
   {
     code: "01",
-    name: "BIRKIN L01 Lounge Chair",
-    category: "Lounge Chair",
-    usage: "Lobby / Lounge / Villa / Suite",
-    desc: "Soft-lined lounge chair with upholstered body and wooden frame for hospitality and premium residential projects.",
-    image: "/model-lounge-chair.png",
-  },
-  {
-    code: "02",
-    name: "BIRKIN BS01 Bar Stool",
-    category: "Bar Stool",
-    usage: "Restaurant / Bar / Cafe",
-    desc: "Compact upholstered bar stool with a refined silhouette for restaurant, cafe and bar concepts.",
-    image: "/model-bar-stool.png",
-  },
-  {
-    code: "03",
-    name: "BIRKIN C03 Dining Chair",
-    category: "Dining Chair",
-    usage: "Restaurant / Hotel Dining / Cafe",
-    desc: "Wooden dining chair with upholstered seat and back for comfortable and elegant dining spaces.",
-    image: "/model-dining-chair.png",
+    name: "BIRKIN ARC C01",
+    category: "Chair",
+    section: "Chairs",
+    usage: "Restaurant / Cafe / Hotel Dining / Villa",
+    desc: "A soft curved chair designed for hospitality, restaurant and architectural interiors.",
+    image: "/product-chair-birkin-arc-c01.png",
   },
 ]
 
 const content = {
   en: {
-    nav: ["About", "Models", "Quote List", "Profile", "Process", "Contact"],
+    nav: ["About", "Products", "Quote List", "Profile", "Process", "Contact"],
     quote: "Request a Quote",
     heroKicker: "Contract Furniture / Custom-Made Production",
     heroTitle: "Furniture shaped around your project.",
     heroText:
       "Custom-made contract furniture solutions for hotels, restaurants, villas and architectural spaces.",
-    heroPrimary: "Build Quote List",
+    heroPrimary: "View Products",
     heroSecondary: "Download Profile",
     heroStats: [
       ["Hospitality", "Hotels, resorts and premium restaurants"],
@@ -75,27 +61,17 @@ const content = {
     aboutTitle: "A project partner for architectural furniture needs.",
     aboutText:
       "Birkin Contract provides project-based contract furniture solutions for hospitality and commercial interiors. We support architects, interior designers, procurement teams and investors with sourcing, custom-made production coordination and project follow-up.",
-    productKicker: "Scope",
-    productTitle: "Furniture categories we coordinate.",
-    products: [
-      "Dining Chairs",
-      "Dining Tables",
-      "Bar Stools",
-      "Lounge Seating",
-      "Outdoor Furniture",
-      "Banquette Seating",
-      "Sunbeds",
-      "Custom Pieces",
-    ],
-    modelsKicker: "Selected Models",
-    modelsTitle: "Reference pieces for hospitality projects.",
+    productKicker: "Products",
+    productTitle: "Selected product sections.",
+    productsKicker: "Product Section",
+    productsTitle: "Chairs",
     addToQuote: "Add to Quote List",
     added: "Added",
     quoteKicker: "Quote List",
-    quoteTitle: "Select models and request pricing via WhatsApp.",
+    quoteTitle: "Select products and request pricing via WhatsApp.",
     quoteText:
-      "Add reference models, adjust quantities and send your project details directly to Birkin Contract.",
-    empty: "Your quote list is empty. Please add a model first.",
+      "Add selected products, adjust quantities and send your project details directly to Birkin Contract.",
+    empty: "Your quote list is empty. Please add a product first.",
     remove: "Remove",
     whatsapp: "Send Quote Request via WhatsApp",
     fields: {
@@ -132,13 +108,13 @@ const content = {
   },
 
   tr: {
-    nav: ["Hakkımızda", "Modeller", "Teklif Listesi", "Profil", "Süreç", "İletişim"],
+    nav: ["Hakkımızda", "Ürünler", "Teklif Listesi", "Profil", "Süreç", "İletişim"],
     quote: "Teklif Al",
     heroKicker: "Contract Mobilya / Özel Üretim",
     heroTitle: "Projenize göre şekillenen mobilya çözümleri.",
     heroText:
       "Otel, restoran, villa ve mimari projeler için özel üretim contract mobilya çözümleri.",
-    heroPrimary: "Teklif Listesi Oluştur",
+    heroPrimary: "Ürünleri İncele",
     heroSecondary: "Profili İndir",
     heroStats: [
       ["Hospitality", "Oteller, resortlar ve premium restoranlar"],
@@ -149,27 +125,17 @@ const content = {
     aboutTitle: "Mimari mobilya ihtiyaçları için proje çözüm partneri.",
     aboutText:
       "Birkin Contract; hospitality ve ticari iç mekân projeleri için proje bazlı contract mobilya çözümleri sunar. Mimarlar, iç mimarlar, satın alma ekipleri ve yatırımcılar için tedarik, özel üretim koordinasyonu ve proje takibi sağlar.",
-    productKicker: "Kapsam",
-    productTitle: "Koordinasyonunu sağladığımız mobilya kategorileri.",
-    products: [
-      "Yemek Sandalyeleri",
-      "Yemek Masaları",
-      "Bar Sandalyeleri",
-      "Lounge Oturma",
-      "Dış Mekân Mobilyaları",
-      "Banket Oturma",
-      "Şezlonglar",
-      "Özel Üretim Ürünler",
-    ],
-    modelsKicker: "Seçili Modeller",
-    modelsTitle: "Hospitality projeleri için referans ürünler.",
+    productKicker: "Ürünler",
+    productTitle: "Seçili ürün bölümleri.",
+    productsKicker: "Ürün Bölümü",
+    productsTitle: "Chairs",
     addToQuote: "Teklif Listesine Ekle",
     added: "Eklendi",
     quoteKicker: "Teklif Listesi",
-    quoteTitle: "Modelleri seçin, WhatsApp üzerinden fiyat talep edin.",
+    quoteTitle: "Ürünleri seçin, WhatsApp üzerinden fiyat talep edin.",
     quoteText:
-      "Referans modelleri ekleyin, adetleri ayarlayın ve proje bilgilerinizi doğrudan Birkin Contract’a gönderin.",
-    empty: "Teklif listeniz boş. Lütfen önce bir model ekleyin.",
+      "Seçili ürünleri ekleyin, adetleri ayarlayın ve proje bilgilerinizi doğrudan Birkin Contract’a gönderin.",
+    empty: "Teklif listeniz boş. Lütfen önce bir ürün ekleyin.",
     remove: "Kaldır",
     whatsapp: "WhatsApp’tan Teklif Talebi Gönder",
     fields: {
@@ -206,13 +172,13 @@ const content = {
   },
 
   ar: {
-    nav: ["من نحن", "النماذج", "قائمة العرض", "الملف", "العملية", "اتصال"],
+    nav: ["من نحن", "المنتجات", "قائمة العرض", "الملف", "العملية", "اتصال"],
     quote: "طلب عرض سعر",
     heroKicker: "أثاث تعاقدي / إنتاج مخصص",
     heroTitle: "حلول أثاث تتشكل حسب مشروعك.",
     heroText:
       "حلول أثاث تعاقدي مخصصة للفنادق والمطاعم والفلل والمساحات المعمارية.",
-    heroPrimary: "إنشاء قائمة عرض",
+    heroPrimary: "عرض المنتجات",
     heroSecondary: "تحميل الملف",
     heroStats: [
       ["الضيافة", "فنادق، منتجعات ومطاعم راقية"],
@@ -223,27 +189,17 @@ const content = {
     aboutTitle: "شريك مشاريع لاحتياجات الأثاث المعماري.",
     aboutText:
       "تقدم Birkin Contract حلول أثاث تعاقدي قائمة على المشاريع لمساحات الضيافة والمساحات التجارية. ندعم المعماريين ومصممي الديكور وفرق المشتريات والمستثمرين في التوريد وتنسيق الإنتاج والمتابعة.",
-    productKicker: "النطاق",
-    productTitle: "فئات الأثاث التي نقوم بتنسيقها.",
-    products: [
-      "كراسي طعام",
-      "طاولات طعام",
-      "كراسي بار",
-      "جلسات Lounge",
-      "أثاث خارجي",
-      "جلسات بنش",
-      "كراسي استلقاء",
-      "قطع مخصصة",
-    ],
-    modelsKicker: "نماذج مختارة",
-    modelsTitle: "قطع مرجعية لمشاريع الضيافة.",
+    productKicker: "المنتجات",
+    productTitle: "أقسام المنتجات المختارة.",
+    productsKicker: "قسم المنتج",
+    productsTitle: "Chairs",
     addToQuote: "إضافة إلى قائمة العرض",
     added: "تمت الإضافة",
     quoteKicker: "قائمة العرض",
-    quoteTitle: "اختر النماذج واطلب السعر عبر واتساب.",
+    quoteTitle: "اختر المنتجات واطلب السعر عبر واتساب.",
     quoteText:
-      "أضف النماذج المرجعية، عدّل الكميات وأرسل تفاصيل مشروعك مباشرة إلى Birkin Contract.",
-    empty: "قائمة العرض فارغة. يرجى إضافة نموذج أولاً.",
+      "أضف المنتجات المختارة، عدّل الكميات وأرسل تفاصيل مشروعك مباشرة إلى Birkin Contract.",
+    empty: "قائمة العرض فارغة. يرجى إضافة منتج أولاً.",
     remove: "إزالة",
     whatsapp: "إرسال طلب السعر عبر واتساب",
     fields: {
@@ -280,13 +236,13 @@ const content = {
   },
 
   ru: {
-    nav: ["О нас", "Модели", "Запрос", "Профиль", "Процесс", "Контакты"],
+    nav: ["О нас", "Продукты", "Запрос", "Профиль", "Процесс", "Контакты"],
     quote: "Запросить предложение",
     heroKicker: "Contract Furniture / Индивидуальное производство",
     heroTitle: "Мебельные решения, созданные вокруг вашего проекта.",
     heroText:
       "Индивидуальные решения contract furniture для отелей, ресторанов, вилл и архитектурных пространств.",
-    heroPrimary: "Собрать запрос",
+    heroPrimary: "Посмотреть продукты",
     heroSecondary: "Скачать профиль",
     heroStats: [
       ["Hospitality", "Отели, курорты и премиальные рестораны"],
@@ -297,27 +253,17 @@ const content = {
     aboutTitle: "Проектный партнер для архитектурной мебели.",
     aboutText:
       "Birkin Contract предлагает проектные решения contract furniture для hospitality и коммерческих интерьеров. Мы поддерживаем архитекторов, дизайнеров, закупочные команды и инвесторов в подборе мебели, координации производства и сопровождении проекта.",
-    productKicker: "Объем",
-    productTitle: "Категории мебели, которые мы координируем.",
-    products: [
-      "Обеденные стулья",
-      "Обеденные столы",
-      "Барные стулья",
-      "Lounge seating",
-      "Уличная мебель",
-      "Банкетки",
-      "Шезлонги",
-      "Индивидуальные изделия",
-    ],
-    modelsKicker: "Выбранные модели",
-    modelsTitle: "Референсные изделия для hospitality проектов.",
+    productKicker: "Продукты",
+    productTitle: "Выбранные разделы продуктов.",
+    productsKicker: "Раздел продукта",
+    productsTitle: "Chairs",
     addToQuote: "Добавить в запрос",
     added: "Добавлено",
     quoteKicker: "Список запроса",
-    quoteTitle: "Выберите модели и запросите цену через WhatsApp.",
+    quoteTitle: "Выберите продукты и запросите цену через WhatsApp.",
     quoteText:
-      "Добавьте референсные модели, настройте количество и отправьте детали проекта напрямую в Birkin Contract.",
-    empty: "Список пуст. Сначала добавьте модель.",
+      "Добавьте выбранные продукты, настройте количество и отправьте детали проекта напрямую в Birkin Contract.",
+    empty: "Список пуст. Сначала добавьте продукт.",
     remove: "Удалить",
     whatsapp: "Отправить запрос через WhatsApp",
     fields: {
@@ -357,9 +303,16 @@ const content = {
 export default function App() {
   const [lang, setLang] = useState<Lang>(() => {
     const savedLang = localStorage.getItem("birkin-language") as Lang | null
-    if (savedLang === "en" || savedLang === "tr" || savedLang === "ar" || savedLang === "ru") {
+
+    if (
+      savedLang === "en" ||
+      savedLang === "tr" ||
+      savedLang === "ar" ||
+      savedLang === "ru"
+    ) {
       return savedLang
     }
+
     return "en"
   })
 
@@ -381,16 +334,18 @@ export default function App() {
     localStorage.setItem("birkin-language", newLang)
   }
 
-  const addToCart = (model: Model) => {
+  const addToCart = (product: Product) => {
     setCart((current) => {
-      const exists = current.find((item) => item.name === model.name)
+      const exists = current.find((item) => item.name === product.name)
+
       if (exists) return current
+
       return [
         ...current,
         {
-          code: model.code,
-          name: model.name,
-          category: model.category,
+          code: product.code,
+          name: product.name,
+          category: product.category,
           qty: 1,
         },
       ]
@@ -420,7 +375,7 @@ export default function App() {
   }
 
   const whatsappQuoteLink = useMemo(() => {
-    const selectedModels =
+    const selectedProducts =
       cart.length === 0
         ? "-"
         : cart
@@ -432,8 +387,8 @@ export default function App() {
 
     const message = `Merhaba, Birkin Contract web sitesi üzerinden fiyat teklifi almak istiyorum.
 
-Seçilen Modeller:
-${selectedModels}
+Seçilen Ürünler:
+${selectedProducts}
 
 Proje Bilgileri:
 Ad / Firma: ${quoteInfo.name}
@@ -458,7 +413,7 @@ ${quoteInfo.notes}`
 
         <nav>
           <a href="#about">{t.nav[0]}</a>
-          <a href="#models">{t.nav[1]}</a>
+          <a href="#products">{t.nav[1]}</a>
           <a href="#quote-list">{t.nav[2]}</a>
           <a href="#profile">{t.nav[3]}</a>
           <a href="#process">{t.nav[4]}</a>
@@ -490,10 +445,15 @@ ${quoteInfo.notes}`
           <p>{t.heroText}</p>
 
           <div className="heroButtons">
-            <a href="#models" className="primaryBtn">
+            <a href="#products" className="primaryBtn">
               {t.heroPrimary}
             </a>
-            <a href="/birkin-company-profile.pdf" target="_blank" rel="noreferrer" className="secondaryBtn">
+            <a
+              href="/birkin-company-profile.pdf"
+              target="_blank"
+              rel="noreferrer"
+              className="secondaryBtn"
+            >
               {t.heroSecondary}
             </a>
           </div>
@@ -510,18 +470,12 @@ ${quoteInfo.notes}`
 
         <div className="heroVisual">
           <div className="editorialFrame">
-            <span className="frameLabel">BIRKIN / 2026</span>
+            <span className="frameLabel">BIRKIN / PRODUCTS</span>
 
             <img
-              src="/model-lounge-chair.png"
-              alt="Birkin Lounge Chair"
+              src="/product-chair-birkin-arc-c01.png"
+              alt="BIRKIN ARC C01"
               className="heroProduct mainProduct"
-            />
-
-            <img
-              src="/model-bar-stool.png"
-              alt="Birkin Bar Stool"
-              className="heroProduct sideProduct"
             />
 
             <div className="visualLine"></div>
@@ -541,57 +495,50 @@ ${quoteInfo.notes}`
         </div>
       </section>
 
-      <section className="section productScope">
-        <span className="kicker">{t.productKicker}</span>
-        <h2>{t.productTitle}</h2>
-
-        <div className="productGrid">
-          {t.products.map((item, index) => (
-            <div className="productPill" key={item}>
-              <span>{String(index + 1).padStart(2, "0")}</span>
-              <strong>{item}</strong>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      <section id="models" className="section modelsSection">
+      <section id="products" className="section modelsSection">
         <div className="sectionHead">
-          <span className="kicker">{t.modelsKicker}</span>
-          <h2>{t.modelsTitle}</h2>
+          <span className="kicker">{t.productKicker}</span>
+          <h2>{t.productTitle}</h2>
         </div>
 
-        <div className="modelGrid">
-          {models.map((model) => {
-            const isAdded = cart.some((item) => item.name === model.name)
+        <div className="productCategoryBlock">
+          <div className="categoryHeader">
+            <span>{t.productsKicker}</span>
+            <h2>{t.productsTitle}</h2>
+          </div>
 
-            return (
-              <article className="modelCard" key={model.name}>
-                <div className="modelTop">
-                  <span>{model.code}</span>
-                  <small>{model.category}</small>
-                </div>
+          <div className="modelGrid">
+            {products.map((product) => {
+              const isAdded = cart.some((item) => item.name === product.name)
 
-                <div className="modelImageWrap">
-                  <img src={model.image} alt={model.name} />
-                </div>
+              return (
+                <article className="modelCard" key={product.name}>
+                  <div className="modelTop">
+                    <span>{product.code}</span>
+                    <small>{product.category}</small>
+                  </div>
 
-                <div className="modelBody">
-                  <p className="modelUsage">{model.usage}</p>
-                  <h3>{model.name}</h3>
-                  <p>{model.desc}</p>
+                  <div className="modelImageWrap">
+                    <img src={product.image} alt={product.name} />
+                  </div>
 
-                  <button
-                    type="button"
-                    onClick={() => addToCart(model)}
-                    className="modelBtn"
-                  >
-                    {isAdded ? `✓ ${t.added}` : t.addToQuote}
-                  </button>
-                </div>
-              </article>
-            )
-          })}
+                  <div className="modelBody">
+                    <p className="modelUsage">{product.usage}</p>
+                    <h3>{product.name}</h3>
+                    <p>{product.desc}</p>
+
+                    <button
+                      type="button"
+                      onClick={() => addToCart(product)}
+                      className="modelBtn"
+                    >
+                      {isAdded ? `✓ ${t.added}` : t.addToQuote}
+                    </button>
+                  </div>
+                </article>
+              )
+            })}
+          </div>
         </div>
       </section>
 
@@ -611,14 +558,20 @@ ${quoteInfo.notes}`
                 {cart.map((item) => (
                   <div className="quoteItem" key={item.name}>
                     <div>
-                      <small>{item.code} / {item.category}</small>
+                      <small>
+                        {item.code} / {item.category}
+                      </small>
                       <strong>{item.name}</strong>
                     </div>
 
                     <div className="qtyControls">
-                      <button type="button" onClick={() => decreaseQty(item.name)}>-</button>
+                      <button type="button" onClick={() => decreaseQty(item.name)}>
+                        -
+                      </button>
                       <span>{item.qty}</span>
-                      <button type="button" onClick={() => increaseQty(item.name)}>+</button>
+                      <button type="button" onClick={() => increaseQty(item.name)}>
+                        +
+                      </button>
                     </div>
 
                     <button
@@ -638,43 +591,60 @@ ${quoteInfo.notes}`
             <input
               placeholder={t.fields.name}
               value={quoteInfo.name}
-              onChange={(e) => setQuoteInfo({ ...quoteInfo, name: e.target.value })}
+              onChange={(e) =>
+                setQuoteInfo({ ...quoteInfo, name: e.target.value })
+              }
             />
 
             <input
               placeholder={t.fields.email}
               value={quoteInfo.email}
-              onChange={(e) => setQuoteInfo({ ...quoteInfo, email: e.target.value })}
+              onChange={(e) =>
+                setQuoteInfo({ ...quoteInfo, email: e.target.value })
+              }
             />
 
             <input
               placeholder={t.fields.phone}
               value={quoteInfo.phone}
-              onChange={(e) => setQuoteInfo({ ...quoteInfo, phone: e.target.value })}
+              onChange={(e) =>
+                setQuoteInfo({ ...quoteInfo, phone: e.target.value })
+              }
             />
 
             <input
               placeholder={t.fields.country}
               value={quoteInfo.country}
-              onChange={(e) => setQuoteInfo({ ...quoteInfo, country: e.target.value })}
+              onChange={(e) =>
+                setQuoteInfo({ ...quoteInfo, country: e.target.value })
+              }
             />
 
             <input
               placeholder={t.fields.projectType}
               value={quoteInfo.projectType}
-              onChange={(e) => setQuoteInfo({ ...quoteInfo, projectType: e.target.value })}
+              onChange={(e) =>
+                setQuoteInfo({ ...quoteInfo, projectType: e.target.value })
+              }
             />
 
             <input
               placeholder={t.fields.deliveryLocation}
               value={quoteInfo.deliveryLocation}
-              onChange={(e) => setQuoteInfo({ ...quoteInfo, deliveryLocation: e.target.value })}
+              onChange={(e) =>
+                setQuoteInfo({
+                  ...quoteInfo,
+                  deliveryLocation: e.target.value,
+                })
+              }
             />
 
             <textarea
               placeholder={t.fields.notes}
               value={quoteInfo.notes}
-              onChange={(e) => setQuoteInfo({ ...quoteInfo, notes: e.target.value })}
+              onChange={(e) =>
+                setQuoteInfo({ ...quoteInfo, notes: e.target.value })
+              }
             />
 
             <a
@@ -742,7 +712,7 @@ ${quoteInfo.notes}`
 
         <div className="footerLinks">
           <a href="#about">{t.nav[0]}</a>
-          <a href="#models">{t.nav[1]}</a>
+          <a href="#products">{t.nav[1]}</a>
           <a href="#quote-list">{t.nav[2]}</a>
           <a href="#profile">{t.nav[3]}</a>
           <a href="#process">{t.nav[4]}</a>
