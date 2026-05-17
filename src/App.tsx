@@ -65,6 +65,22 @@ const products: Product[] = [
     desc: "A cushioned version of the BIRKIN ARC chair, designed for longer seating comfort in hospitality and dining projects.",
     image: "/product-chair-birkin-arc-c01-pad.png",
   },
+  {
+    code: "C03",
+    name: "BIRKIN LOOP C03",
+    category: "Chair",
+    usage: "Restaurant / Cafe / Hotel Dining / Terrace",
+    desc: "A lightweight chair with a rounded metal frame and clean architectural lines, suitable for hospitality dining and cafe projects.",
+    image: "/product-chair-birkin-loop-c03.png",
+  },
+  {
+    code: "C04",
+    name: "BIRKIN LOOP C03 PAD",
+    category: "Chair",
+    usage: "Restaurant / Cafe / Hotel Dining / Terrace",
+    desc: "A cushioned version of the BIRKIN LOOP chair, offering extra seating comfort with the same rounded architectural frame.",
+    image: "/product-chair-birkin-loop-c03-pad.png",
+  },
 ]
 
 const content = {
