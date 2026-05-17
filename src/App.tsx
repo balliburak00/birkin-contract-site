@@ -81,6 +81,14 @@ const products: Product[] = [
     desc: "A cushioned version of the BIRKIN LOOP chair, offering extra seating comfort with the same rounded architectural frame.",
     image: "/product-chair-birkin-loop-c03-pad.png",
   },
+  {
+    code: "DT01",
+    name: "BIRKIN PURE DT01",
+    category: "Dining Table",
+    usage: "Restaurant / Cafe / Hotel Dining / Villa",
+    desc: "A clean round dining table with a central pedestal base, designed for refined hospitality and dining spaces.",
+    image: "/product-dining-table-birkin-pure-dt01.png",
+  },
 ]
 
 const content = {
