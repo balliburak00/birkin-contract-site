@@ -533,6 +533,94 @@ nav a:hover,
   line-height: 1.65;
 }
 
+/* PRODUCT CTA SECTION */
+.productCtaSection {
+  background:
+    radial-gradient(circle at top left, rgba(184, 165, 138, 0.22), transparent 34%),
+    var(--sand);
+}
+
+.productCtaBox {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(360px, 0.9fr);
+  gap: clamp(26px, 4vw, 54px);
+  align-items: center;
+  padding: clamp(28px, 5vw, 58px);
+  border-radius: clamp(30px, 4vw, 46px);
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.72), rgba(250, 248, 243, 0.62)),
+    rgba(250, 248, 243, 0.74);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+}
+
+.productCtaBox h2 {
+  margin: 0;
+  font-size: clamp(34px, 4vw, 60px);
+  line-height: 1.02;
+  letter-spacing: -1.6px;
+  color: var(--text);
+}
+
+.productCtaBox p {
+  margin: 20px 0 0;
+  color: var(--muted);
+  font-size: clamp(16px, 1.35vw, 18px);
+  line-height: 1.75;
+  max-width: 760px;
+}
+
+.productCtaSide {
+  display: grid;
+  gap: 18px;
+}
+
+.productCtaPoints {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+}
+
+.productCtaPoint {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 16px;
+  border-radius: 22px;
+  background: rgba(255, 255, 255, 0.66);
+  border: 1px solid var(--border);
+}
+
+.productCtaPoint span {
+  min-width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: var(--text);
+  color: var(--surface);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  font-size: 13px;
+}
+
+.productCtaPoint strong {
+  color: var(--text);
+  font-size: 16px;
+}
+
+.productCtaActions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.productCtaActions .primaryBtn,
+.productCtaActions .secondaryBtn {
+  flex: 1;
+  min-width: 190px;
+}
+
 /* CATEGORIES */
 .categoryGrid {
   display: grid;
@@ -1210,6 +1298,10 @@ body::after {
     grid-template-columns: repeat(2, 1fr);
   }
 
+  .productCtaBox {
+    grid-template-columns: 1fr;
+  }
+
   .processGrid {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -1345,13 +1437,16 @@ body::after {
   }
 
   .heroButtons,
-  .productDetailActions {
+  .productDetailActions,
+  .productCtaActions {
     margin-top: 26px;
     flex-direction: column;
   }
 
   .primaryBtn,
-  .secondaryBtn {
+  .secondaryBtn,
+  .productCtaActions .primaryBtn,
+  .productCtaActions .secondaryBtn {
     width: 100%;
     min-height: 46px;
   }
@@ -1387,6 +1482,20 @@ body::after {
   .productDetailOptions {
     padding: 20px;
     border-radius: 24px;
+  }
+
+  .productCtaBox {
+    padding: 24px;
+    border-radius: 28px;
+  }
+
+  .productCtaBox h2 {
+    font-size: clamp(32px, 10vw, 42px);
+  }
+
+  .productCtaPoint {
+    border-radius: 18px;
+    padding: 14px;
   }
 
   .section {
