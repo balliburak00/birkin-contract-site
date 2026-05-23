@@ -352,7 +352,6 @@ const content = {
     libraryTitle: "Documents for project evaluation.",
     libraryText:
       "Access company profile, material directions, export packaging notes and project-based production information.",
-    selectedSection: "Selected Type",
     allProducts: "All Products",
     addToQuote: "Add to Quote List",
     added: "Added",
@@ -362,6 +361,19 @@ const content = {
     projectOptions: "Project Options",
     technicalTitle: "Technical Direction",
     technicalSubtitle: "Suggested material and production approach for project-based supply.",
+    productSpecsTitle: "Technical Specifications",
+    productSpecsText:
+      "General technical direction for project-based production. Final specifications may vary according to quantity, project location and requested material standard.",
+    productSpecs: [
+      ["Frame", "Aluminum, steel or natural wood structure depending on the model and project requirement."],
+      ["Seat & Back", "Upholstered seat, loose cushion or molded shell alternatives can be evaluated according to use."],
+      ["Foam", "High-density HR foam options suitable for hospitality use and long sitting comfort."],
+      ["Fabric", "Indoor, outdoor, UV-resistant and water-repellent fabric alternatives can be selected."],
+      ["Finish", "Powder coating, wood stain, lacquer or custom color options according to project needs."],
+      ["Usage Areas", "Hotel lobby, restaurant, cafe, villa, lounge, dining area and hospitality interiors."],
+      ["Customization", "Dimensions, comfort level, frame color, fabric and surface finish can be adapted for projects."],
+      ["Quality", "Internal quality control and optional third-party pre-shipment inspection can be arranged."],
+    ],
     technicalBlocks: [
       ["Material Direction", "Frame, upholstery and surface finish can be selected according to indoor, outdoor or hospitality use."],
       ["Production Note", "Prototype or sample review is recommended before mass production for custom-made project orders."],
@@ -456,15 +468,14 @@ const content = {
     projectsTitle: "Hospitality, villa, restoran ve ticari iç mekânlar.",
     projectsText:
       "Birkin Contract; görsel bütünlük, dayanıklılık ve teslimat koordinasyonunun önemli olduğu alanlarda proje bazlı mobilya tedariki sağlar.",
-    contractKicker: "Contract",
+    contractKicker: "Proje Üretimi",
     contractTitle: "Türkiye’den özel üretim tedarik.",
     contractText:
       "Özel ölçü, malzeme seçimi, üretim koordinasyonu, ihracata uygun ambalaj ve opsiyonel üçüncü taraf denetim proje ihtiyacına göre organize edilebilir.",
-    libraryKicker: "Library",
+    libraryKicker: "Dokümanlar",
     libraryTitle: "Proje değerlendirmesi için dokümanlar.",
     libraryText:
       "Company profile, malzeme yönlendirmeleri, ihracat ambalaj notları ve proje bazlı üretim bilgilerine ulaşabilirsiniz.",
-    selectedSection: "Seçilen Tip",
     allProducts: "Tüm Ürünler",
     addToQuote: "Teklif Listesine Ekle",
     added: "Eklendi",
@@ -474,6 +485,19 @@ const content = {
     projectOptions: "Proje Opsiyonları",
     technicalTitle: "Teknik Yönlendirme",
     technicalSubtitle: "Proje bazlı tedarik için önerilen malzeme ve üretim yaklaşımı.",
+    productSpecsTitle: "Teknik Özellikler",
+    productSpecsText:
+      "Proje bazlı üretim için genel teknik yönlendirmedir. Nihai özellikler adet, proje lokasyonu ve talep edilen malzeme standardına göre değişebilir.",
+    productSpecs: [
+      ["Gövde", "Modele ve proje ihtiyacına göre alüminyum, çelik veya doğal ahşap taşıyıcı yapı."],
+      ["Oturum & Sırt", "Kullanıma göre döşemeli oturum, serbest minder veya form verilmiş gövde alternatifleri değerlendirilebilir."],
+      ["Sünger", "Hospitality kullanımına ve uzun süreli oturum konforuna uygun yüksek yoğunluklu HR sünger seçenekleri."],
+      ["Kumaş", "İç mekân, dış mekân, UV dayanımlı ve su itici kumaş alternatifleri seçilebilir."],
+      ["Yüzey", "Elektrostatik toz boya, ahşap renklendirme, lake veya projeye özel renk seçenekleri."],
+      ["Kullanım Alanları", "Otel lobi, restoran, kafe, villa, lounge, yemek alanı ve hospitality iç mekânları."],
+      ["Özelleştirme", "Ölçü, konfor seviyesi, gövde rengi, kumaş ve yüzey bitişi projeye göre uyarlanabilir."],
+      ["Kalite", "İç kalite kontrol ve talep halinde üçüncü taraf sevkiyat öncesi denetim organize edilebilir."],
+    ],
     technicalBlocks: [
       ["Malzeme Yönü", "Gövde, döşeme ve yüzey seçenekleri iç mekân, dış mekân veya hospitality kullanımına göre belirlenebilir."],
       ["Üretim Notu", "Özel üretim proje siparişlerinde seri üretim öncesi numune veya prototip kontrolü önerilir."],
@@ -564,13 +588,12 @@ const content = {
     projectsKicker: "المشاريع",
     projectsTitle: "الفنادق والفلل والمطاعم والمساحات التجارية.",
     projectsText: "ندعم توريد الأثاث حسب المشروع حيث تكون المتانة والتنسيق مهمة.",
-    contractKicker: "العقود",
+    contractKicker: "الإنتاج التعاقدي",
     contractTitle: "توريد مخصص من تركيا.",
     contractText: "يمكن تنظيم المقاسات الخاصة واختيار المواد وتنسيق الإنتاج والتغليف المناسب للتصدير.",
-    libraryKicker: "المكتبة",
+    libraryKicker: "المستندات",
     libraryTitle: "مستندات لتقييم المشروع.",
     libraryText: "الوصول إلى ملف الشركة ومعلومات المواد والتغليف والإنتاج.",
-    selectedSection: "النوع المختار",
     allProducts: "كل المنتجات",
     addToQuote: "إضافة إلى قائمة العرض",
     added: "تمت الإضافة",
@@ -580,6 +603,18 @@ const content = {
     projectOptions: "خيارات المشروع",
     technicalTitle: "التوجيه الفني",
     technicalSubtitle: "نهج المواد والإنتاج المقترح للتوريد حسب المشروع.",
+    productSpecsTitle: "المواصفات الفنية",
+    productSpecsText: "توجيه فني عام للإنتاج حسب المشروع. قد تختلف المواصفات النهائية حسب الكمية والموقع والمعايير المطلوبة.",
+    productSpecs: [
+      ["الهيكل", "هيكل من الألمنيوم أو الفولاذ أو الخشب الطبيعي حسب النموذج ومتطلبات المشروع."],
+      ["المقعد والظهر", "خيارات مقعد منجد أو وسادة منفصلة أو هيكل مشكل حسب الاستخدام."],
+      ["الإسفنج", "إسفنج عالي الكثافة مناسب لاستخدامات الضيافة وراحة الجلوس الطويلة."],
+      ["القماش", "خيارات أقمشة داخلية وخارجية ومقاومة للأشعة فوق البنفسجية وطاردة للماء."],
+      ["التشطيب", "طلاء بودرة أو تشطيب خشبي أو لون خاص حسب متطلبات المشروع."],
+      ["مجالات الاستخدام", "لوبي فندقي، مطعم، مقهى، فيلا، لاونج ومناطق ضيافة داخلية."],
+      ["التخصيص", "يمكن تخصيص المقاسات ومستوى الراحة واللون والقماش والتشطيب حسب المشروع."],
+      ["الجودة", "يمكن تنظيم مراقبة جودة داخلية وفحص طرف ثالث قبل الشحن عند الطلب."],
+    ],
     technicalBlocks: [
       ["اتجاه المواد", "يمكن اختيار الهيكل والتنجيد والتشطيب حسب الاستخدام."],
       ["ملاحظة الإنتاج", "يوصى بمراجعة عينة أو نموذج أولي قبل الإنتاج الكمي."],
@@ -659,13 +694,12 @@ const content = {
     projectsKicker: "Проекты",
     projectsTitle: "Отели, виллы, рестораны и коммерческие интерьеры.",
     projectsText: "Birkin Contract поддерживает проектную поставку мебели для hospitality пространств.",
-    contractKicker: "Contract",
+    contractKicker: "Контрактное производство",
     contractTitle: "Индивидуальная поставка из Турции.",
     contractText: "Индивидуальные размеры, материалы, координация производства, экспортная упаковка и инспекция.",
-    libraryKicker: "Библиотека",
+    libraryKicker: "Документы",
     libraryTitle: "Документы для оценки проекта.",
     libraryText: "Профиль компании, материалы, экспортная упаковка и информация о производстве.",
-    selectedSection: "Выбранный тип",
     allProducts: "Все продукты",
     addToQuote: "Добавить в запрос",
     added: "Добавлено",
@@ -675,6 +709,18 @@ const content = {
     projectOptions: "Проектные опции",
     technicalTitle: "Техническое направление",
     technicalSubtitle: "Рекомендуемый подход к материалам и производству.",
+    productSpecsTitle: "Технические характеристики",
+    productSpecsText: "Общее техническое направление для проектного производства. Финальные спецификации могут меняться по проекту.",
+    productSpecs: [
+      ["Каркас", "Алюминий, сталь или натуральное дерево в зависимости от модели и проекта."],
+      ["Сиденье и спинка", "Обивка, свободная подушка или формованный корпус по типу использования."],
+      ["Пена", "Высокоплотная HR-пена для hospitality использования и длительного комфорта."],
+      ["Ткань", "Indoor, outdoor, UV-resistant и water-repellent варианты тканей."],
+      ["Отделка", "Порошковая окраска, отделка дерева, лак или индивидуальный цвет."],
+      ["Зоны применения", "Лобби отеля, ресторан, кафе, вилла, lounge, dining area и hospitality interiors."],
+      ["Кастомизация", "Размеры, комфорт, цвет каркаса, ткань и отделка адаптируются под проект."],
+      ["Качество", "Внутренний контроль качества и инспекция третьей стороной перед отгрузкой по запросу."],
+    ],
     technicalBlocks: [
       ["Материалы", "Каркас, обивка и отделка подбираются под проект."],
       ["Производство", "Перед массовым производством рекомендуется образец."],
@@ -1256,8 +1302,26 @@ Thank you.`
         </section>
 
         <section className="section technicalDetailSection">
-          <div className="sectionHead">
+          <div className="sectionHead editorialHead">
             <span className="kicker">{activeProduct.collection}</span>
+            <h2>{t.productSpecsTitle}</h2>
+            <p>{t.productSpecsText}</p>
+          </div>
+
+          <div className="technicalGrid">
+            {t.productSpecs.map(([title, text], index) => (
+              <div className="technicalCard" key={title}>
+                <span>{String(index + 1).padStart(2, "0")}</span>
+                <h3>{title}</h3>
+                <p>{text}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        <section className="section materialsSection">
+          <div className="sectionHead editorialHead">
+            <span className="kicker">{activeProduct.name}</span>
             <h2>{t.technicalTitle}</h2>
             <p>{t.technicalSubtitle}</p>
           </div>
@@ -1316,9 +1380,10 @@ Thank you.`
 
         {relatedProducts.length > 0 && (
           <section className="section modelsSection">
-            <div className="sectionHead">
+            <div className="sectionHead editorialHead">
               <span className="kicker">{activeProduct.collection}</span>
               <h2>{t.collectionsTitle}</h2>
+              <p>{t.collectionsText}</p>
             </div>
 
             <div className="productEditorialGrid">
