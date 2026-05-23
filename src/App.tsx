@@ -14,13 +14,7 @@ type ProductSection =
   | "Outdoor";
 
 type CollectionName =
-  | "Arc Collection"
-  | "Loop Collection"
-  | "Haven Collection"
-  | "Cocoon Collection"
-  | "Pure Collection"
-  | "Axis Collection";
-
+  | "SÉRA Collection";
 type LocalizedText = Record<Lang, string>;
 type Pair = [string, string];
 
