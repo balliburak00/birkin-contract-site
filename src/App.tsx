@@ -324,24 +324,28 @@ const content = {
     quote: "Quote List",
     clearList: "Clear List",
     heroKicker: "Custom-Made Contract Furniture",
-    heroTitle: "Project furniture shaped by collections, materials and contract needs.",
+    heroTitle: "Furniture systems for hospitality spaces.",
     heroText:
-      "Türkiye-based contract furniture supply for hotels, restaurants, villas, hospitality and architectural projects.",
+      "Collection-based custom-made furniture supply from Türkiye for hotels, restaurants, villas and architectural interiors.",
     heroPrimary: "Explore Collections",
-    heroSecondary: "View Products",
+    heroSecondary: "Project Quotation",
+    introKicker: "Birkin Contract",
+    introTitle: "A quieter, more architectural approach to contract furniture.",
+    introText:
+      "We organize collection-based product language, project-specific customization, export-suitable packaging and optional third-party inspection for hospitality and architectural projects.",
     collectionsKicker: "Collections",
-    collectionsTitle: "A collection-based product language.",
+    collectionsTitle: "Collections designed for project coordination.",
     collectionsText:
-      "Birkin Contract presents products through a clean collection structure, helping architects and procurement teams select coordinated models for hospitality projects.",
+      "Each collection groups models with a consistent visual language, making selection easier for architects, procurement teams and investors.",
     productsKicker: "Products",
-    productsTitle: "Products by type.",
-    productsText: "Filter models by product type and add selected pieces to your quote list.",
+    productsTitle: "Product index.",
+    productsText: "Filter by type, review models and build your quotation list.",
     projectsKicker: "Projects",
-    projectsTitle: "Furniture supply for hospitality and architectural spaces.",
+    projectsTitle: "Hospitality, villas, restaurants and commercial interiors.",
     projectsText:
-      "We support restaurants, hotels, villas, residences and premium commercial interiors with project-based furniture solutions.",
+      "Birkin Contract supports project-based furniture supply for spaces where visual consistency, durability and delivery coordination matter.",
     contractKicker: "Contract",
-    contractTitle: "A contract furniture partner from Türkiye.",
+    contractTitle: "Custom-made supply from Türkiye.",
     contractText:
       "Custom dimensions, material selection, production coordination, export packaging and optional third-party inspection can be arranged according to project requirements.",
     libraryKicker: "Library",
@@ -350,7 +354,6 @@ const content = {
       "Access company profile, material directions, export packaging notes and project-based production information.",
     selectedSection: "Selected Type",
     allProducts: "All Products",
-    emptyCategory: "No products added to this section yet.",
     addToQuote: "Add to Quote List",
     added: "Added",
     viewDetails: "View Details",
@@ -432,24 +435,28 @@ const content = {
     quote: "Teklif Listesi",
     clearList: "Listeyi Temizle",
     heroKicker: "Özel Üretim Contract Mobilya",
-    heroTitle: "Koleksiyon, malzeme ve proje ihtiyacına göre şekillenen mobilya.",
+    heroTitle: "Hospitality alanları için mobilya sistemleri.",
     heroText:
-      "Türkiye merkezli; otel, restoran, villa, hospitality ve mimari projeler için contract mobilya tedariki.",
+      "Türkiye’den otel, restoran, villa ve mimari iç mekân projeleri için koleksiyon bazlı özel üretim mobilya tedariki.",
     heroPrimary: "Koleksiyonları İncele",
-    heroSecondary: "Ürünleri İncele",
+    heroSecondary: "Proje Teklifi",
+    introKicker: "Birkin Contract",
+    introTitle: "Contract mobilyaya daha sakin ve mimari bir yaklaşım.",
+    introText:
+      "Hospitality ve mimari projeler için koleksiyon bazlı ürün dili, projeye özel özelleştirme, ihracata uygun ambalaj ve opsiyonel üçüncü taraf denetim süreçlerini organize ediyoruz.",
     collectionsKicker: "Koleksiyonlar",
-    collectionsTitle: "Koleksiyon bazlı ürün dili.",
+    collectionsTitle: "Proje koordinasyonu için tasarlanmış koleksiyonlar.",
     collectionsText:
-      "Birkin Contract ürünleri koleksiyon yapısıyla sunar; mimarların ve satın alma ekiplerinin hospitality projeleri için uyumlu modeller seçmesini kolaylaştırır.",
+      "Her koleksiyon, uyumlu bir görsel dilde modelleri bir araya getirir; mimarlar, satın alma ekipleri ve yatırımcılar için seçim sürecini kolaylaştırır.",
     productsKicker: "Ürünler",
-    productsTitle: "Ürün tipine göre modeller.",
-    productsText: "Modelleri ürün tipine göre filtreleyin ve seçili parçaları teklif listenize ekleyin.",
+    productsTitle: "Ürün indeksi.",
+    productsText: "Ürün tipine göre filtreleyin, modelleri inceleyin ve teklif listenizi oluşturun.",
     projectsKicker: "Projeler",
-    projectsTitle: "Hospitality ve mimari alanlar için mobilya tedariki.",
+    projectsTitle: "Hospitality, villa, restoran ve ticari iç mekânlar.",
     projectsText:
-      "Restoran, otel, villa, residence ve premium ticari iç mekân projelerinde proje bazlı mobilya çözümleri sunuyoruz.",
+      "Birkin Contract; görsel bütünlük, dayanıklılık ve teslimat koordinasyonunun önemli olduğu alanlarda proje bazlı mobilya tedariki sağlar.",
     contractKicker: "Contract",
-    contractTitle: "Türkiye’den contract mobilya çözüm partneri.",
+    contractTitle: "Türkiye’den özel üretim tedarik.",
     contractText:
       "Özel ölçü, malzeme seçimi, üretim koordinasyonu, ihracata uygun ambalaj ve opsiyonel üçüncü taraf denetim proje ihtiyacına göre organize edilebilir.",
     libraryKicker: "Library",
@@ -458,7 +465,6 @@ const content = {
       "Company profile, malzeme yönlendirmeleri, ihracat ambalaj notları ve proje bazlı üretim bilgilerine ulaşabilirsiniz.",
     selectedSection: "Seçilen Tip",
     allProducts: "Tüm Ürünler",
-    emptyCategory: "Bu bölüme henüz ürün eklenmedi.",
     addToQuote: "Teklif Listesine Ekle",
     added: "Eklendi",
     viewDetails: "Detayları İncele",
@@ -540,28 +546,30 @@ const content = {
     quote: "قائمة العرض",
     clearList: "مسح القائمة",
     heroKicker: "أثاث تعاقدي مخصص",
-    heroTitle: "أثاث يتشكل حسب المجموعات والمواد واحتياجات المشروع.",
-    heroText: "توريد أثاث تعاقدي من تركيا للفنادق والمطاعم والفلل ومشاريع الضيافة.",
+    heroTitle: "أنظمة أثاث لمساحات الضيافة.",
+    heroText: "توريد أثاث مخصص من تركيا للفنادق والمطاعم والفلل والمشاريع المعمارية.",
     heroPrimary: "استكشف المجموعات",
-    heroSecondary: "عرض المنتجات",
+    heroSecondary: "طلب عرض مشروع",
+    introKicker: "Birkin Contract",
+    introTitle: "نهج معماري هادئ للأثاث التعاقدي.",
+    introText: "ننظم لغة المنتجات حسب المجموعات والتخصيص والتغليف المناسب للتصدير للمشاريع.",
     collectionsKicker: "المجموعات",
-    collectionsTitle: "لغة منتجات قائمة على المجموعات.",
-    collectionsText: "تعرض Birkin Contract المنتجات من خلال هيكل مجموعات واضح لاختيار نماذج متناسقة للمشاريع.",
+    collectionsTitle: "مجموعات مصممة لتنسيق المشاريع.",
+    collectionsText: "كل مجموعة تجمع نماذج بلغة بصرية متناسقة لتسهيل اختيار المنتجات.",
     productsKicker: "المنتجات",
-    productsTitle: "المنتجات حسب النوع.",
-    productsText: "قم بتصفية النماذج حسب نوع المنتج وإضافتها إلى قائمة العرض.",
+    productsTitle: "فهرس المنتجات.",
+    productsText: "قم بالتصفية حسب نوع المنتج وأضف النماذج إلى قائمة العرض.",
     projectsKicker: "المشاريع",
-    projectsTitle: "توريد أثاث لمساحات الضيافة والمعمار.",
-    projectsText: "ندعم المطاعم والفنادق والفلل والمشاريع التجارية الراقية بحلول أثاث حسب المشروع.",
+    projectsTitle: "الفنادق والفلل والمطاعم والمساحات التجارية.",
+    projectsText: "ندعم توريد الأثاث حسب المشروع حيث تكون المتانة والتنسيق مهمة.",
     contractKicker: "العقود",
-    contractTitle: "شريك أثاث تعاقدي من تركيا.",
-    contractText: "يمكن تنظيم المقاسات الخاصة واختيار المواد وتنسيق الإنتاج والتغليف المناسب للتصدير حسب المشروع.",
+    contractTitle: "توريد مخصص من تركيا.",
+    contractText: "يمكن تنظيم المقاسات الخاصة واختيار المواد وتنسيق الإنتاج والتغليف المناسب للتصدير.",
     libraryKicker: "المكتبة",
     libraryTitle: "مستندات لتقييم المشروع.",
-    libraryText: "الوصول إلى ملف الشركة ومعلومات المواد والتغليف والإنتاج حسب المشروع.",
+    libraryText: "الوصول إلى ملف الشركة ومعلومات المواد والتغليف والإنتاج.",
     selectedSection: "النوع المختار",
     allProducts: "كل المنتجات",
-    emptyCategory: "لم تتم إضافة منتجات إلى هذا القسم بعد.",
     addToQuote: "إضافة إلى قائمة العرض",
     added: "تمت الإضافة",
     viewDetails: "عرض التفاصيل",
@@ -571,17 +579,17 @@ const content = {
     technicalTitle: "التوجيه الفني",
     technicalSubtitle: "نهج المواد والإنتاج المقترح للتوريد حسب المشروع.",
     technicalBlocks: [
-      ["اتجاه المواد", "يمكن اختيار الهيكل والتنجيد والتشطيب حسب الاستخدام الداخلي أو الخارجي أو مشاريع الضيافة."],
-      ["ملاحظة الإنتاج", "يوصى بمراجعة عينة أو نموذج أولي قبل الإنتاج الكمي للطلبات المخصصة."],
-      ["التخصيص", "يمكن تعديل المقاسات والأقمشة وألوان الهيكل وتشطيبات الخشب وتفاصيل الراحة حسب المشروع."],
-      ["التصدير والجودة", "يمكن تنظيم تغليف مناسب للتصدير وفحص طرف ثالث قبل الشحن عند الطلب."],
+      ["اتجاه المواد", "يمكن اختيار الهيكل والتنجيد والتشطيب حسب الاستخدام."],
+      ["ملاحظة الإنتاج", "يوصى بمراجعة عينة أو نموذج أولي قبل الإنتاج الكمي."],
+      ["التخصيص", "يمكن تعديل المقاسات والأقمشة والألوان والتشطيبات حسب المشروع."],
+      ["التصدير والجودة", "يمكن تنظيم تغليف مناسب للتصدير وفحص طرف ثالث عند الطلب."],
     ],
     productCtaKicker: "عرض سعر حسب المشروع",
     productCtaTitle: "هل أنت مهتم بهذا النموذج؟",
-    productCtaText: "شاركنا الكمية وموقع التسليم ونوع المشروع لإعداد عرض سعر حسب المشروع.",
+    productCtaText: "شاركنا الكمية وموقع التسليم ونوع المشروع لإعداد عرض سعر.",
     productCtaPoints: ["الكمية", "موقع التسليم", "نوع المشروع"],
     productCtaButton: "إضافة هذا النموذج إلى قائمة العرض",
-    options: ["مقاسات مخصصة حسب متطلبات المشروع", "بدائل الأقمشة وألوان الإطار والتشطيبات", "مراجعة عينة أو نموذج أولي لبعض المشاريع", "تغليف مناسب للتصدير عند الطلب", "فحص جودة اختياري من طرف ثالث قبل الشحن"],
+    options: ["مقاسات مخصصة", "بدائل الأقمشة والتشطيبات", "مراجعة عينة لبعض المشاريع", "تغليف مناسب للتصدير", "فحص جودة اختياري"],
     categoryLabels: {
       Chair: "كرسي",
       Armchair: "كرسي بذراعين",
@@ -594,7 +602,7 @@ const content = {
     } as Record<ProductSection, string>,
     quoteKicker: "قائمة العرض",
     quoteTitle: "اختر المنتجات واطلب السعر عبر واتساب.",
-    quoteText: "أضف المنتجات المختارة وأرسل تفاصيل مشروعك مباشرة.",
+    quoteText: "أضف المنتجات المختارة وأرسل تفاصيل مشروعك.",
     empty: "قائمة العرض فارغة. يرجى إضافة منتج أولاً.",
     remove: "إزالة",
     whatsapp: "إرسال طلب السعر عبر واتساب",
@@ -610,12 +618,12 @@ const content = {
     },
     materialsKicker: "المواد",
     materialsTitle: "توجيهات المواد للإنتاج حسب المشروع.",
-    materialsText: "تشمل الخيارات الخشب الطبيعي، الألمنيوم المطلي، الإسفنج عالي الكثافة والأقمشة الخارجية.",
+    materialsText: "تشمل الخيارات الخشب الطبيعي والألمنيوم المطلي والإسفنج عالي الكثافة والأقمشة الخارجية.",
     materials: [
-      ["الخشب", "إيروكو، تيك وبدائل خشب طبيعية حسب المشروع."],
-      ["المعدن", "طلاء بودرة كهربائي مناسب للخارج مع خيارات ألوان."],
-      ["الإسفنج", "خيارات إسفنج HR عالي الكثافة."],
-      ["الأقمشة", "أقمشة مقاومة للأشعة فوق البنفسجية وطاردة للماء."],
+      ["الخشب", "إيروكو، تيك وبدائل خشب طبيعية."],
+      ["المعدن", "طلاء بودرة كهربائي مناسب للخارج."],
+      ["الإسفنج", "خيارات إسفنج عالي الكثافة."],
+      ["الأقمشة", "أقمشة مقاومة للأشعة فوق البنفسجية."],
     ],
     aboutKicker: "من نحن",
     aboutTitle: "شريك مشاريع لاحتياجات الأثاث المعماري.",
@@ -632,28 +640,30 @@ const content = {
     quote: "Список запроса",
     clearList: "Очистить список",
     heroKicker: "Custom-Made Contract Furniture",
-    heroTitle: "Мебель, сформированная коллекциями, материалами и проектными задачами.",
-    heroText: "Поставка contract furniture из Турции для отелей, ресторанов, вилл и hospitality проектов.",
+    heroTitle: "Мебельные системы для hospitality пространств.",
+    heroText: "Поставка мебели из Турции для отелей, ресторанов, вилл и архитектурных интерьеров.",
     heroPrimary: "Изучить коллекции",
-    heroSecondary: "Посмотреть продукты",
+    heroSecondary: "Проектный запрос",
+    introKicker: "Birkin Contract",
+    introTitle: "Более спокойный и архитектурный подход к contract furniture.",
+    introText: "Мы организуем коллекционный язык продуктов, кастомизацию, экспортную упаковку и инспекцию.",
     collectionsKicker: "Коллекции",
-    collectionsTitle: "Коллекционный язык продуктов.",
-    collectionsText: "Birkin Contract представляет продукты через коллекции, чтобы упростить выбор согласованных моделей.",
+    collectionsTitle: "Коллекции для проектной координации.",
+    collectionsText: "Каждая коллекция объединяет модели с согласованным визуальным языком.",
     productsKicker: "Продукты",
-    productsTitle: "Продукты по типу.",
-    productsText: "Фильтруйте модели по типу продукта и добавляйте выбранные позиции в запрос.",
+    productsTitle: "Индекс продуктов.",
+    productsText: "Фильтруйте по типу, изучайте модели и создавайте список запроса.",
     projectsKicker: "Проекты",
-    projectsTitle: "Поставка мебели для hospitality и архитектурных пространств.",
-    projectsText: "Мы поддерживаем рестораны, отели, виллы и премиальные коммерческие интерьеры проектными решениями.",
+    projectsTitle: "Отели, виллы, рестораны и коммерческие интерьеры.",
+    projectsText: "Birkin Contract поддерживает проектную поставку мебели для hospitality пространств.",
     contractKicker: "Contract",
-    contractTitle: "Партнер contract furniture из Турции.",
-    contractText: "Индивидуальные размеры, выбор материалов, координация производства, экспортная упаковка и инспекция доступны по проекту.",
+    contractTitle: "Индивидуальная поставка из Турции.",
+    contractText: "Индивидуальные размеры, материалы, координация производства, экспортная упаковка и инспекция.",
     libraryKicker: "Библиотека",
     libraryTitle: "Документы для оценки проекта.",
-    libraryText: "Профиль компании, материалы, экспортная упаковка и информация о проектном производстве.",
+    libraryText: "Профиль компании, материалы, экспортная упаковка и информация о производстве.",
     selectedSection: "Выбранный тип",
     allProducts: "Все продукты",
-    emptyCategory: "В этот раздел пока не добавлены продукты.",
     addToQuote: "Добавить в запрос",
     added: "Добавлено",
     viewDetails: "Подробнее",
@@ -661,19 +671,19 @@ const content = {
     productDetailKicker: "Детали продукта",
     projectOptions: "Проектные опции",
     technicalTitle: "Техническое направление",
-    technicalSubtitle: "Рекомендуемый подход к материалам и производству для проектной поставки.",
+    technicalSubtitle: "Рекомендуемый подход к материалам и производству.",
     technicalBlocks: [
-      ["Материалы", "Каркас, обивка и отделка подбираются под indoor, outdoor или hospitality использование."],
-      ["Производство", "Перед массовым производством рекомендуется образец или прототип."],
-      ["Кастомизация", "Размеры, ткань, цвет каркаса, отделка дерева и комфорт могут быть адаптированы под проект."],
-      ["Экспорт и качество", "Экспортная упаковка и независимая инспекция перед отгрузкой могут быть организованы по запросу."],
+      ["Материалы", "Каркас, обивка и отделка подбираются под проект."],
+      ["Производство", "Перед массовым производством рекомендуется образец."],
+      ["Кастомизация", "Размеры, ткань, цвет каркаса и отделка адаптируются."],
+      ["Экспорт и качество", "Экспортная упаковка и инспекция возможны по запросу."],
     ],
     productCtaKicker: "Проектное предложение",
     productCtaTitle: "Интересует эта модель?",
-    productCtaText: "Поделитесь количеством, местом доставки и типом проекта для подготовки предложения.",
+    productCtaText: "Поделитесь количеством, местом доставки и типом проекта.",
     productCtaPoints: ["Количество", "Место доставки", "Тип проекта"],
     productCtaButton: "Добавить модель в запрос",
-    options: ["Индивидуальные размеры под требования проекта", "Варианты ткани, цвета каркаса и отделки", "Образец или прототип для отдельных проектов", "Экспортная упаковка по запросу", "Опциональная независимая инспекция перед отгрузкой"],
+    options: ["Индивидуальные размеры", "Варианты ткани и отделки", "Образец для отдельных проектов", "Экспортная упаковка", "Опциональная инспекция"],
     categoryLabels: {
       Chair: "Стул",
       Armchair: "Кресло",
@@ -702,16 +712,16 @@ const content = {
     },
     materialsKicker: "Материалы",
     materialsTitle: "Материальные направления для проектного производства.",
-    materialsText: "Рекомендации включают натуральное дерево, окрашенный алюминий, HR-пену и outdoor ткани.",
+    materialsText: "Рекомендации включают дерево, окрашенный алюминий, HR-пену и outdoor ткани.",
     materials: [
-      ["Дерево", "Iroko, teak и проектные древесные альтернативы."],
-      ["Металл", "Outdoor powder coating с разными цветами."],
+      ["Дерево", "Iroko, teak и древесные альтернативы."],
+      ["Металл", "Outdoor powder coating."],
       ["Пена", "Высокоплотная HR-пена."],
-      ["Ткань", "UV-resistant и water-repellent ткани."],
+      ["Ткань", "UV-resistant outdoor ткани."],
     ],
     aboutKicker: "О нас",
     aboutTitle: "Проектный партнер для архитектурной мебели.",
-    aboutText: "Birkin Contract — поставщик custom-made contract furniture из Турции для hospitality и архитектурных проектов.",
+    aboutText: "Birkin Contract — поставщик custom-made contract furniture из Турции.",
     contactKicker: "Контакты",
     contactTitle: "Расскажите нам о вашем проекте.",
     contactText: "Для точной оценки укажите продукты, количество, размеры, материалы и место доставки.",
@@ -728,13 +738,11 @@ export default function App() {
   })
 
   const [selectedSection, setSelectedSection] = useState<ProductSection | "All">("All")
-  const [selectedCollection, setSelectedCollection] = useState<CollectionName | "All">("All")
   const [heroProductIndex, setHeroProductIndex] = useState(0)
   const [currentPath, setCurrentPath] = useState(window.location.pathname)
 
   const [cart, setCart] = useState<CartItem[]>(() => {
     const savedCart = localStorage.getItem("birkin-quote-cart")
-
     if (!savedCart) return []
 
     try {
@@ -820,11 +828,6 @@ export default function App() {
     selectedSection === "All"
       ? products
       : products.filter((product) => product.category === selectedSection)
-
-  const collectionProducts =
-    selectedCollection === "All"
-      ? products
-      : products.filter((product) => product.collection === selectedCollection)
 
   const changeLanguage = (newLang: Lang) => {
     setLang(newLang)
@@ -973,7 +976,7 @@ Please share pricing, production lead time and export packaging details.`
   }
 
   const Header = () => (
-    <header className="navbar">
+    <header className="navbar editorialNavbar">
       <button type="button" className="brand brandButton" onClick={() => goTo("/")}>
         <BirkinLogo />
       </button>
@@ -1013,17 +1016,55 @@ Please share pricing, production lead time and export packaging details.`
     </header>
   )
 
+  const Footer = () => (
+    <>
+      <footer className="footer">
+        <div>
+          <BirkinLogo />
+          <p>{t.footerText}</p>
+        </div>
+
+        <div className="footerLinks">
+          <a href="#collections">{t.nav[1]}</a>
+          <a href="#products">{t.nav[2]}</a>
+          <a href="#projects">{t.nav[3]}</a>
+          <a href="#contract">{t.nav[4]}</a>
+          <a href="#materials">{t.nav[5]}</a>
+          <a href="#contact">{t.nav[8]}</a>
+        </div>
+
+        <div className="footerBottom">
+          <span>{t.rights}</span>
+          <span>Crafted for Spaces</span>
+        </div>
+      </footer>
+
+      <a
+        href="https://wa.me/905525000320"
+        target="_blank"
+        rel="noreferrer"
+        className="floatingWhatsapp"
+      >
+        WhatsApp
+      </a>
+    </>
+  )
+
   if (currentPath.startsWith("/products/")) {
     if (!activeProduct) {
       return (
         <main dir={lang === "ar" ? "rtl" : "ltr"}>
           <Header />
+
           <section className="section productDetailSection">
             <button type="button" className="secondaryBtn" onClick={() => goTo("/#products")}>
               {t.backToProducts}
             </button>
+
             <h1 className="notFoundTitle">Product not found.</h1>
           </section>
+
+          <Footer />
         </main>
       )
     }
@@ -1040,7 +1081,7 @@ Please share pricing, production lead time and export packaging details.`
       <main dir={lang === "ar" ? "rtl" : "ltr"}>
         <Header />
 
-        <section className="productDetailHero">
+        <section className="productDetailHero editorialProductHero">
           <div className="productDetailImage">
             <img src={activeProduct.image} alt={activeProduct.name} />
           </div>
@@ -1050,10 +1091,10 @@ Please share pricing, production lead time and export packaging details.`
               {t.backToProducts}
             </button>
 
-            <span className="kicker">{t.productDetailKicker}</span>
+            <span className="kicker">{activeProduct.collection}</span>
 
             <div className="productDetailMeta">
-              {activeProduct.code} / {activeProduct.collection}
+              {activeProduct.code} / {t.categoryLabels[activeProduct.category]}
             </div>
 
             <h1>{activeProduct.name}</h1>
@@ -1160,30 +1201,21 @@ Please share pricing, production lead time and export packaging details.`
               <h2>{t.collectionsTitle}</h2>
             </div>
 
-            <div className="modelGrid">
+            <div className="productEditorialGrid">
               {relatedProducts.map((product) => (
                 <article
-                  className="modelCard clickableModelCard"
+                  className="productEditorialCard clickableModelCard"
                   key={product.name}
                   onClick={() => goTo(`/products/${product.slug}`)}
                 >
-                  <div className="modelTop">
-                    <span>{product.code}</span>
-                    <small>{product.collection}</small>
-                  </div>
-
-                  <div className="modelImageWrap">
+                  <div className="productEditorialImage">
                     <img src={product.image} alt={product.name} />
                   </div>
 
-                  <div className="modelBody">
-                    <p className="modelUsage">{product.usage[lang]}</p>
+                  <div className="productEditorialInfo">
+                    <span>{product.code}</span>
                     <h3>{product.name}</h3>
                     <p>{product.desc[lang]}</p>
-
-                    <button type="button" className="detailBtn">
-                      {t.viewDetails}
-                    </button>
                   </div>
                 </article>
               ))}
@@ -1196,46 +1228,12 @@ Please share pricing, production lead time and export packaging details.`
     )
   }
 
-  const Footer = () => (
-    <>
-      <footer className="footer">
-        <div>
-          <BirkinLogo />
-          <p>{t.footerText}</p>
-        </div>
-
-        <div className="footerLinks">
-          <a href="#collections">{t.nav[1]}</a>
-          <a href="#products">{t.nav[2]}</a>
-          <a href="#projects">{t.nav[3]}</a>
-          <a href="#contract">{t.nav[4]}</a>
-          <a href="#materials">{t.nav[5]}</a>
-          <a href="#contact">{t.nav[8]}</a>
-        </div>
-
-        <div className="footerBottom">
-          <span>{t.rights}</span>
-          <span>Crafted for Spaces</span>
-        </div>
-      </footer>
-
-      <a
-        href="https://wa.me/905525000320"
-        target="_blank"
-        rel="noreferrer"
-        className="floatingWhatsapp"
-      >
-        WhatsApp
-      </a>
-    </>
-  )
-
   return (
     <main dir={lang === "ar" ? "rtl" : "ltr"}>
       <Header />
 
-      <section className="hero">
-        <div className="heroContent">
+      <section className="editorialHero">
+        <div className="editorialHeroText">
           <span className="kicker">{t.heroKicker}</span>
           <h1>{t.heroTitle}</h1>
           <p>{t.heroText}</p>
@@ -1244,159 +1242,106 @@ Please share pricing, production lead time and export packaging details.`
             <a href="#collections" className="primaryBtn">
               {t.heroPrimary}
             </a>
-            <a href="#products" className="secondaryBtn">
+            <a href="#quote-list" className="secondaryBtn">
               {t.heroSecondary}
             </a>
           </div>
         </div>
 
-        <div className="heroVisual">
-          <div className="editorialFrame">
-            <span className="frameLabel">BIRKIN / CONTRACT</span>
-
-            <img
-              key={heroProduct.name}
-              src={heroProduct.image}
-              alt={heroProduct.name}
-              className="heroProduct mainProduct"
-            />
-
-            <div className="visualLine"></div>
-            <div className="visualCircle"></div>
-          </div>
+        <div className="editorialHeroMedia">
+          <span className="editorialHeroLabel">{heroProduct.collection}</span>
+          <img
+            key={heroProduct.name}
+            src={heroProduct.image}
+            alt={heroProduct.name}
+          />
         </div>
       </section>
 
-      <section id="collections" className="section modelsSection">
-        <div className="sectionHead">
+      <section className="statementBand">
+        <span>{t.introKicker}</span>
+        <h2>{t.introTitle}</h2>
+        <p>{t.introText}</p>
+      </section>
+
+      <section id="collections" className="section collectionShowcase">
+        <div className="sectionHead editorialHead">
           <span className="kicker">{t.collectionsKicker}</span>
           <h2>{t.collectionsTitle}</h2>
           <p>{t.collectionsText}</p>
         </div>
 
-        <div className="categoryGrid">
-          <button
-            type="button"
-            className={selectedCollection === "All" ? "categoryCard active" : "categoryCard"}
-            onClick={() => setSelectedCollection("All")}
-          >
-            <span>00</span>
-            <strong>{t.allProducts}</strong>
-          </button>
+        <div className="collectionFeatureGrid">
+          {collections.map((collection, index) => {
+            const collectionItems = products.filter((product) => product.collection === collection)
+            const coverProduct = collectionItems[0]
 
-          {collections.map((collection, index) => (
-            <button
-              type="button"
-              key={collection}
-              className={selectedCollection === collection ? "categoryCard active" : "categoryCard"}
-              onClick={() => setSelectedCollection(collection)}
-            >
-              <span>{String(index + 1).padStart(2, "0")}</span>
-              <strong>{collection}</strong>
-            </button>
-          ))}
-        </div>
-
-        <div className="modelGrid">
-          {collectionProducts.map((product) => (
-            <article
-              className="modelCard clickableModelCard"
-              key={product.name}
-              onClick={() => goTo(`/products/${product.slug}`)}
-            >
-              <div className="modelTop">
-                <span>{product.code}</span>
-                <small>{product.collection}</small>
-              </div>
-
-              <div className="modelImageWrap">
-                <img src={product.image} alt={product.name} />
-              </div>
-
-              <div className="modelBody">
-                <p className="modelUsage">{product.usage[lang]}</p>
-                <h3>{product.name}</h3>
-                <p>{product.desc[lang]}</p>
-
-                <div className="modelActions">
-                  <button
-                    type="button"
-                    onClick={(event) => {
-                      event.stopPropagation()
-                      goTo(`/products/${product.slug}`)
-                    }}
-                    className="detailBtn"
-                  >
-                    {t.viewDetails}
-                  </button>
-
-                  <button
-                    type="button"
-                    onClick={(event) => {
-                      event.stopPropagation()
-                      addToCart(product)
-                    }}
-                    className="modelBtn"
-                  >
-                    {cart.some((item) => item.name === product.name)
-                      ? `✓ ${t.added}`
-                      : t.addToQuote}
-                  </button>
+            return (
+              <article
+                className="collectionFeatureCard"
+                key={collection}
+                onClick={() => {
+                  if (coverProduct) goTo(`/products/${coverProduct.slug}`)
+                }}
+              >
+                <div className="collectionFeatureImage">
+                  {coverProduct && <img src={coverProduct.image} alt={collection} />}
                 </div>
-              </div>
-            </article>
-          ))}
+
+                <div className="collectionFeatureInfo">
+                  <span>{String(index + 1).padStart(2, "0")}</span>
+                  <h3>{collection}</h3>
+                  <p>{collectionItems.length} models</p>
+                </div>
+              </article>
+            )
+          })}
         </div>
       </section>
 
-      <section id="products" className="section modelsSection">
-        <div className="sectionHead">
+      <section id="products" className="section productIndexSection">
+        <div className="sectionHead editorialHead">
           <span className="kicker">{t.productsKicker}</span>
           <h2>{t.productsTitle}</h2>
           <p>{t.productsText}</p>
         </div>
 
-        <div className="categoryGrid">
+        <div className="typeFilterRow">
           <button
             type="button"
-            className={selectedSection === "All" ? "categoryCard active" : "categoryCard"}
+            className={selectedSection === "All" ? "typeFilter active" : "typeFilter"}
             onClick={() => setSelectedSection("All")}
           >
-            <span>00</span>
-            <strong>{t.allProducts}</strong>
+            {t.allProducts}
           </button>
 
-          {productSections.map((section, index) => (
+          {productSections.map((section) => (
             <button
               type="button"
               key={section}
-              className={selectedSection === section ? "categoryCard active" : "categoryCard"}
+              className={selectedSection === section ? "typeFilter active" : "typeFilter"}
               onClick={() => setSelectedSection(section)}
             >
-              <span>{String(index + 1).padStart(2, "0")}</span>
-              <strong>{t.categoryLabels[section]}</strong>
+              {t.categoryLabels[section]}
             </button>
           ))}
         </div>
 
-        <div className="modelGrid">
+        <div className="productEditorialGrid">
           {filteredProducts.map((product) => (
             <article
-              className="modelCard clickableModelCard"
+              className="productEditorialCard clickableModelCard"
               key={product.name}
               onClick={() => goTo(`/products/${product.slug}`)}
             >
-              <div className="modelTop">
-                <span>{product.code}</span>
-                <small>{t.categoryLabels[product.category]}</small>
-              </div>
-
-              <div className="modelImageWrap">
+              <div className="productEditorialImage">
                 <img src={product.image} alt={product.name} />
               </div>
 
-              <div className="modelBody">
-                <p className="modelUsage">{product.collection}</p>
+              <div className="productEditorialInfo">
+                <span>
+                  {product.code} / {product.collection}
+                </span>
                 <h3>{product.name}</h3>
                 <p>{product.desc[lang]}</p>
 
@@ -1431,28 +1376,24 @@ Please share pricing, production lead time and export packaging details.`
         </div>
       </section>
 
-      <section id="projects" className="section splitSection">
+      <section id="projects" className="editorialPanel darkPanel">
         <div>
           <span className="kicker">{t.projectsKicker}</span>
           <h2>{t.projectsTitle}</h2>
         </div>
-        <div>
-          <p>{t.projectsText}</p>
-        </div>
+        <p>{t.projectsText}</p>
       </section>
 
-      <section id="contract" className="section splitSection">
+      <section id="contract" className="editorialPanel lightPanel">
         <div>
           <span className="kicker">{t.contractKicker}</span>
           <h2>{t.contractTitle}</h2>
         </div>
-        <div>
-          <p>{t.contractText}</p>
-        </div>
+        <p>{t.contractText}</p>
       </section>
 
       <section id="materials" className="section materialsSection">
-        <div className="sectionHead">
+        <div className="sectionHead editorialHead">
           <span className="kicker">{t.materialsKicker}</span>
           <h2>{t.materialsTitle}</h2>
           <p>{t.materialsText}</p>
@@ -1469,35 +1410,35 @@ Please share pricing, production lead time and export packaging details.`
         </div>
       </section>
 
-      <section id="library" className="section profileSection">
-        <div>
-          <span className="kicker">{t.libraryKicker}</span>
-          <h2>{t.libraryTitle}</h2>
-          <p>{t.libraryText}</p>
-        </div>
+      <section id="library" className="section librarySection">
+        <div className="libraryBox">
+          <div>
+            <span className="kicker">{t.libraryKicker}</span>
+            <h2>{t.libraryTitle}</h2>
+            <p>{t.libraryText}</p>
+          </div>
 
-        <a
-          href="/birkin-company-profile.pdf"
-          target="_blank"
-          rel="noreferrer"
-          className="primaryBtn"
-        >
-          Company Profile PDF
-        </a>
+          <a
+            href="/birkin-company-profile.pdf"
+            target="_blank"
+            rel="noreferrer"
+            className="primaryBtn"
+          >
+            Company Profile PDF
+          </a>
+        </div>
       </section>
 
-      <section id="about" className="section splitSection">
+      <section id="about" className="editorialPanel lightPanel">
         <div>
           <span className="kicker">{t.aboutKicker}</span>
           <h2>{t.aboutTitle}</h2>
         </div>
-        <div>
-          <p>{t.aboutText}</p>
-        </div>
+        <p>{t.aboutText}</p>
       </section>
 
       <section id="quote-list" className="section quoteSection">
-        <div className="sectionHead">
+        <div className="sectionHead editorialHead">
           <span className="kicker">{t.quoteKicker}</span>
           <h2>{t.quoteTitle}</h2>
           <p>{t.quoteText}</p>
