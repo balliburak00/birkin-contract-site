@@ -392,12 +392,13 @@ const content = {
       Outdoor: "Outdoor",
     } as Record<ProductSection, string>,
     quoteKicker: "Quote List",
-    quoteTitle: "Select products and request pricing via WhatsApp.",
+    quoteTitle: "Select products and request pricing.",
     quoteText:
-      "Add selected products, adjust quantities and send your project details directly to Birkin Contract.",
+      "Add selected products, adjust quantities and send your project details directly to Birkin Contract via WhatsApp or e-mail.",
     empty: "Your quote list is empty. Please add a product first.",
     remove: "Remove",
     whatsapp: "Send Quote Request via WhatsApp",
+    emailQuote: "Send Quote Request by E-mail",
     fillAllFields: "Please fill in all required fields before sending your quotation request.",
     fields: {
       name: "Name / Company",
@@ -503,12 +504,13 @@ const content = {
       Outdoor: "Dış Mekân",
     } as Record<ProductSection, string>,
     quoteKicker: "Teklif Listesi",
-    quoteTitle: "Ürünleri seçin, WhatsApp üzerinden fiyat talep edin.",
+    quoteTitle: "Ürünleri seçin, fiyat teklifi talep edin.",
     quoteText:
-      "Seçili ürünleri ekleyin, adetleri ayarlayın ve proje bilgilerinizi doğrudan Birkin Contract’a gönderin.",
+      "Seçili ürünleri ekleyin, adetleri ayarlayın ve proje bilgilerinizi WhatsApp veya e-mail üzerinden doğrudan Birkin Contract’a gönderin.",
     empty: "Teklif listeniz boş. Lütfen önce bir ürün ekleyin.",
     remove: "Kaldır",
     whatsapp: "WhatsApp’tan Teklif Talebi Gönder",
+    emailQuote: "E-mail ile Teklif Talebi Gönder",
     fillAllFields: "Lütfen teklif talebi göndermeden önce tüm alanları doldurun.",
     fields: {
       name: "Ad / Firma",
@@ -601,11 +603,12 @@ const content = {
       Outdoor: "خارجي",
     } as Record<ProductSection, string>,
     quoteKicker: "قائمة العرض",
-    quoteTitle: "اختر المنتجات واطلب السعر عبر واتساب.",
-    quoteText: "أضف المنتجات المختارة وأرسل تفاصيل مشروعك.",
+    quoteTitle: "اختر المنتجات واطلب السعر.",
+    quoteText: "أضف المنتجات المختارة وأرسل تفاصيل مشروعك عبر واتساب أو البريد الإلكتروني.",
     empty: "قائمة العرض فارغة. يرجى إضافة منتج أولاً.",
     remove: "إزالة",
     whatsapp: "إرسال طلب السعر عبر واتساب",
+    emailQuote: "إرسال طلب السعر عبر البريد الإلكتروني",
     fillAllFields: "يرجى تعبئة جميع الحقول قبل إرسال طلب عرض السعر.",
     fields: {
       name: "الاسم / الشركة",
@@ -695,11 +698,12 @@ const content = {
       Outdoor: "Уличная мебель",
     } as Record<ProductSection, string>,
     quoteKicker: "Список запроса",
-    quoteTitle: "Выберите продукты и запросите цену через WhatsApp.",
-    quoteText: "Добавьте выбранные продукты и отправьте детали проекта.",
+    quoteTitle: "Выберите продукты и запросите цену.",
+    quoteText: "Добавьте выбранные продукты и отправьте детали проекта через WhatsApp или e-mail.",
     empty: "Список пуст. Сначала добавьте продукт.",
     remove: "Удалить",
     whatsapp: "Отправить запрос через WhatsApp",
+    emailQuote: "Отправить запрос по e-mail",
     fillAllFields: "Пожалуйста, заполните все поля перед отправкой запроса.",
     fields: {
       name: "Имя / Компания",
@@ -906,17 +910,17 @@ export default function App() {
     quoteInfo.deliveryLocation.trim() !== "" &&
     quoteInfo.notes.trim() !== ""
 
-  const whatsappQuoteLink = useMemo(() => {
-    const selectedProducts =
-      cart.length === 0
-        ? "-"
-        : cart
-            .map(
-              (item) =>
-                `- ${item.code} / ${item.name} / ${t.categoryLabels[item.category]} x ${item.qty}`
-            )
-            .join("\n")
+  const selectedProductsText =
+    cart.length === 0
+      ? "-"
+      : cart
+          .map(
+            (item) =>
+              `- ${item.code} / ${item.name} / ${t.categoryLabels[item.category]} x ${item.qty}`
+          )
+          .join("\n")
 
+  const whatsappQuoteLink = useMemo(() => {
     const message =
       lang === "tr"
         ? `Merhaba Birkin Contract Ekibi,
@@ -924,7 +928,7 @@ export default function App() {
 Aşağıda seçtiğim ürünler için proje bazlı fiyat teklifi almak istiyorum.
 
 Seçilen Ürünler:
-${selectedProducts}
+${selectedProductsText}
 
 Proje Bilgileri:
 Ad / Firma: ${quoteInfo.name}
@@ -943,7 +947,7 @@ Lütfen fiyat, üretim süresi ve ihracata uygun ambalaj detaylarını paylaşı
 I would like to request a project-based quotation for the selected models below.
 
 Selected Products:
-${selectedProducts}
+${selectedProductsText}
 
 Project Details:
 Name / Company: ${quoteInfo.name}
@@ -959,7 +963,109 @@ ${quoteInfo.notes}
 Please share pricing, production lead time and export packaging details.`
 
     return `https://wa.me/905525000320?text=${encodeURIComponent(message)}`
-  }, [cart, quoteInfo, t, lang])
+  }, [selectedProductsText, quoteInfo, lang])
+
+  const emailQuoteLink = useMemo(() => {
+    const subject =
+      lang === "tr"
+        ? "Birkin Contract - Proje Bazlı Teklif Talebi"
+        : lang === "ar"
+          ? "Birkin Contract - طلب عرض سعر حسب المشروع"
+          : lang === "ru"
+            ? "Birkin Contract - Проектный запрос предложения"
+            : "Birkin Contract - Project-Based Quotation Request"
+
+    const body =
+      lang === "tr"
+        ? `Merhaba Birkin Contract Ekibi,
+
+Aşağıda seçtiğim ürünler için proje bazlı fiyat teklifi almak istiyorum.
+
+Seçilen Ürünler:
+${selectedProductsText}
+
+Proje Bilgileri:
+Ad / Firma: ${quoteInfo.name}
+E-mail: ${quoteInfo.email}
+Telefon / WhatsApp: ${quoteInfo.phone}
+Ülke / Şehir: ${quoteInfo.country}
+Proje Tipi: ${quoteInfo.projectType}
+Teslimat Lokasyonu: ${quoteInfo.deliveryLocation}
+
+Notlar:
+${quoteInfo.notes}
+
+Lütfen fiyat, üretim süresi, ödeme şartları ve ihracata uygun ambalaj detaylarını paylaşır mısınız?
+
+Teşekkürler.`
+        : lang === "ar"
+          ? `مرحباً فريق Birkin Contract،
+
+أود طلب عرض سعر حسب المشروع للمنتجات المختارة أدناه.
+
+المنتجات المختارة:
+${selectedProductsText}
+
+تفاصيل المشروع:
+الاسم / الشركة: ${quoteInfo.name}
+البريد الإلكتروني: ${quoteInfo.email}
+الهاتف / واتساب: ${quoteInfo.phone}
+الدولة / المدينة: ${quoteInfo.country}
+نوع المشروع: ${quoteInfo.projectType}
+موقع التسليم: ${quoteInfo.deliveryLocation}
+
+ملاحظات:
+${quoteInfo.notes}
+
+يرجى مشاركة السعر ومدة الإنتاج وشروط الدفع وتفاصيل التغليف المناسب للتصدير.
+
+شكراً.`
+          : lang === "ru"
+            ? `Здравствуйте, команда Birkin Contract,
+
+Я хотел(а) бы запросить проектное предложение по выбранным моделям ниже.
+
+Выбранные продукты:
+${selectedProductsText}
+
+Детали проекта:
+Имя / Компания: ${quoteInfo.name}
+E-mail: ${quoteInfo.email}
+Телефон / WhatsApp: ${quoteInfo.phone}
+Страна / Город: ${quoteInfo.country}
+Тип проекта: ${quoteInfo.projectType}
+Место доставки: ${quoteInfo.deliveryLocation}
+
+Заметки:
+${quoteInfo.notes}
+
+Пожалуйста, отправьте цену, срок производства, условия оплаты и детали экспортной упаковки.
+
+Спасибо.`
+            : `Hello Birkin Contract Team,
+
+I would like to request a project-based quotation for the selected models below.
+
+Selected Products:
+${selectedProductsText}
+
+Project Details:
+Name / Company: ${quoteInfo.name}
+E-mail: ${quoteInfo.email}
+Phone / WhatsApp: ${quoteInfo.phone}
+Country / City: ${quoteInfo.country}
+Project Type: ${quoteInfo.projectType}
+Delivery Location: ${quoteInfo.deliveryLocation}
+
+Notes:
+${quoteInfo.notes}
+
+Please share pricing, production lead time, payment terms and export packaging details.
+
+Thank you.`
+
+    return `mailto:burak@birkin.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`
+  }, [selectedProductsText, quoteInfo, lang])
 
   const handleWhatsappQuote = () => {
     if (cart.length === 0) {
@@ -973,6 +1079,20 @@ Please share pricing, production lead time and export packaging details.`
     }
 
     window.open(whatsappQuoteLink, "_blank", "noopener,noreferrer")
+  }
+
+  const handleEmailQuote = () => {
+    if (cart.length === 0) {
+      alert(t.empty)
+      return
+    }
+
+    if (!isQuoteFormComplete) {
+      alert(t.fillAllFields)
+      return
+    }
+
+    window.location.href = emailQuoteLink
   }
 
   const Header = () => (
@@ -1503,17 +1623,31 @@ Please share pricing, production lead time and export packaging details.`
             <input required placeholder={t.fields.deliveryLocation} value={quoteInfo.deliveryLocation} onChange={(e) => setQuoteInfo({ ...quoteInfo, deliveryLocation: e.target.value })} />
             <textarea required placeholder={t.fields.notes} value={quoteInfo.notes} onChange={(e) => setQuoteInfo({ ...quoteInfo, notes: e.target.value })} />
 
-            <button
-              type="button"
-              className="whatsappQuoteBtn"
-              onClick={handleWhatsappQuote}
-              style={{
-                opacity: isQuoteFormComplete ? 1 : 0.55,
-                cursor: isQuoteFormComplete ? "pointer" : "not-allowed",
-              }}
-            >
-              {t.whatsapp}
-            </button>
+            <div className="quoteActionButtons">
+              <button
+                type="button"
+                className="whatsappQuoteBtn"
+                onClick={handleWhatsappQuote}
+                style={{
+                  opacity: isQuoteFormComplete ? 1 : 0.55,
+                  cursor: isQuoteFormComplete ? "pointer" : "not-allowed",
+                }}
+              >
+                {t.whatsapp}
+              </button>
+
+              <button
+                type="button"
+                className="emailQuoteBtn"
+                onClick={handleEmailQuote}
+                style={{
+                  opacity: isQuoteFormComplete ? 1 : 0.55,
+                  cursor: isQuoteFormComplete ? "pointer" : "not-allowed",
+                }}
+              >
+                {t.emailQuote}
+              </button>
+            </div>
           </div>
         </div>
       </section>
