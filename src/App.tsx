@@ -23,6 +23,12 @@ type CollectionName =
 
 type LocalizedText = Record<Lang, string>
 
+type ProductDimension = {
+  label: LocalizedText
+  cm: string
+  inch: string
+}
+
 type Product = {
   slug: string
   code: string
@@ -32,6 +38,8 @@ type Product = {
   usage: LocalizedText
   desc: LocalizedText
   image: string
+  gallery?: string[]
+  dimensions?: ProductDimension[]
 }
 
 type CartItem = {
@@ -217,6 +225,83 @@ const products: Product[] = [
     image: "/product-armchair-birkin-cocoon-a02.png",
   },
   {
+    slug: "birkin-vera-a03",
+    code: "A03",
+    name: "BIRKIN VERA A03",
+    category: "Armchair",
+    collection: "Haven Collection",
+    usage: {
+      en: "Restaurant / Hotel Room / Villa / Lounge",
+      tr: "Restoran / Otel Odası / Villa / Lounge",
+      ar: "مطعم / غرفة فندقية / فيلا / لاونج",
+      ru: "Ресторан / Номер отеля / Вилла / Лаунж",
+    },
+    desc: {
+      en: "A compact upholstered armchair with dark wooden arms and legs, designed for restaurants, hotel rooms, villas and refined hospitality interiors.",
+      tr: "Koyu ahşap kol ve ayak detaylarına sahip kompakt döşemeli berjer; restoran, otel odası, villa ve rafine hospitality iç mekânları için tasarlanmıştır.",
+      ar: "كرسي بذراعين منجد بتفاصيل خشبية داكنة في الأذرع والأرجل، مصمم للمطاعم والغرف الفندقية والفلل ومساحات الضيافة الراقية.",
+      ru: "Компактное мягкое кресло с темными деревянными подлокотниками и ножками для ресторанов, номеров отелей, вилл и refined hospitality интерьеров.",
+    },
+    image: "/product-armchair-birkin-vera-a03-angle.png",
+    gallery: [
+      "/product-armchair-birkin-vera-a03-front.png",
+      "/product-armchair-birkin-vera-a03-angle.png",
+      "/product-armchair-birkin-vera-a03-side.png",
+    ],
+    dimensions: [
+      {
+        label: {
+          en: "Width",
+          tr: "Genişlik",
+          ar: "العرض",
+          ru: "Ширина",
+        },
+        cm: "57",
+        inch: "22.4",
+      },
+      {
+        label: {
+          en: "Depth",
+          tr: "Derinlik",
+          ar: "العمق",
+          ru: "Глубина",
+        },
+        cm: "62",
+        inch: "24.4",
+      },
+      {
+        label: {
+          en: "Seat Height",
+          tr: "Oturum Yüksekliği",
+          ar: "ارتفاع المقعد",
+          ru: "Высота сиденья",
+        },
+        cm: "47",
+        inch: "18.5",
+      },
+      {
+        label: {
+          en: "Back Height",
+          tr: "Sırt Yüksekliği",
+          ar: "ارتفاع الظهر",
+          ru: "Высота спинки",
+        },
+        cm: "80",
+        inch: "31.5",
+      },
+      {
+        label: {
+          en: "Weight",
+          tr: "Ağırlık",
+          ar: "الوزن",
+          ru: "Вес",
+        },
+        cm: "11.3 kg",
+        inch: "24.9 lbs",
+      },
+    ],
+  },
+  {
     slug: "birkin-pure-dt01",
     code: "DT01",
     name: "BIRKIN PURE DT01",
@@ -365,33 +450,10 @@ const content = {
     productSpecsText:
       "General technical direction for project-based production. Final specifications may vary according to quantity, project location and requested material standard.",
     productSpecs: [
-      ["Frame", "Aluminum, steel or natural wood structure depending on the model and project requirement."],
-      ["Seat & Back", "Upholstered seat, loose cushion or molded shell alternatives can be evaluated according to use."],
-      ["Foam", "High-density HR foam options suitable for hospitality use and long sitting comfort."],
-      ["Fabric", "Indoor, outdoor, UV-resistant and water-repellent fabric alternatives can be selected."],
-      ["Finish", "Powder coating, wood stain, lacquer or custom color options according to project needs."],
-      ["Usage Areas", "Hotel lobby, restaurant, cafe, villa, lounge, dining area and hospitality interiors."],
-      ["Customization", "Dimensions, comfort level, frame color, fabric and surface finish can be adapted for projects."],
-      ["Quality", "Internal quality control and optional third-party pre-shipment inspection can be arranged."],
-    ],
-    technicalBlocks: [
       ["Material Direction", "Frame, upholstery and surface finish can be selected according to indoor, outdoor or hospitality use."],
       ["Production Note", "Prototype or sample review is recommended before mass production for custom-made project orders."],
       ["Customization", "Dimensions, fabric, frame color, wood finish and comfort details can be adapted according to project requirements."],
       ["Export & Quality", "Export-suitable packaging and optional third-party pre-shipment inspection can be arranged upon request."],
-    ],
-    productCtaKicker: "Project-Based Quotation",
-    productCtaTitle: "Interested in this model?",
-    productCtaText:
-      "Share your quantity, delivery location and project type with us. We can prepare a project-based quotation according to your material and production preferences.",
-    productCtaPoints: ["Quantity", "Delivery Location", "Project Type"],
-    productCtaButton: "Add This Model to Quote List",
-    options: [
-      "Custom dimensions according to project requirements",
-      "Fabric, frame color and finish alternatives",
-      "Sample or prototype review for selected projects",
-      "Export-suitable packaging upon request",
-      "Optional third-party pre-shipment inspection",
     ],
     categoryLabels: {
       Chair: "Chair",
@@ -430,6 +492,19 @@ const content = {
       ["Metal", "Outdoor-grade electrostatic powder coating with matte and textured color options."],
       ["Foam", "High-density HR foam options depending on product type and comfort target."],
       ["Fabric", "UV-resistant, water-repellent and mildew-resistant outdoor fabric alternatives."],
+    ],
+    productCtaKicker: "Project-Based Quotation",
+    productCtaTitle: "Interested in this model?",
+    productCtaText:
+      "Share your quantity, delivery location and project type with us. We can prepare a project-based quotation according to your material and production preferences.",
+    productCtaPoints: ["Quantity", "Delivery Location", "Project Type"],
+    productCtaButton: "Add This Model to Quote List",
+    options: [
+      "Custom dimensions according to project requirements",
+      "Fabric, frame color and finish alternatives",
+      "Sample or prototype review for selected projects",
+      "Export-suitable packaging upon request",
+      "Optional third-party pre-shipment inspection",
     ],
     aboutKicker: "About",
     aboutTitle: "A project partner for architectural furniture needs.",
@@ -489,33 +564,10 @@ const content = {
     productSpecsText:
       "Proje bazlı üretim için genel teknik yönlendirmedir. Nihai özellikler adet, proje lokasyonu ve talep edilen malzeme standardına göre değişebilir.",
     productSpecs: [
-      ["Gövde", "Modele ve proje ihtiyacına göre alüminyum, çelik veya doğal ahşap taşıyıcı yapı."],
-      ["Oturum & Sırt", "Kullanıma göre döşemeli oturum, serbest minder veya form verilmiş gövde alternatifleri değerlendirilebilir."],
-      ["Sünger", "Hospitality kullanımına ve uzun süreli oturum konforuna uygun yüksek yoğunluklu HR sünger seçenekleri."],
-      ["Kumaş", "İç mekân, dış mekân, UV dayanımlı ve su itici kumaş alternatifleri seçilebilir."],
-      ["Yüzey", "Elektrostatik toz boya, ahşap renklendirme, lake veya projeye özel renk seçenekleri."],
-      ["Kullanım Alanları", "Otel lobi, restoran, kafe, villa, lounge, yemek alanı ve hospitality iç mekânları."],
-      ["Özelleştirme", "Ölçü, konfor seviyesi, gövde rengi, kumaş ve yüzey bitişi projeye göre uyarlanabilir."],
-      ["Kalite", "İç kalite kontrol ve talep halinde üçüncü taraf sevkiyat öncesi denetim organize edilebilir."],
-    ],
-    technicalBlocks: [
       ["Malzeme Yönü", "Gövde, döşeme ve yüzey seçenekleri iç mekân, dış mekân veya hospitality kullanımına göre belirlenebilir."],
       ["Üretim Notu", "Özel üretim proje siparişlerinde seri üretim öncesi numune veya prototip kontrolü önerilir."],
       ["Özelleştirme", "Ölçü, kumaş, gövde rengi, ahşap yüzey ve konfor detayları proje ihtiyacına göre uyarlanabilir."],
       ["İhracat ve Kalite", "Talebe göre ihracata uygun ambalaj ve sevkiyat öncesi üçüncü taraf kalite kontrol organize edilebilir."],
-    ],
-    productCtaKicker: "Proje Bazlı Teklif",
-    productCtaTitle: "Bu modelle ilgileniyor musunuz?",
-    productCtaText:
-      "Adet, teslimat lokasyonu ve proje tipinizi bizimle paylaşın. Malzeme ve üretim tercihlerinize göre proje bazlı özel teklif hazırlayabiliriz.",
-    productCtaPoints: ["Adet", "Teslimat Lokasyonu", "Proje Tipi"],
-    productCtaButton: "Bu Modeli Teklif Listesine Ekle",
-    options: [
-      "Proje ihtiyacına göre özel ölçü çalışması",
-      "Kumaş, gövde rengi ve yüzey alternatifleri",
-      "Seçili projelerde numune veya prototip değerlendirmesi",
-      "Talep halinde ihracata uygun ambalaj",
-      "Opsiyonel üçüncü taraf sevkiyat öncesi kalite kontrol",
     ],
     categoryLabels: {
       Chair: "Sandalye",
@@ -554,6 +606,19 @@ const content = {
       ["Metal", "Dış mekâna uygun elektrostatik toz boya; mat ve dokulu renk seçenekleri."],
       ["Sünger", "Ürün tipi ve konfor hedefine göre yüksek yoğunluklu HR sünger seçenekleri."],
       ["Kumaş", "UV dayanımlı, su itici ve küf dayanımlı dış mekân kumaş alternatifleri."],
+    ],
+    productCtaKicker: "Proje Bazlı Teklif",
+    productCtaTitle: "Bu modelle ilgileniyor musunuz?",
+    productCtaText:
+      "Adet, teslimat lokasyonu ve proje tipinizi bizimle paylaşın. Malzeme ve üretim tercihlerinize göre proje bazlı özel teklif hazırlayabiliriz.",
+    productCtaPoints: ["Adet", "Teslimat Lokasyonu", "Proje Tipi"],
+    productCtaButton: "Bu Modeli Teklif Listesine Ekle",
+    options: [
+      "Proje ihtiyacına göre özel ölçü çalışması",
+      "Kumaş, gövde rengi ve yüzey alternatifleri",
+      "Seçili projelerde numune veya prototip değerlendirmesi",
+      "Talep halinde ihracata uygun ambalaj",
+      "Opsiyonel üçüncü taraf sevkiyat öncesi kalite kontrol",
     ],
     aboutKicker: "Hakkımızda",
     aboutTitle: "Mimari mobilya ihtiyaçları için proje çözüm partneri.",
@@ -606,27 +671,11 @@ const content = {
     productSpecsTitle: "المواصفات الفنية",
     productSpecsText: "توجيه فني عام للإنتاج حسب المشروع. قد تختلف المواصفات النهائية حسب الكمية والموقع والمعايير المطلوبة.",
     productSpecs: [
-      ["الهيكل", "هيكل من الألمنيوم أو الفولاذ أو الخشب الطبيعي حسب النموذج ومتطلبات المشروع."],
-      ["المقعد والظهر", "خيارات مقعد منجد أو وسادة منفصلة أو هيكل مشكل حسب الاستخدام."],
-      ["الإسفنج", "إسفنج عالي الكثافة مناسب لاستخدامات الضيافة وراحة الجلوس الطويلة."],
-      ["القماش", "خيارات أقمشة داخلية وخارجية ومقاومة للأشعة فوق البنفسجية وطاردة للماء."],
-      ["التشطيب", "طلاء بودرة أو تشطيب خشبي أو لون خاص حسب متطلبات المشروع."],
-      ["مجالات الاستخدام", "لوبي فندقي، مطعم، مقهى، فيلا، لاونج ومناطق ضيافة داخلية."],
-      ["التخصيص", "يمكن تخصيص المقاسات ومستوى الراحة واللون والقماش والتشطيب حسب المشروع."],
-      ["الجودة", "يمكن تنظيم مراقبة جودة داخلية وفحص طرف ثالث قبل الشحن عند الطلب."],
-    ],
-    technicalBlocks: [
       ["اتجاه المواد", "يمكن اختيار الهيكل والتنجيد والتشطيب حسب الاستخدام."],
       ["ملاحظة الإنتاج", "يوصى بمراجعة عينة أو نموذج أولي قبل الإنتاج الكمي."],
       ["التخصيص", "يمكن تعديل المقاسات والأقمشة والألوان والتشطيبات حسب المشروع."],
       ["التصدير والجودة", "يمكن تنظيم تغليف مناسب للتصدير وفحص طرف ثالث عند الطلب."],
     ],
-    productCtaKicker: "عرض سعر حسب المشروع",
-    productCtaTitle: "هل أنت مهتم بهذا النموذج؟",
-    productCtaText: "شاركنا الكمية وموقع التسليم ونوع المشروع لإعداد عرض سعر.",
-    productCtaPoints: ["الكمية", "موقع التسليم", "نوع المشروع"],
-    productCtaButton: "إضافة هذا النموذج إلى قائمة العرض",
-    options: ["مقاسات مخصصة", "بدائل الأقمشة والتشطيبات", "مراجعة عينة لبعض المشاريع", "تغليف مناسب للتصدير", "فحص جودة اختياري"],
     categoryLabels: {
       Chair: "كرسي",
       Armchair: "كرسي بذراعين",
@@ -663,6 +712,12 @@ const content = {
       ["الإسفنج", "خيارات إسفنج عالي الكثافة."],
       ["الأقمشة", "أقمشة مقاومة للأشعة فوق البنفسجية."],
     ],
+    productCtaKicker: "عرض سعر حسب المشروع",
+    productCtaTitle: "هل أنت مهتم بهذا النموذج؟",
+    productCtaText: "شاركنا الكمية وموقع التسليم ونوع المشروع لإعداد عرض سعر.",
+    productCtaPoints: ["الكمية", "موقع التسليم", "نوع المشروع"],
+    productCtaButton: "إضافة هذا النموذج إلى قائمة العرض",
+    options: ["مقاسات مخصصة", "بدائل الأقمشة والتشطيبات", "مراجعة عينة لبعض المشاريع", "تغليف مناسب للتصدير", "فحص جودة اختياري"],
     aboutKicker: "من نحن",
     aboutTitle: "شريك مشاريع لاحتياجات الأثاث المعماري.",
     aboutText: "Birkin Contract مورد أثاث تعاقدي مخصص من تركيا لمشاريع الضيافة والمعمار.",
@@ -712,27 +767,11 @@ const content = {
     productSpecsTitle: "Технические характеристики",
     productSpecsText: "Общее техническое направление для проектного производства. Финальные спецификации могут меняться по проекту.",
     productSpecs: [
-      ["Каркас", "Алюминий, сталь или натуральное дерево в зависимости от модели и проекта."],
-      ["Сиденье и спинка", "Обивка, свободная подушка или формованный корпус по типу использования."],
-      ["Пена", "Высокоплотная HR-пена для hospitality использования и длительного комфорта."],
-      ["Ткань", "Indoor, outdoor, UV-resistant и water-repellent варианты тканей."],
-      ["Отделка", "Порошковая окраска, отделка дерева, лак или индивидуальный цвет."],
-      ["Зоны применения", "Лобби отеля, ресторан, кафе, вилла, lounge, dining area и hospitality interiors."],
-      ["Кастомизация", "Размеры, комфорт, цвет каркаса, ткань и отделка адаптируются под проект."],
-      ["Качество", "Внутренний контроль качества и инспекция третьей стороной перед отгрузкой по запросу."],
-    ],
-    technicalBlocks: [
       ["Материалы", "Каркас, обивка и отделка подбираются под проект."],
       ["Производство", "Перед массовым производством рекомендуется образец."],
       ["Кастомизация", "Размеры, ткань, цвет каркаса и отделка адаптируются."],
       ["Экспорт и качество", "Экспортная упаковка и инспекция возможны по запросу."],
     ],
-    productCtaKicker: "Проектное предложение",
-    productCtaTitle: "Интересует эта модель?",
-    productCtaText: "Поделитесь количеством, местом доставки и типом проекта.",
-    productCtaPoints: ["Количество", "Место доставки", "Тип проекта"],
-    productCtaButton: "Добавить модель в запрос",
-    options: ["Индивидуальные размеры", "Варианты ткани и отделки", "Образец для отдельных проектов", "Экспортная упаковка", "Опциональная инспекция"],
     categoryLabels: {
       Chair: "Стул",
       Armchair: "Кресло",
@@ -769,6 +808,12 @@ const content = {
       ["Пена", "Высокоплотная HR-пена."],
       ["Ткань", "UV-resistant outdoor ткани."],
     ],
+    productCtaKicker: "Проектное предложение",
+    productCtaTitle: "Интересует эта модель?",
+    productCtaText: "Поделитесь количеством, местом доставки и типом проекта.",
+    productCtaPoints: ["Количество", "Место доставки", "Тип проекта"],
+    productCtaButton: "Добавить модель в запрос",
+    options: ["Индивидуальные размеры", "Варианты ткани и отделки", "Образец для отдельных проектов", "Экспортная упаковка", "Опциональная инспекция"],
     aboutKicker: "О нас",
     aboutTitle: "Проектный партнер для архитектурной мебели.",
     aboutText: "Birkin Contract — поставщик custom-made contract furniture из Турции.",
@@ -790,6 +835,7 @@ export default function App() {
   const [selectedSection, setSelectedSection] = useState<ProductSection | "All">("All")
   const [heroProductIndex, setHeroProductIndex] = useState(0)
   const [currentPath, setCurrentPath] = useState(window.location.pathname)
+  const [selectedGalleryImage, setSelectedGalleryImage] = useState("")
 
   const [cart, setCart] = useState<CartItem[]>(() => {
     const savedCart = localStorage.getItem("birkin-quote-cart")
@@ -830,6 +876,10 @@ export default function App() {
     return () => window.removeEventListener("popstate", onPopState)
   }, [])
 
+  useEffect(() => {
+    setSelectedGalleryImage("")
+  }, [currentPath])
+
   const t = content[lang]
   const heroProduct = products[heroProductIndex]
 
@@ -838,6 +888,18 @@ export default function App() {
     : ""
 
   const activeProduct = products.find((product) => product.slug === activeProductSlug)
+
+  const productGallery =
+    activeProduct?.gallery && activeProduct.gallery.length > 0
+      ? activeProduct.gallery
+      : activeProduct
+        ? [activeProduct.image]
+        : []
+
+  const activeGalleryImage =
+    selectedGalleryImage && productGallery.includes(selectedGalleryImage)
+      ? selectedGalleryImage
+      : productGallery[0]
 
   useEffect(() => {
     const baseTitle =
@@ -1248,8 +1310,29 @@ Thank you.`
         <Header />
 
         <section className="productDetailHero editorialProductHero">
-          <div className="productDetailImage">
-            <img src={activeProduct.image} alt={activeProduct.name} />
+          <div className="productDetailGallery">
+            <div className="productDetailImage">
+              <img src={activeGalleryImage} alt={activeProduct.name} />
+            </div>
+
+            {productGallery.length > 1 && (
+              <div className="productGalleryThumbs">
+                {productGallery.map((image) => (
+                  <button
+                    type="button"
+                    key={image}
+                    className={
+                      activeGalleryImage === image
+                        ? "productGalleryThumb active"
+                        : "productGalleryThumb"
+                    }
+                    onClick={() => setSelectedGalleryImage(image)}
+                  >
+                    <img src={image} alt={activeProduct.name} />
+                  </button>
+                ))}
+              </div>
+            )}
           </div>
 
           <div className="productDetailContent">
@@ -1278,6 +1361,44 @@ Thank you.`
                 ))}
               </ul>
             </div>
+
+            {activeProduct.dimensions && activeProduct.dimensions.length > 0 && (
+              <div className="dimensionBox">
+                <h3>
+                  {lang === "tr"
+                    ? "Ürün Ölçüleri"
+                    : lang === "ar"
+                      ? "أبعاد المنتج"
+                      : lang === "ru"
+                        ? "Размеры продукта"
+                        : "Product Dimensions"}
+                </h3>
+
+                <div className="dimensionTable">
+                  <div className="dimensionRow dimensionHead">
+                    <span>
+                      {lang === "tr"
+                        ? "Boyut"
+                        : lang === "ar"
+                          ? "البعد"
+                          : lang === "ru"
+                            ? "Размер"
+                            : "Dimension"}
+                    </span>
+                    <span>CM</span>
+                    <span>INC</span>
+                  </div>
+
+                  {activeProduct.dimensions.map((item) => (
+                    <div className="dimensionRow" key={item.label[lang]}>
+                      <span>{item.label[lang]}</span>
+                      <span>{item.cm}</span>
+                      <span>{item.inch}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
 
             <div className="productDetailActions">
               <button
@@ -1310,24 +1431,6 @@ Thank you.`
 
           <div className="technicalGrid">
             {t.productSpecs.map(([title, text], index) => (
-              <div className="technicalCard" key={title}>
-                <span>{String(index + 1).padStart(2, "0")}</span>
-                <h3>{title}</h3>
-                <p>{text}</p>
-              </div>
-            ))}
-          </div>
-        </section>
-
-        <section className="section materialsSection">
-          <div className="sectionHead editorialHead">
-            <span className="kicker">{activeProduct.name}</span>
-            <h2>{t.technicalTitle}</h2>
-            <p>{t.technicalSubtitle}</p>
-          </div>
-
-          <div className="technicalGrid">
-            {t.technicalBlocks.map(([title, text], index) => (
               <div className="technicalCard" key={title}>
                 <span>{String(index + 1).padStart(2, "0")}</span>
                 <h3>{title}</h3>
