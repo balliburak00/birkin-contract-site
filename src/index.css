@@ -314,11 +314,10 @@ main {
 .editorialHeroMedia img {
   position: relative;
   z-index: 2;
-  width: min(78%, 680px);
-  height: min(72vh, 640px);
+  width: min(82%, 720px);
+  height: min(74vh, 660px);
   object-fit: contain;
   filter: drop-shadow(0 34px 46px rgba(56, 45, 32, 0.18));
-  animation: editorialProductFade 3.2s ease infinite;
 }
 
 .editorialHeroLabel {
