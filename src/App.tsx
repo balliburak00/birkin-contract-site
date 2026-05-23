@@ -56,7 +56,7 @@ const products: Product[] = [
       "/product-chair-birkin-sera-c05-right.png",
     ],
   },
-];
+]
 
 const productSections: ProductSection[] = ["Chair", "Armchair", "Dining Table", "Coffee Table", "Bar Stool", "Lounge", "Ottoman", "Outdoor"];
 
