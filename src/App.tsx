@@ -13,8 +13,7 @@ type ProductSection =
   | "Ottoman"
   | "Outdoor";
 
-type CollectionName =
-  | "SÉRA Collection";
+type CollectionName = string;
 type LocalizedText = Record<Lang, string>;
 type Pair = [string, string];
 
@@ -120,7 +119,7 @@ const products: Product[] = [
     code: "C05",
     name: "BIRKIN SÉRA C05",
     category: "Armchair",
-    collection: "Haven Collection",
+    collection: "SÉRA Collection",
     usage: {
       en: "Restaurant / Hotel Room / Villa / Lounge",
       tr: "Restoran / Otel Odası / Villa / Lounge",
@@ -478,9 +477,10 @@ export default function App() {
 
   const activeProduct = products.find((product) => product.slug === activeProductSlug);
   const productGallery = activeProduct?.gallery?.length ? activeProduct.gallery : activeProduct ? [activeProduct.image] : [];
-  const activeGalleryImage = selectedGalleryImage && productGallery.includes(selectedGalleryImage)
-    ? selectedGalleryImage
-    : productGallery[0];
+  const activeGalleryImage =
+    selectedGalleryImage && productGallery.includes(selectedGalleryImage)
+      ? selectedGalleryImage
+      : productGallery[0];
 
   const filteredProducts =
     selectedSection === "All"
@@ -790,14 +790,12 @@ ${quoteInfo.notes || "-"}`;
       return (
         <main dir={lang === "ar" ? "rtl" : "ltr"}>
           <Header />
-
           <section className="section productDetailSection">
             <button type="button" className="secondaryBtn" onClick={() => goTo("/#products")}>
               {t.backToProducts}
             </button>
             <h1 className="notFoundTitle">Product not found.</h1>
           </section>
-
           <Footer />
         </main>
       );
@@ -806,7 +804,6 @@ ${quoteInfo.notes || "-"}`;
     return (
       <main dir={lang === "ar" ? "rtl" : "ltr"}>
         <Header />
-
         <section className="productDetailHero editorialProductHero">
           <div className="productDetailGallery">
             <div className="productDetailImage">
@@ -881,36 +878,6 @@ ${quoteInfo.notes || "-"}`;
           </div>
         </section>
 
-        <section className="section productCtaSection">
-          <div className="productCtaBox">
-            <div>
-              <span className="kicker">{t.productCtaKicker}</span>
-              <h2>{t.productCtaTitle}</h2>
-              <p>{t.productCtaText}</p>
-            </div>
-
-            <div className="productCtaSide">
-              <div className="productCtaPoints">
-                {t.productCtaPoints.map((point, index) => (
-                  <div className="productCtaPoint" key={point}>
-                    <span>{String(index + 1).padStart(2, "0")}</span>
-                    <strong>{point}</strong>
-                  </div>
-                ))}
-              </div>
-
-              <div className="productCtaActions">
-                <button type="button" className="primaryBtn" onClick={() => addToCart(activeProduct)}>
-                  {cart.some((item) => item.name === activeProduct.name) ? `✓ ${t.added}` : t.productCtaButton}
-                </button>
-                <button type="button" className="secondaryBtn" onClick={() => goTo("/#quote-list")}>
-                  {t.quote}
-                </button>
-              </div>
-            </div>
-          </div>
-        </section>
-
         <Footer />
       </main>
     );
@@ -933,24 +900,10 @@ ${quoteInfo.notes || "-"}`;
           </div>
 
           <div className="heroButtons">
-            <a
-              href="#collections"
-              className="primaryBtn"
-              onClick={(event) => {
-                event.preventDefault();
-                goTo("/#collections");
-              }}
-            >
+            <a href="#collections" className="primaryBtn" onClick={(event) => { event.preventDefault(); goTo("/#collections"); }}>
               {t.heroPrimary}
             </a>
-            <a
-              href="#quote-list"
-              className="secondaryBtn"
-              onClick={(event) => {
-                event.preventDefault();
-                goTo("/#quote-list");
-              }}
-            >
+            <a href="#quote-list" className="secondaryBtn" onClick={(event) => { event.preventDefault(); goTo("/#quote-list"); }}>
               {t.heroSecondary}
             </a>
           </div>
@@ -958,14 +911,7 @@ ${quoteInfo.notes || "-"}`;
 
         <div className="editorialHeroMedia">
           <span className="editorialHeroLabel">{heroProduct.collection}</span>
-          <img
-            key={heroProduct.name}
-            src={heroProduct.image}
-            alt={heroProduct.name}
-            loading="eager"
-            decoding="async"
-            onError={handleImageFallback}
-          />
+          <img src={heroProduct.image} alt={heroProduct.name} loading="eager" decoding="async" onError={handleImageFallback} />
         </div>
       </section>
 
@@ -990,9 +936,7 @@ ${quoteInfo.notes || "-"}`;
             <div className="collectionFeatureInfo">
               <span>01</span>
               <h3>{products[0].collection}</h3>
-              <p>
-                1 {modelWords[lang].one}
-              </p>
+              <p>1 {modelWords[lang].one}</p>
             </div>
           </article>
         </div>
@@ -1006,21 +950,12 @@ ${quoteInfo.notes || "-"}`;
         </div>
 
         <div className="typeFilterRow">
-          <button
-            type="button"
-            className={selectedSection === "All" ? "typeFilter active" : "typeFilter"}
-            onClick={() => setSelectedSection("All")}
-          >
+          <button type="button" className={selectedSection === "All" ? "typeFilter active" : "typeFilter"} onClick={() => setSelectedSection("All")}>
             {t.allProducts}
           </button>
 
           {productSections.map((section) => (
-            <button
-              type="button"
-              key={section}
-              className={selectedSection === section ? "typeFilter active" : "typeFilter"}
-              onClick={() => setSelectedSection(section)}
-            >
+            <button type="button" key={section} className={selectedSection === section ? "typeFilter active" : "typeFilter"} onClick={() => setSelectedSection(section)}>
               {t.categoryLabels[section]}
             </button>
           ))}
@@ -1028,19 +963,13 @@ ${quoteInfo.notes || "-"}`;
 
         <div className="productEditorialGrid">
           {filteredProducts.map((product) => (
-            <article
-              className="productEditorialCard clickableModelCard"
-              key={product.name}
-              onClick={() => goTo(`/products/${product.slug}`)}
-            >
+            <article className="productEditorialCard clickableModelCard" key={product.name} onClick={() => goTo(`/products/${product.slug}`)}>
               <div className="productEditorialImage">
                 <img src={product.image} alt={product.name} loading="lazy" onError={handleImageFallback} />
               </div>
 
               <div className="productEditorialInfo">
-                <span>
-                  {product.code} / {product.collection}
-                </span>
+                <span>{product.code} / {product.collection}</span>
                 <h3>{product.name}</h3>
                 <p>{product.desc[lang]}</p>
 
@@ -1050,25 +979,11 @@ ${quoteInfo.notes || "-"}`;
                 </div>
 
                 <div className="modelActions">
-                  <button
-                    type="button"
-                    onClick={(event) => {
-                      event.stopPropagation();
-                      goTo(`/products/${product.slug}`);
-                    }}
-                    className="detailBtn"
-                  >
+                  <button type="button" onClick={(event) => { event.stopPropagation(); goTo(`/products/${product.slug}`); }} className="detailBtn">
                     {t.viewDetails}
                   </button>
 
-                  <button
-                    type="button"
-                    onClick={(event) => {
-                      event.stopPropagation();
-                      addToCart(product);
-                    }}
-                    className="modelBtn"
-                  >
+                  <button type="button" onClick={(event) => { event.stopPropagation(); addToCart(product); }} className="modelBtn">
                     {cart.some((item) => item.name === product.name) ? `✓ ${t.added}` : t.addToQuote}
                   </button>
                 </div>
@@ -1154,37 +1069,25 @@ ${quoteInfo.notes || "-"}`;
             ) : (
               <>
                 <div className="quoteToolbar">
-                  <span>
-                    {quoteCount} {quoteCount === 1 ? modelWords[lang].one : modelWords[lang].many}
-                  </span>
-                  <button type="button" className="removeBtn" onClick={clearCart}>
-                    {t.clearList}
-                  </button>
+                  <span>{quoteCount} {quoteCount === 1 ? modelWords[lang].one : modelWords[lang].many}</span>
+                  <button type="button" className="removeBtn" onClick={clearCart}>{t.clearList}</button>
                 </div>
 
                 <div className="quoteItems">
                   {cart.map((item) => (
                     <div className="quoteItem" key={item.name}>
                       <div>
-                        <small>
-                          {item.code} / {t.categoryLabels[item.category]}
-                        </small>
+                        <small>{item.code} / {t.categoryLabels[item.category]}</small>
                         <strong>{item.name}</strong>
                       </div>
 
                       <div className="qtyControls">
-                        <button type="button" onClick={() => decreaseQty(item.name)}>
-                          -
-                        </button>
+                        <button type="button" onClick={() => decreaseQty(item.name)}>-</button>
                         <span>{item.qty}</span>
-                        <button type="button" onClick={() => increaseQty(item.name)}>
-                          +
-                        </button>
+                        <button type="button" onClick={() => increaseQty(item.name)}>+</button>
                       </div>
 
-                      <button type="button" className="removeBtn" onClick={() => removeFromCart(item.name)}>
-                        {t.remove}
-                      </button>
+                      <button type="button" className="removeBtn" onClick={() => removeFromCart(item.name)}>{t.remove}</button>
                     </div>
                   ))}
                 </div>
@@ -1193,62 +1096,17 @@ ${quoteInfo.notes || "-"}`;
           </div>
 
           <div className="quoteForm">
-            <input
-              required
-              aria-label={t.fields.name}
-              placeholder={t.fields.name}
-              value={quoteInfo.name}
-              onChange={(event) => setQuoteInfo({ ...quoteInfo, name: event.target.value })}
-            />
-            <input
-              required
-              aria-label={t.fields.email}
-              placeholder={t.fields.email}
-              value={quoteInfo.email}
-              onChange={(event) => setQuoteInfo({ ...quoteInfo, email: event.target.value })}
-            />
-            <input
-              required
-              aria-label={t.fields.phone}
-              placeholder={t.fields.phone}
-              value={quoteInfo.phone}
-              onChange={(event) => setQuoteInfo({ ...quoteInfo, phone: event.target.value })}
-            />
-            <input
-              required
-              aria-label={t.fields.country}
-              placeholder={t.fields.country}
-              value={quoteInfo.country}
-              onChange={(event) => setQuoteInfo({ ...quoteInfo, country: event.target.value })}
-            />
-            <input
-              required
-              aria-label={t.fields.projectType}
-              placeholder={t.fields.projectType}
-              value={quoteInfo.projectType}
-              onChange={(event) => setQuoteInfo({ ...quoteInfo, projectType: event.target.value })}
-            />
-            <input
-              required
-              aria-label={t.fields.deliveryLocation}
-              placeholder={t.fields.deliveryLocation}
-              value={quoteInfo.deliveryLocation}
-              onChange={(event) => setQuoteInfo({ ...quoteInfo, deliveryLocation: event.target.value })}
-            />
-            <textarea
-              aria-label={t.fields.notes}
-              placeholder={t.fields.notes}
-              value={quoteInfo.notes}
-              onChange={(event) => setQuoteInfo({ ...quoteInfo, notes: event.target.value })}
-            />
+            <input required aria-label={t.fields.name} placeholder={t.fields.name} value={quoteInfo.name} onChange={(event) => setQuoteInfo({ ...quoteInfo, name: event.target.value })} />
+            <input required aria-label={t.fields.email} placeholder={t.fields.email} value={quoteInfo.email} onChange={(event) => setQuoteInfo({ ...quoteInfo, email: event.target.value })} />
+            <input required aria-label={t.fields.phone} placeholder={t.fields.phone} value={quoteInfo.phone} onChange={(event) => setQuoteInfo({ ...quoteInfo, phone: event.target.value })} />
+            <input required aria-label={t.fields.country} placeholder={t.fields.country} value={quoteInfo.country} onChange={(event) => setQuoteInfo({ ...quoteInfo, country: event.target.value })} />
+            <input required aria-label={t.fields.projectType} placeholder={t.fields.projectType} value={quoteInfo.projectType} onChange={(event) => setQuoteInfo({ ...quoteInfo, projectType: event.target.value })} />
+            <input required aria-label={t.fields.deliveryLocation} placeholder={t.fields.deliveryLocation} value={quoteInfo.deliveryLocation} onChange={(event) => setQuoteInfo({ ...quoteInfo, deliveryLocation: event.target.value })} />
+            <textarea aria-label={t.fields.notes} placeholder={t.fields.notes} value={quoteInfo.notes} onChange={(event) => setQuoteInfo({ ...quoteInfo, notes: event.target.value })} />
 
             <div className="quoteActionButtons">
-              <button type="button" className="whatsappQuoteBtn" onClick={handleWhatsappQuote} disabled={!isQuoteFormComplete}>
-                {t.whatsapp}
-              </button>
-              <button type="button" className="emailQuoteBtn" onClick={handleEmailQuote} disabled={!isQuoteFormComplete}>
-                {t.emailQuote}
-              </button>
+              <button type="button" className="whatsappQuoteBtn" onClick={handleWhatsappQuote} disabled={!isQuoteFormComplete}>{t.whatsapp}</button>
+              <button type="button" className="emailQuoteBtn" onClick={handleEmailQuote} disabled={!isQuoteFormComplete}>{t.emailQuote}</button>
             </div>
           </div>
         </div>
