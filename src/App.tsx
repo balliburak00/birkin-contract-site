@@ -432,7 +432,7 @@ const content = {
   },
 
   tr: {
-    nav: ["Ana Sayfa", "Koleksiyonlar", "Ürünler", "Projeler", "Contract", "Malzemeler", "Library", "Hakkımızda", "İletişim"],
+    nav: ["Ana Sayfa", "Koleksiyonlar", "Ürünler", "Projeler", "Proje Üretimi", "Malzemeler", "Dokümanlar", "Hakkımızda", "İletişim"],
     quote: "Teklif Listesi",
     clearList: "Listeyi Temizle",
     heroKicker: "Özel Üretim Contract Mobilya",
