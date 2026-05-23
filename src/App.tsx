@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from "react"
+import { useEffect, useMemo, useState, type SyntheticEvent } from "react"
 import "./index.css"
 
 type Lang = "en" | "tr" | "ar" | "ru"
@@ -49,14 +49,26 @@ type CartItem = {
   qty: number
 }
 
+const logoImage = new URL("./assets/birkin-logo.png", import.meta.url).href
+const fallbackProductImage = new URL("./assets/hero.png", import.meta.url).href
+
 function BirkinLogo() {
   return (
     <img
-      src="/birkin-logo.png"
+      src={logoImage}
       alt="Birkin Contract Logo"
       className="siteLogo"
     />
   )
+}
+
+function handleImageFallback(event: SyntheticEvent<HTMLImageElement>) {
+  const image = event.currentTarget
+
+  if (image.dataset.fallbackApplied === "true") return
+
+  image.dataset.fallbackApplied = "true"
+  image.src = fallbackProductImage
 }
 
 function updateMetaTag(name: string, content: string) {
@@ -83,6 +95,11 @@ function updateOgTag(property: string, content: string) {
   tag.setAttribute("content", content)
 }
 
+function absoluteUrl(path: string) {
+  if (path.startsWith("http")) return path
+  return `${window.location.origin}${path.startsWith("/") ? path : `/${path}`}`
+}
+
 const productSections: ProductSection[] = [
   "Chair",
   "Armchair",
@@ -102,6 +119,47 @@ const collections: CollectionName[] = [
   "Pure Collection",
   "Axis Collection",
 ]
+
+const modelWords: Record<Lang, { one: string; many: string }> = {
+  en: { one: "model", many: "models" },
+  tr: { one: "model", many: "model" },
+  ar: { one: "نموذج", many: "نماذج" },
+  ru: { one: "модель", many: "модели" },
+}
+
+const heroTrustBadges: Record<Lang, string[]> = {
+  en: ["Custom production", "Export packaging", "Project quotation", "Optional inspection"],
+  tr: ["Özel üretim", "İhracat ambalajı", "Proje bazlı teklif", "Opsiyonel kalite kontrol"],
+  ar: ["إنتاج مخصص", "تغليف للتصدير", "عرض حسب المشروع", "فحص اختياري"],
+  ru: ["Индивидуальное производство", "Экспортная упаковка", "Проектное предложение", "Опциональная инспекция"],
+}
+
+const projectAreas: Record<Lang, [string, string][]> = {
+  en: [
+    ["Hotel & Lobby", "Consistent furniture language for lobby, room and lounge areas."],
+    ["Restaurant & Cafe", "Durable seating and dining models for repeated commercial use."],
+    ["Villa & Residence", "Custom dimensions, fabrics and finishes for private projects."],
+    ["Outdoor & Terrace", "Material directions for sun, humidity and export conditions."],
+  ],
+  tr: [
+    ["Otel & Lobi", "Lobi, oda ve lounge alanları için bütünlüklü mobilya dili."],
+    ["Restoran & Kafe", "Yoğun ticari kullanıma uygun oturum ve yemek grupları."],
+    ["Villa & Konut", "Özel projeler için ölçü, kumaş ve yüzey uyarlamaları."],
+    ["Dış Mekân & Teras", "Güneş, nem ve ihracat koşullarına uygun malzeme yönlendirmesi."],
+  ],
+  ar: [
+    ["الفنادق واللوبي", "لغة أثاث متناسقة لمناطق اللوبي والغرف واللاونج."],
+    ["المطاعم والمقاهي", "نماذج جلوس وطعام متينة للاستخدام التجاري المتكرر."],
+    ["الفلل والسكن", "مقاسات وأقمشة وتشطيبات مخصصة للمشاريع الخاصة."],
+    ["الخارج والتراس", "توجيهات مواد مناسبة للشمس والرطوبة والتصدير."],
+  ],
+  ru: [
+    ["Отели и лобби", "Единый мебельный язык для лобби, номеров и lounge зон."],
+    ["Рестораны и кафе", "Прочные модели для интенсивного коммерческого использования."],
+    ["Виллы и резиденции", "Индивидуальные размеры, ткани и отделки для частных проектов."],
+    ["Outdoor и террасы", "Материалы под солнце, влажность и экспортные условия."],
+  ],
+}
 
 const products: Product[] = [
   {
@@ -249,56 +307,11 @@ const products: Product[] = [
       "/product-armchair-birkin-vera-a03-side.png",
     ],
     dimensions: [
-      {
-        label: {
-          en: "Width",
-          tr: "Genişlik",
-          ar: "العرض",
-          ru: "Ширина",
-        },
-        cm: "57",
-        inch: "22.4",
-      },
-      {
-        label: {
-          en: "Depth",
-          tr: "Derinlik",
-          ar: "العمق",
-          ru: "Глубина",
-        },
-        cm: "62",
-        inch: "24.4",
-      },
-      {
-        label: {
-          en: "Seat Height",
-          tr: "Oturum Yüksekliği",
-          ar: "ارتفاع المقعد",
-          ru: "Высота сиденья",
-        },
-        cm: "47",
-        inch: "18.5",
-      },
-      {
-        label: {
-          en: "Back Height",
-          tr: "Sırt Yüksekliği",
-          ar: "ارتفاع الظهر",
-          ru: "Высота спинки",
-        },
-        cm: "80",
-        inch: "31.5",
-      },
-      {
-        label: {
-          en: "Weight",
-          tr: "Ağırlık",
-          ar: "الوزن",
-          ru: "Вес",
-        },
-        cm: "11.3 kg",
-        inch: "24.9 lbs",
-      },
+      { label: { en: "Width", tr: "Genişlik", ar: "العرض", ru: "Ширина" }, cm: "57", inch: "22.4" },
+      { label: { en: "Depth", tr: "Derinlik", ar: "العمق", ru: "Глубина" }, cm: "62", inch: "24.4" },
+      { label: { en: "Seat Height", tr: "Oturum Yüksekliği", ar: "ارتفاع المقعد", ru: "Высота сиденья" }, cm: "47", inch: "18.5" },
+      { label: { en: "Back Height", tr: "Sırt Yüksekliği", ar: "ارتفاع الظهر", ru: "Высота спинки" }, cm: "80", inch: "31.5" },
+      { label: { en: "Weight", tr: "Ağırlık", ar: "الوزن", ru: "Вес" }, cm: "11.3 kg", inch: "24.9 lbs" },
     ],
   },
   {
@@ -409,34 +422,28 @@ const content = {
     quote: "Quote List",
     clearList: "Clear List",
     heroKicker: "Custom-Made Contract Furniture",
-    heroTitle: "Furniture systems for hospitality spaces.",
-    heroText:
-      "Collection-based custom-made furniture supply from Türkiye for hotels, restaurants, villas and architectural interiors.",
+    heroTitle: "Custom-made furniture from Türkiye for hospitality projects.",
+    heroText: "Collection-based furniture supply for hotels, restaurants, villas and architectural interiors.",
     heroPrimary: "Explore Collections",
     heroSecondary: "Project Quotation",
     introKicker: "Birkin Contract",
     introTitle: "A quieter, more architectural approach to contract furniture.",
-    introText:
-      "We organize collection-based product language, project-specific customization, export-suitable packaging and optional third-party inspection for hospitality and architectural projects.",
+    introText: "We organize collection-based product language, project-specific customization, export-suitable packaging and optional third-party inspection for hospitality and architectural projects.",
     collectionsKicker: "Collections",
     collectionsTitle: "Collections designed for project coordination.",
-    collectionsText:
-      "Each collection groups models with a consistent visual language, making selection easier for architects, procurement teams and investors.",
+    collectionsText: "Each collection groups models with a consistent visual language, making selection easier for architects, procurement teams and investors.",
     productsKicker: "Products",
     productsTitle: "Product index.",
     productsText: "Filter by type, review models and build your quotation list.",
     projectsKicker: "Projects",
     projectsTitle: "Hospitality, villas, restaurants and commercial interiors.",
-    projectsText:
-      "Birkin Contract supports project-based furniture supply for spaces where visual consistency, durability and delivery coordination matter.",
+    projectsText: "Birkin Contract supports project-based furniture supply for spaces where visual consistency, durability and delivery coordination matter.",
     contractKicker: "Contract",
     contractTitle: "Custom-made supply from Türkiye.",
-    contractText:
-      "Custom dimensions, material selection, production coordination, export packaging and optional third-party inspection can be arranged according to project requirements.",
+    contractText: "Custom dimensions, material selection, production coordination, export packaging and optional third-party inspection can be arranged according to project requirements.",
     libraryKicker: "Library",
     libraryTitle: "Documents for project evaluation.",
-    libraryText:
-      "Access company profile, material directions, export packaging notes and project-based production information.",
+    libraryText: "Access company profile, material directions, export packaging notes and project-based production information.",
     allProducts: "All Products",
     addToQuote: "Add to Quote List",
     added: "Added",
@@ -444,11 +451,8 @@ const content = {
     backToProducts: "Back to Products",
     productDetailKicker: "Product Detail",
     projectOptions: "Project Options",
-    technicalTitle: "Technical Direction",
-    technicalSubtitle: "Suggested material and production approach for project-based supply.",
     productSpecsTitle: "Technical Specifications",
-    productSpecsText:
-      "General technical direction for project-based production. Final specifications may vary according to quantity, project location and requested material standard.",
+    productSpecsText: "General technical direction for project-based production. Final specifications may vary according to quantity, project location and requested material standard.",
     productSpecs: [
       ["Material Direction", "Frame, upholstery and surface finish can be selected according to indoor, outdoor or hospitality use."],
       ["Production Note", "Prototype or sample review is recommended before mass production for custom-made project orders."],
@@ -467,8 +471,7 @@ const content = {
     } as Record<ProductSection, string>,
     quoteKicker: "Quote List",
     quoteTitle: "Select products and request pricing.",
-    quoteText:
-      "Add selected products, adjust quantities and send your project details directly to Birkin Contract via WhatsApp or e-mail.",
+    quoteText: "Add selected products, adjust quantities and send your project details directly to Birkin Contract via WhatsApp or e-mail.",
     empty: "Your quote list is empty. Please add a product first.",
     remove: "Remove",
     whatsapp: "Send Quote Request via WhatsApp",
@@ -485,8 +488,7 @@ const content = {
     },
     materialsKicker: "Materials",
     materialsTitle: "Material directions for project-based production.",
-    materialsText:
-      "Recommended directions include iroko wood, teak alternatives, outdoor-grade powder coated aluminum, high-density foam and UV-resistant outdoor fabrics.",
+    materialsText: "Recommended directions include iroko wood, teak alternatives, outdoor-grade powder coated aluminum, high-density foam and UV-resistant outdoor fabrics.",
     materials: [
       ["Wood", "Iroko, teak and project-based natural wood alternatives."],
       ["Metal", "Outdoor-grade electrostatic powder coating with matte and textured color options."],
@@ -495,8 +497,7 @@ const content = {
     ],
     productCtaKicker: "Project-Based Quotation",
     productCtaTitle: "Interested in this model?",
-    productCtaText:
-      "Share your quantity, delivery location and project type with us. We can prepare a project-based quotation according to your material and production preferences.",
+    productCtaText: "Share your quantity, delivery location and project type with us. We can prepare a project-based quotation according to your material and production preferences.",
     productCtaPoints: ["Quantity", "Delivery Location", "Project Type"],
     productCtaButton: "Add This Model to Quote List",
     options: [
@@ -508,12 +509,10 @@ const content = {
     ],
     aboutKicker: "About",
     aboutTitle: "A project partner for architectural furniture needs.",
-    aboutText:
-      "Birkin Contract is a Türkiye-based custom-made contract furniture supplier for hotels, restaurants, villas, hospitality and architectural projects.",
+    aboutText: "Birkin Contract is a Türkiye-based custom-made contract furniture supplier for hotels, restaurants, villas, hospitality and architectural projects.",
     contactKicker: "Contact",
     contactTitle: "Tell us about your project.",
-    contactText:
-      "For accurate pricing, please include product groups, quantities, dimensions, material preferences and delivery location.",
+    contactText: "For accurate pricing, please include product groups, quantities, dimensions, material preferences and delivery location.",
     footerText: "Custom-made contract furniture solutions for hospitality and architectural spaces.",
     rights: "© 2026 Birkin Contract. All rights reserved.",
   },
@@ -522,35 +521,29 @@ const content = {
     nav: ["Ana Sayfa", "Koleksiyonlar", "Ürünler", "Projeler", "Proje Üretimi", "Malzemeler", "Dokümanlar", "Hakkımızda", "İletişim"],
     quote: "Teklif Listesi",
     clearList: "Listeyi Temizle",
-    heroKicker: "Özel Üretim Contract Mobilya",
-    heroTitle: "Hospitality alanları için mobilya sistemleri.",
-    heroText:
-      "Türkiye’den otel, restoran, villa ve mimari iç mekân projeleri için koleksiyon bazlı özel üretim mobilya tedariki.",
+    heroKicker: "Özel Üretim Kontrat Mobilya",
+    heroTitle: "Hospitality projeleri için Türkiye’den özel üretim mobilya.",
+    heroText: "Otel, restoran, villa ve mimari iç mekân projeleri için koleksiyon bazlı özel üretim mobilya tedariki.",
     heroPrimary: "Koleksiyonları İncele",
     heroSecondary: "Proje Teklifi",
     introKicker: "Birkin Contract",
-    introTitle: "Contract mobilyaya daha sakin ve mimari bir yaklaşım.",
-    introText:
-      "Hospitality ve mimari projeler için koleksiyon bazlı ürün dili, projeye özel özelleştirme, ihracata uygun ambalaj ve opsiyonel üçüncü taraf denetim süreçlerini organize ediyoruz.",
+    introTitle: "Kontrat mobilyaya daha sakin ve mimari bir yaklaşım.",
+    introText: "Hospitality ve mimari projeler için koleksiyon bazlı ürün dili, projeye özel özelleştirme, ihracata uygun ambalaj ve opsiyonel üçüncü taraf denetim süreçlerini organize ediyoruz.",
     collectionsKicker: "Koleksiyonlar",
     collectionsTitle: "Proje koordinasyonu için tasarlanmış koleksiyonlar.",
-    collectionsText:
-      "Her koleksiyon, uyumlu bir görsel dilde modelleri bir araya getirir; mimarlar, satın alma ekipleri ve yatırımcılar için seçim sürecini kolaylaştırır.",
+    collectionsText: "Her koleksiyon, uyumlu bir görsel dilde modelleri bir araya getirir; mimarlar, satın alma ekipleri ve yatırımcılar için seçim sürecini kolaylaştırır.",
     productsKicker: "Ürünler",
     productsTitle: "Ürün indeksi.",
     productsText: "Ürün tipine göre filtreleyin, modelleri inceleyin ve teklif listenizi oluşturun.",
     projectsKicker: "Projeler",
     projectsTitle: "Hospitality, villa, restoran ve ticari iç mekânlar.",
-    projectsText:
-      "Birkin Contract; görsel bütünlük, dayanıklılık ve teslimat koordinasyonunun önemli olduğu alanlarda proje bazlı mobilya tedariki sağlar.",
+    projectsText: "Birkin Contract; görsel bütünlük, dayanıklılık ve teslimat koordinasyonunun önemli olduğu alanlarda proje bazlı mobilya tedariki sağlar.",
     contractKicker: "Proje Üretimi",
     contractTitle: "Türkiye’den özel üretim tedarik.",
-    contractText:
-      "Özel ölçü, malzeme seçimi, üretim koordinasyonu, ihracata uygun ambalaj ve opsiyonel üçüncü taraf denetim proje ihtiyacına göre organize edilebilir.",
+    contractText: "Özel ölçü, malzeme seçimi, üretim koordinasyonu, ihracata uygun ambalaj ve opsiyonel üçüncü taraf denetim proje ihtiyacına göre organize edilebilir.",
     libraryKicker: "Dokümanlar",
     libraryTitle: "Proje değerlendirmesi için dokümanlar.",
-    libraryText:
-      "Company profile, malzeme yönlendirmeleri, ihracat ambalaj notları ve proje bazlı üretim bilgilerine ulaşabilirsiniz.",
+    libraryText: "Company profile, malzeme yönlendirmeleri, ihracat ambalaj notları ve proje bazlı üretim bilgilerine ulaşabilirsiniz.",
     allProducts: "Tüm Ürünler",
     addToQuote: "Teklif Listesine Ekle",
     added: "Eklendi",
@@ -558,11 +551,8 @@ const content = {
     backToProducts: "Ürünlere Dön",
     productDetailKicker: "Ürün Detayı",
     projectOptions: "Proje Opsiyonları",
-    technicalTitle: "Teknik Yönlendirme",
-    technicalSubtitle: "Proje bazlı tedarik için önerilen malzeme ve üretim yaklaşımı.",
     productSpecsTitle: "Teknik Özellikler",
-    productSpecsText:
-      "Proje bazlı üretim için genel teknik yönlendirmedir. Nihai özellikler adet, proje lokasyonu ve talep edilen malzeme standardına göre değişebilir.",
+    productSpecsText: "Proje bazlı üretim için genel teknik yönlendirmedir. Nihai özellikler adet, proje lokasyonu ve talep edilen malzeme standardına göre değişebilir.",
     productSpecs: [
       ["Malzeme Yönü", "Gövde, döşeme ve yüzey seçenekleri iç mekân, dış mekân veya hospitality kullanımına göre belirlenebilir."],
       ["Üretim Notu", "Özel üretim proje siparişlerinde seri üretim öncesi numune veya prototip kontrolü önerilir."],
@@ -581,13 +571,12 @@ const content = {
     } as Record<ProductSection, string>,
     quoteKicker: "Teklif Listesi",
     quoteTitle: "Ürünleri seçin, fiyat teklifi talep edin.",
-    quoteText:
-      "Seçili ürünleri ekleyin, adetleri ayarlayın ve proje bilgilerinizi WhatsApp veya e-mail üzerinden doğrudan Birkin Contract’a gönderin.",
+    quoteText: "Seçili ürünleri ekleyin, adetleri ayarlayın ve proje bilgilerinizi WhatsApp veya e-mail üzerinden doğrudan Birkin Contract’a gönderin.",
     empty: "Teklif listeniz boş. Lütfen önce bir ürün ekleyin.",
     remove: "Kaldır",
     whatsapp: "WhatsApp’tan Teklif Talebi Gönder",
     emailQuote: "E-mail ile Teklif Talebi Gönder",
-    fillAllFields: "Lütfen teklif talebi göndermeden önce tüm alanları doldurun.",
+    fillAllFields: "Lütfen teklif talebi göndermeden önce gerekli alanları doldurun.",
     fields: {
       name: "Ad / Firma",
       email: "E-mail",
@@ -599,8 +588,7 @@ const content = {
     },
     materialsKicker: "Malzemeler",
     materialsTitle: "Proje bazlı üretim için malzeme yönlendirmeleri.",
-    materialsText:
-      "Önerilen yönlendirmeler arasında iroko ağacı, teak alternatifleri, dış mekâna uygun elektrostatik toz boyalı alüminyum, yüksek yoğunluklu sünger ve UV dayanımlı outdoor kumaşlar yer alır.",
+    materialsText: "Önerilen yönlendirmeler arasında iroko ağacı, teak alternatifleri, dış mekâna uygun elektrostatik toz boyalı alüminyum, yüksek yoğunluklu sünger ve UV dayanımlı outdoor kumaşlar yer alır.",
     materials: [
       ["Ahşap", "Iroko, teak ve projeye özel doğal ahşap alternatifleri."],
       ["Metal", "Dış mekâna uygun elektrostatik toz boya; mat ve dokulu renk seçenekleri."],
@@ -609,8 +597,7 @@ const content = {
     ],
     productCtaKicker: "Proje Bazlı Teklif",
     productCtaTitle: "Bu modelle ilgileniyor musunuz?",
-    productCtaText:
-      "Adet, teslimat lokasyonu ve proje tipinizi bizimle paylaşın. Malzeme ve üretim tercihlerinize göre proje bazlı özel teklif hazırlayabiliriz.",
+    productCtaText: "Adet, teslimat lokasyonu ve proje tipinizi bizimle paylaşın. Malzeme ve üretim tercihlerinize göre proje bazlı özel teklif hazırlayabiliriz.",
     productCtaPoints: ["Adet", "Teslimat Lokasyonu", "Proje Tipi"],
     productCtaButton: "Bu Modeli Teklif Listesine Ekle",
     options: [
@@ -622,13 +609,11 @@ const content = {
     ],
     aboutKicker: "Hakkımızda",
     aboutTitle: "Mimari mobilya ihtiyaçları için proje çözüm partneri.",
-    aboutText:
-      "Birkin Contract; otel, restoran, villa, hospitality ve mimari projeler için Türkiye merkezli özel üretim contract mobilya tedarikçisidir.",
+    aboutText: "Birkin Contract; otel, restoran, villa, hospitality ve mimari projeler için Türkiye merkezli özel üretim kontrat mobilya tedarikçisidir.",
     contactKicker: "İletişim",
     contactTitle: "Projenizi bize anlatın.",
-    contactText:
-      "Doğru fiyatlandırma için ürün grupları, adetler, ölçüler, malzeme tercihleri ve teslimat lokasyonunu belirtmenizi rica ederiz.",
-    footerText: "Hospitality ve mimari projeler için özel üretim contract mobilya çözümleri.",
+    contactText: "Doğru fiyatlandırma için ürün grupları, adetler, ölçüler, malzeme tercihleri ve teslimat lokasyonunu belirtmenizi rica ederiz.",
+    footerText: "Hospitality ve mimari projeler için özel üretim kontrat mobilya çözümleri.",
     rights: "© 2026 Birkin Contract. Tüm hakları saklıdır.",
   },
 
@@ -637,7 +622,7 @@ const content = {
     quote: "قائمة العرض",
     clearList: "مسح القائمة",
     heroKicker: "أثاث تعاقدي مخصص",
-    heroTitle: "أنظمة أثاث لمساحات الضيافة.",
+    heroTitle: "أنظمة أثاث مخصصة لمشاريع الضيافة.",
     heroText: "توريد أثاث مخصص من تركيا للفنادق والمطاعم والفلل والمشاريع المعمارية.",
     heroPrimary: "استكشف المجموعات",
     heroSecondary: "طلب عرض مشروع",
@@ -666,8 +651,6 @@ const content = {
     backToProducts: "العودة إلى المنتجات",
     productDetailKicker: "تفاصيل المنتج",
     projectOptions: "خيارات المشروع",
-    technicalTitle: "التوجيه الفني",
-    technicalSubtitle: "نهج المواد والإنتاج المقترح للتوريد حسب المشروع.",
     productSpecsTitle: "المواصفات الفنية",
     productSpecsText: "توجيه فني عام للإنتاج حسب المشروع. قد تختلف المواصفات النهائية حسب الكمية والموقع والمعايير المطلوبة.",
     productSpecs: [
@@ -693,7 +676,7 @@ const content = {
     remove: "إزالة",
     whatsapp: "إرسال طلب السعر عبر واتساب",
     emailQuote: "إرسال طلب السعر عبر البريد الإلكتروني",
-    fillAllFields: "يرجى تعبئة جميع الحقول قبل إرسال طلب عرض السعر.",
+    fillAllFields: "يرجى تعبئة الحقول المطلوبة قبل إرسال طلب عرض السعر.",
     fields: {
       name: "الاسم / الشركة",
       email: "البريد الإلكتروني",
@@ -733,8 +716,8 @@ const content = {
     quote: "Список запроса",
     clearList: "Очистить список",
     heroKicker: "Custom-Made Contract Furniture",
-    heroTitle: "Мебельные системы для hospitality пространств.",
-    heroText: "Поставка мебели из Турции для отелей, ресторанов, вилл и архитектурных интерьеров.",
+    heroTitle: "Индивидуальная мебель из Турции для hospitality проектов.",
+    heroText: "Поставка мебели для отелей, ресторанов, вилл и архитектурных интерьеров.",
     heroPrimary: "Изучить коллекции",
     heroSecondary: "Проектный запрос",
     introKicker: "Birkin Contract",
@@ -762,8 +745,6 @@ const content = {
     backToProducts: "Вернуться к продуктам",
     productDetailKicker: "Детали продукта",
     projectOptions: "Проектные опции",
-    technicalTitle: "Техническое направление",
-    technicalSubtitle: "Рекомендуемый подход к материалам и производству.",
     productSpecsTitle: "Технические характеристики",
     productSpecsText: "Общее техническое направление для проектного производства. Финальные спецификации могут меняться по проекту.",
     productSpecs: [
@@ -789,7 +770,7 @@ const content = {
     remove: "Удалить",
     whatsapp: "Отправить запрос через WhatsApp",
     emailQuote: "Отправить запрос по e-mail",
-    fillAllFields: "Пожалуйста, заполните все поля перед отправкой запроса.",
+    fillAllFields: "Пожалуйста, заполните обязательные поля перед отправкой запроса.",
     fields: {
       name: "Имя / Компания",
       email: "E-mail",
@@ -836,6 +817,7 @@ export default function App() {
   const [heroProductIndex, setHeroProductIndex] = useState(0)
   const [currentPath, setCurrentPath] = useState(window.location.pathname)
   const [selectedGalleryImage, setSelectedGalleryImage] = useState("")
+  const [menuOpen, setMenuOpen] = useState(false)
 
   const [cart, setCart] = useState<CartItem[]>(() => {
     const savedCart = localStorage.getItem("birkin-quote-cart")
@@ -863,9 +845,18 @@ export default function App() {
   }, [cart])
 
   useEffect(() => {
+    document.documentElement.lang = lang
+    document.documentElement.dir = lang === "ar" ? "rtl" : "ltr"
+  }, [lang])
+
+  useEffect(() => {
+    setMenuOpen(false)
+  }, [currentPath, lang])
+
+  useEffect(() => {
     const interval = window.setInterval(() => {
       setHeroProductIndex((current) => (current + 1) % products.length)
-    }, 2600)
+    }, 3200)
 
     return () => window.clearInterval(interval)
   }, [])
@@ -882,6 +873,7 @@ export default function App() {
 
   const t = content[lang]
   const heroProduct = products[heroProductIndex]
+  const quoteCount = cart.reduce((total, item) => total + item.qty, 0)
 
   const activeProductSlug = currentPath.startsWith("/products/")
     ? currentPath.replace("/products/", "").replace("/", "")
@@ -902,17 +894,14 @@ export default function App() {
       : productGallery[0]
 
   useEffect(() => {
-    const baseTitle =
-      "Birkin Contract | Custom-Made Contract Furniture Supplier from Türkiye"
-
-    const baseDescription =
-      "Birkin Contract is a Türkiye-based custom-made contract furniture supplier for hotels, restaurants, villas, hospitality and architectural projects."
+    const baseTitle = "Birkin Contract | Custom-Made Contract Furniture Supplier from Türkiye"
+    const baseDescription = "Birkin Contract is a Türkiye-based custom-made contract furniture supplier for hotels, restaurants, villas, hospitality and architectural projects."
 
     if (activeProduct) {
       const title = `${activeProduct.name} | ${activeProduct.collection} | Birkin Contract`
       const description = `${activeProduct.name} is part of ${activeProduct.collection}, designed for hotels, restaurants, villas, hospitality and architectural projects.`
-      const productUrl = `https://birkin-contract-site.vercel.app/products/${activeProduct.slug}`
-      const productImage = `https://birkin-contract-site.vercel.app${activeProduct.image}`
+      const productUrl = `${window.location.origin}/products/${activeProduct.slug}`
+      const productImage = absoluteUrl(activeProduct.image)
 
       document.title = title
       updateMetaTag("description", description)
@@ -928,11 +917,11 @@ export default function App() {
       updateMetaTag("description", baseDescription)
       updateOgTag("og:title", baseTitle)
       updateOgTag("og:description", baseDescription)
-      updateOgTag("og:url", "https://birkin-contract-site.vercel.app/")
-      updateOgTag("og:image", "https://birkin-contract-site.vercel.app/birkin-logo.png")
+      updateOgTag("og:url", window.location.origin)
+      updateOgTag("og:image", absoluteUrl(fallbackProductImage))
       updateMetaTag("twitter:title", "Birkin Contract | Contract Furniture Supplier from Türkiye")
       updateMetaTag("twitter:description", "Project-based custom-made contract furniture solutions for hospitality and architectural spaces.")
-      updateMetaTag("twitter:image", "https://birkin-contract-site.vercel.app/birkin-logo.png")
+      updateMetaTag("twitter:image", absoluteUrl(fallbackProductImage))
     }
   }, [activeProduct])
 
@@ -1015,8 +1004,7 @@ export default function App() {
     quoteInfo.phone.trim() !== "" &&
     quoteInfo.country.trim() !== "" &&
     quoteInfo.projectType.trim() !== "" &&
-    quoteInfo.deliveryLocation.trim() !== "" &&
-    quoteInfo.notes.trim() !== ""
+    quoteInfo.deliveryLocation.trim() !== ""
 
   const selectedProductsText =
     cart.length === 0
@@ -1047,7 +1035,7 @@ Proje Tipi: ${quoteInfo.projectType}
 Teslimat Lokasyonu: ${quoteInfo.deliveryLocation}
 
 Notlar:
-${quoteInfo.notes}
+${quoteInfo.notes || "-"}
 
 Lütfen fiyat, üretim süresi ve ihracata uygun ambalaj detaylarını paylaşır mısınız?`
         : `Hello Birkin Contract Team,
@@ -1066,7 +1054,7 @@ Project Type: ${quoteInfo.projectType}
 Delivery Location: ${quoteInfo.deliveryLocation}
 
 Notes:
-${quoteInfo.notes}
+${quoteInfo.notes || "-"}
 
 Please share pricing, production lead time and export packaging details.`
 
@@ -1101,7 +1089,7 @@ Proje Tipi: ${quoteInfo.projectType}
 Teslimat Lokasyonu: ${quoteInfo.deliveryLocation}
 
 Notlar:
-${quoteInfo.notes}
+${quoteInfo.notes || "-"}
 
 Lütfen fiyat, üretim süresi, ödeme şartları ve ihracata uygun ambalaj detaylarını paylaşır mısınız?
 
@@ -1123,7 +1111,7 @@ ${selectedProductsText}
 موقع التسليم: ${quoteInfo.deliveryLocation}
 
 ملاحظات:
-${quoteInfo.notes}
+${quoteInfo.notes || "-"}
 
 يرجى مشاركة السعر ومدة الإنتاج وشروط الدفع وتفاصيل التغليف المناسب للتصدير.
 
@@ -1145,7 +1133,7 @@ E-mail: ${quoteInfo.email}
 Место доставки: ${quoteInfo.deliveryLocation}
 
 Заметки:
-${quoteInfo.notes}
+${quoteInfo.notes || "-"}
 
 Пожалуйста, отправьте цену, срок производства, условия оплаты и детали экспортной упаковки.
 
@@ -1166,7 +1154,7 @@ Project Type: ${quoteInfo.projectType}
 Delivery Location: ${quoteInfo.deliveryLocation}
 
 Notes:
-${quoteInfo.notes}
+${quoteInfo.notes || "-"}
 
 Please share pricing, production lead time, payment terms and export packaging details.
 
@@ -1203,46 +1191,77 @@ Thank you.`
     window.location.href = emailQuoteLink
   }
 
-  const Header = () => (
-    <header className="navbar editorialNavbar">
-      <button type="button" className="brand brandButton" onClick={() => goTo("/")}>
-        <BirkinLogo />
-      </button>
+  const Header = () => {
+    const navLinks = [
+      [t.nav[0], "/"],
+      [t.nav[1], "/#collections"],
+      [t.nav[2], "/#products"],
+      [t.nav[3], "/#projects"],
+      [t.nav[4], "/#contract"],
+      [t.nav[5], "/#materials"],
+      [t.nav[6], "/#library"],
+      [t.nav[7], "/#about"],
+      [t.nav[8], "/#contact"],
+    ]
 
-      <nav>
-        <a href="/" onClick={(e) => { e.preventDefault(); goTo("/") }}>{t.nav[0]}</a>
-        <a href="/#collections" onClick={(e) => { e.preventDefault(); goTo("/#collections") }}>{t.nav[1]}</a>
-        <a href="/#products" onClick={(e) => { e.preventDefault(); goTo("/#products") }}>{t.nav[2]}</a>
-        <a href="/#projects" onClick={(e) => { e.preventDefault(); goTo("/#projects") }}>{t.nav[3]}</a>
-        <a href="/#contract" onClick={(e) => { e.preventDefault(); goTo("/#contract") }}>{t.nav[4]}</a>
-        <a href="/#materials" onClick={(e) => { e.preventDefault(); goTo("/#materials") }}>{t.nav[5]}</a>
-        <a href="/#library" onClick={(e) => { e.preventDefault(); goTo("/#library") }}>{t.nav[6]}</a>
-        <a href="/#about" onClick={(e) => { e.preventDefault(); goTo("/#about") }}>{t.nav[7]}</a>
-        <a href="/#contact" onClick={(e) => { e.preventDefault(); goTo("/#contact") }}>{t.nav[8]}</a>
-      </nav>
-
-      <div className="navActions">
-        {(["en", "tr", "ar", "ru"] as Lang[]).map((item) => (
-          <button
-            key={item}
-            className={lang === item ? "langBtn active" : "langBtn"}
-            onClick={() => changeLanguage(item)}
-            type="button"
-          >
-            {item.toUpperCase()}
-          </button>
-        ))}
+    return (
+      <header className={menuOpen ? "navbar editorialNavbar menuOpen" : "navbar editorialNavbar"}>
+        <button
+          type="button"
+          className="brand brandButton"
+          aria-label="Birkin Contract home"
+          onClick={() => goTo("/")}
+        >
+          <BirkinLogo />
+        </button>
 
         <button
           type="button"
-          className="navBtn"
-          onClick={() => goTo("/#quote-list")}
+          className="menuButton"
+          aria-label={menuOpen ? "Close menu" : "Open menu"}
+          aria-expanded={menuOpen}
+          onClick={() => setMenuOpen((value) => !value)}
         >
-          {t.quote}
+          <span />
+          <span />
+          <span />
         </button>
-      </div>
-    </header>
-  )
+
+        <nav className={menuOpen ? "mainNav open" : "mainNav"} aria-label="Main navigation">
+          {navLinks.map(([label, path]) => (
+            <a
+              key={path}
+              href={path}
+              onClick={(event) => {
+                event.preventDefault()
+                goTo(path)
+              }}
+            >
+              {label}
+            </a>
+          ))}
+        </nav>
+
+        <div className="navActions">
+          {(["en", "tr", "ar", "ru"] as Lang[]).map((item) => (
+            <button
+              key={item}
+              className={lang === item ? "langBtn active" : "langBtn"}
+              onClick={() => changeLanguage(item)}
+              type="button"
+            >
+              {item.toUpperCase()}
+            </button>
+          ))}
+
+          <button type="button" className="navBtn quoteNavBtn" onClick={() => goTo("/#quote-list")}>
+            {t.quote}
+            {quoteCount > 0 && <span className="quoteBadge">{quoteCount}</span>}
+          </button>
+        </div>
+      </header>
+    )
+  }
 
   const Footer = () => (
     <>
@@ -1253,12 +1272,25 @@ Thank you.`
         </div>
 
         <div className="footerLinks">
-          <a href="#collections">{t.nav[1]}</a>
-          <a href="#products">{t.nav[2]}</a>
-          <a href="#projects">{t.nav[3]}</a>
-          <a href="#contract">{t.nav[4]}</a>
-          <a href="#materials">{t.nav[5]}</a>
-          <a href="#contact">{t.nav[8]}</a>
+          {[
+            [t.nav[1], "/#collections"],
+            [t.nav[2], "/#products"],
+            [t.nav[3], "/#projects"],
+            [t.nav[4], "/#contract"],
+            [t.nav[5], "/#materials"],
+            [t.nav[8], "/#contact"],
+          ].map(([label, path]) => (
+            <a
+              key={path}
+              href={path}
+              onClick={(event) => {
+                event.preventDefault()
+                goTo(path)
+              }}
+            >
+              {label}
+            </a>
+          ))}
         </div>
 
         <div className="footerBottom">
@@ -1312,7 +1344,7 @@ Thank you.`
         <section className="productDetailHero editorialProductHero">
           <div className="productDetailGallery">
             <div className="productDetailImage">
-              <img src={activeGalleryImage} alt={activeProduct.name} />
+              <img src={activeGalleryImage} alt={activeProduct.name} onError={handleImageFallback} />
             </div>
 
             {productGallery.length > 1 && (
@@ -1328,7 +1360,7 @@ Thank you.`
                     }
                     onClick={() => setSelectedGalleryImage(image)}
                   >
-                    <img src={image} alt={activeProduct.name} />
+                    <img src={image} alt={activeProduct.name} onError={handleImageFallback} />
                   </button>
                 ))}
               </div>
@@ -1497,7 +1529,7 @@ Thank you.`
                   onClick={() => goTo(`/products/${product.slug}`)}
                 >
                   <div className="productEditorialImage">
-                    <img src={product.image} alt={product.name} />
+                    <img src={product.image} alt={product.name} loading="lazy" onError={handleImageFallback} />
                   </div>
 
                   <div className="productEditorialInfo">
@@ -1520,17 +1552,37 @@ Thank you.`
     <main dir={lang === "ar" ? "rtl" : "ltr"}>
       <Header />
 
-      <section className="editorialHero">
+      <section className="editorialHero upgradedHero">
         <div className="editorialHeroText">
           <span className="kicker">{t.heroKicker}</span>
           <h1>{t.heroTitle}</h1>
           <p>{t.heroText}</p>
 
+          <div className="heroTrustRow">
+            {heroTrustBadges[lang].map((badge) => (
+              <span key={badge}>{badge}</span>
+            ))}
+          </div>
+
           <div className="heroButtons">
-            <a href="#collections" className="primaryBtn">
+            <a
+              href="#collections"
+              className="primaryBtn"
+              onClick={(event) => {
+                event.preventDefault()
+                goTo("/#collections")
+              }}
+            >
               {t.heroPrimary}
             </a>
-            <a href="#quote-list" className="secondaryBtn">
+            <a
+              href="#quote-list"
+              className="secondaryBtn"
+              onClick={(event) => {
+                event.preventDefault()
+                goTo("/#quote-list")
+              }}
+            >
               {t.heroSecondary}
             </a>
           </div>
@@ -1542,6 +1594,9 @@ Thank you.`
             key={heroProduct.name}
             src={heroProduct.image}
             alt={heroProduct.name}
+            loading="eager"
+            decoding="async"
+            onError={handleImageFallback}
           />
         </div>
       </section>
@@ -1563,6 +1618,8 @@ Thank you.`
           {collections.map((collection, index) => {
             const collectionItems = products.filter((product) => product.collection === collection)
             const coverProduct = collectionItems[0]
+            const modelWord =
+              collectionItems.length === 1 ? modelWords[lang].one : modelWords[lang].many
 
             return (
               <article
@@ -1573,13 +1630,17 @@ Thank you.`
                 }}
               >
                 <div className="collectionFeatureImage">
-                  {coverProduct && <img src={coverProduct.image} alt={collection} />}
+                  {coverProduct && (
+                    <img src={coverProduct.image} alt={collection} loading="lazy" onError={handleImageFallback} />
+                  )}
                 </div>
 
                 <div className="collectionFeatureInfo">
                   <span>{String(index + 1).padStart(2, "0")}</span>
                   <h3>{collection}</h3>
-                  <p>{collectionItems.length} models</p>
+                  <p>
+                    {collectionItems.length} {modelWord}
+                  </p>
                 </div>
               </article>
             )
@@ -1623,7 +1684,7 @@ Thank you.`
               onClick={() => goTo(`/products/${product.slug}`)}
             >
               <div className="productEditorialImage">
-                <img src={product.image} alt={product.name} />
+                <img src={product.image} alt={product.name} loading="lazy" onError={handleImageFallback} />
               </div>
 
               <div className="productEditorialInfo">
@@ -1632,6 +1693,11 @@ Thank you.`
                 </span>
                 <h3>{product.name}</h3>
                 <p>{product.desc[lang]}</p>
+
+                <div className="productMetaChips">
+                  <span>{t.categoryLabels[product.category]}</span>
+                  <span>{product.usage[lang]}</span>
+                </div>
 
                 <div className="modelActions">
                   <button
@@ -1664,12 +1730,22 @@ Thank you.`
         </div>
       </section>
 
-      <section id="projects" className="editorialPanel darkPanel">
-        <div>
+      <section id="projects" className="section projectApplicationsSection">
+        <div className="sectionHead editorialHead">
           <span className="kicker">{t.projectsKicker}</span>
           <h2>{t.projectsTitle}</h2>
+          <p>{t.projectsText}</p>
         </div>
-        <p>{t.projectsText}</p>
+
+        <div className="projectApplicationsGrid">
+          {projectAreas[lang].map(([title, text], index) => (
+            <article className="projectApplicationCard" key={title}>
+              <span>{String(index + 1).padStart(2, "0")}</span>
+              <h3>{title}</h3>
+              <p>{text}</p>
+            </article>
+          ))}
+        </div>
       </section>
 
       <section id="contract" className="editorialPanel lightPanel">
@@ -1738,7 +1814,10 @@ Thank you.`
               <p className="emptyText">{t.empty}</p>
             ) : (
               <>
-                <div style={{ display: "flex", justifyContent: "flex-end", marginBottom: "16px" }}>
+                <div className="quoteToolbar">
+                  <span>
+                    {quoteCount} {quoteCount === 1 ? modelWords[lang].one : modelWords[lang].many}
+                  </span>
                   <button
                     type="button"
                     className="removeBtn"
@@ -1783,23 +1862,20 @@ Thank you.`
           </div>
 
           <div className="quoteForm">
-            <input required placeholder={t.fields.name} value={quoteInfo.name} onChange={(e) => setQuoteInfo({ ...quoteInfo, name: e.target.value })} />
-            <input required placeholder={t.fields.email} value={quoteInfo.email} onChange={(e) => setQuoteInfo({ ...quoteInfo, email: e.target.value })} />
-            <input required placeholder={t.fields.phone} value={quoteInfo.phone} onChange={(e) => setQuoteInfo({ ...quoteInfo, phone: e.target.value })} />
-            <input required placeholder={t.fields.country} value={quoteInfo.country} onChange={(e) => setQuoteInfo({ ...quoteInfo, country: e.target.value })} />
-            <input required placeholder={t.fields.projectType} value={quoteInfo.projectType} onChange={(e) => setQuoteInfo({ ...quoteInfo, projectType: e.target.value })} />
-            <input required placeholder={t.fields.deliveryLocation} value={quoteInfo.deliveryLocation} onChange={(e) => setQuoteInfo({ ...quoteInfo, deliveryLocation: e.target.value })} />
-            <textarea required placeholder={t.fields.notes} value={quoteInfo.notes} onChange={(e) => setQuoteInfo({ ...quoteInfo, notes: e.target.value })} />
+            <input required aria-label={t.fields.name} placeholder={t.fields.name} value={quoteInfo.name} onChange={(e) => setQuoteInfo({ ...quoteInfo, name: e.target.value })} />
+            <input required aria-label={t.fields.email} placeholder={t.fields.email} value={quoteInfo.email} onChange={(e) => setQuoteInfo({ ...quoteInfo, email: e.target.value })} />
+            <input required aria-label={t.fields.phone} placeholder={t.fields.phone} value={quoteInfo.phone} onChange={(e) => setQuoteInfo({ ...quoteInfo, phone: e.target.value })} />
+            <input required aria-label={t.fields.country} placeholder={t.fields.country} value={quoteInfo.country} onChange={(e) => setQuoteInfo({ ...quoteInfo, country: e.target.value })} />
+            <input required aria-label={t.fields.projectType} placeholder={t.fields.projectType} value={quoteInfo.projectType} onChange={(e) => setQuoteInfo({ ...quoteInfo, projectType: e.target.value })} />
+            <input required aria-label={t.fields.deliveryLocation} placeholder={t.fields.deliveryLocation} value={quoteInfo.deliveryLocation} onChange={(e) => setQuoteInfo({ ...quoteInfo, deliveryLocation: e.target.value })} />
+            <textarea aria-label={t.fields.notes} placeholder={t.fields.notes} value={quoteInfo.notes} onChange={(e) => setQuoteInfo({ ...quoteInfo, notes: e.target.value })} />
 
             <div className="quoteActionButtons">
               <button
                 type="button"
                 className="whatsappQuoteBtn"
                 onClick={handleWhatsappQuote}
-                style={{
-                  opacity: isQuoteFormComplete ? 1 : 0.55,
-                  cursor: isQuoteFormComplete ? "pointer" : "not-allowed",
-                }}
+                disabled={!isQuoteFormComplete}
               >
                 {t.whatsapp}
               </button>
@@ -1808,10 +1884,7 @@ Thank you.`
                 type="button"
                 className="emailQuoteBtn"
                 onClick={handleEmailQuote}
-                style={{
-                  opacity: isQuoteFormComplete ? 1 : 0.55,
-                  cursor: isQuoteFormComplete ? "pointer" : "not-allowed",
-                }}
+                disabled={!isQuoteFormComplete}
               >
                 {t.emailQuote}
               </button>
@@ -1828,8 +1901,8 @@ Thank you.`
         </div>
 
         <div className="contactCard">
-          <span>burak@birkin.com</span>
-          <span>+90 552 500 03 20</span>
+          <a href="mailto:burak@birkin.com">burak@birkin.com</a>
+          <a href="tel:+905525000320">+90 552 500 03 20</a>
           <span>Türkiye</span>
         </div>
       </section>
