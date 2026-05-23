@@ -1578,7 +1578,30 @@ main[dir="rtl"] .productDetailOptions li::before {
   .editorialHeroMedia img {
     animation: none;
   }
+.quoteActionButtons {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+}
 
+.emailQuoteBtn {
+  min-height: 46px;
+  width: 100%;
+  padding: 15px 20px;
+  border-radius: 999px;
+  border: 1px solid var(--olive-dark);
+  background: transparent;
+  color: var(--olive-dark);
+  font-size: 13px;
+  font-weight: 800;
+  cursor: pointer;
+  transition: 0.22s ease;
+}
+
+.emailQuoteBtn:hover {
+  transform: translateY(-2px);
+  background: rgba(79, 88, 69, 0.08);
+}
   * {
     scroll-behavior: auto !important;
   }
