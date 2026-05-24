@@ -110,9 +110,8 @@ type SiteContent = {
   options: string[];
 };
 
-const logoImage = new URL("./assets/birkin-logo.png", import.meta.url).href;
+const logoImage = "/birkin-logo.png";
 const fallbackProductImage = new URL("./assets/hero.png", import.meta.url).href;
-
 const products: Product[] = [
   {
     slug: "birkin-sera-c05",
